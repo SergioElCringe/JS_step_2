@@ -1,0 +1,14 @@
+//инициализация проекта на каталоге
+npm init --y
+
+//установка пакетов
+npm install webpack webpack-cli --save-dev
+//ИЛИ
+npm i webpack webpack-cli -D
+
+//для использования вебпака, надо использовать специальный скрипт
+в файле package.json в разделе scripts: пишем
+"build": "webpack"
+//
+в консоли выполняем команду
+npm run build
