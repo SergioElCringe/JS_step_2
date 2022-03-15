@@ -179,4 +179,4 @@ const startCalc = () => {
     document.querySelector('#dot').onclick = () => calculator.getDot(calculator.a, calculator.b);
 };
 
-export const methods = { startCalc };
+export const calculation = { startCalc };

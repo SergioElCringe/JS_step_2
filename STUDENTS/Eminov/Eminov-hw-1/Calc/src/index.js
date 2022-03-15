@@ -1,4 +1,4 @@
 import "./css/style.scss";
-import { methods } from "./components/calc";
+import { calculation } from "./components/calc";
 
-methods.startCalc();
+calculation.startCalc();
