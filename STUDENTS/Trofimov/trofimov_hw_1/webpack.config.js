@@ -5,11 +5,11 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: "./src/script.js",
+    entry: "./src/index.js",
     mode: 'production',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'script.js',
+        filename: 'index.js',
     },
     plugins: [
         new HtmlWebpackPlugin({
