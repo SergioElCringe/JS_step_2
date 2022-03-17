@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../src/css/main.css">
+  <title>Homework 2</title>
+</head>
+<body>
+  <div class="game gradient">
+    <h1 class="game__h1">Игра в быки и коровы</h1>
+    <div class="game__container">
+      <div class="game_left">
+        <button class="btn__play">Начать игру</button>
+        <form id="game">
+          <input class="variant" type="number" placeholder="Введите 4 цифры . . ." />
+          <button class="form__button" type="button">Submit</button>
+        </form>  
+      </div>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="4">Игрок</th>
+            </tr>
+            <tr>
+              <th>Ход</td>
+              <th>Число</td>
+              <th><img src="../src/assets/img/icon-bull.png" alt="Bull"></td>
+              <th><img src="../src/assets/img/icon-cow.png" alt="Cow"></td>
+            </tr>
+          </thead>
+          <tbody id="history" class="history history_hidden"></tbody>
+          <tfoot id="result"></tfoot>
+        </table>
+      </div>
+    </div>  
+  </div>
+</body>
+</html>
