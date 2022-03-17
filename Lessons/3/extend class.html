@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //с абстракцией
+    //Родительский класс
+    class Human {
+      constructor(name, age, hobby, gender = 'm') {
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+        this.gender = gender;
+        this._init();
+      }
+      _init() {
+        console.log(this.name + ' greets you');
+      }
+    }
+
+    //дочерние
+    class Man extends Human {
+      constructor(name, age, hobby) {
+        super(name, age, hobby);
+        this.salary = 0;
+      }
+      goWork() {
+        console.log('Man goes to work');
+        this.salary += 100;
+      }
+    }
+
+    class Woman extends Human {
+      constructor(name, age, hobby, gender = 'f') {
+        super(name, age, hobby, gender);
+        this.borschPots = 0;
+      }
+      cookBorsch() {
+        console.log('Woman cooks borsch');
+        this.borschPots++;
+      }
+    }
+
+    // без абстракции
+    // class Man {
+    //   constructor(name, age, hobby) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.hobby = hobby;
+    //     this.gender = 'm';
+    //     this.salary = 0;
+    //     this._init();
+    //   }
+    //   _init() {
+    //     console.log(this.name + ' greets you');
+    //   }
+    //   goWork() {
+    //     console.log('Man goes to work');
+    //     this.salary += 100;
+    //   }
+    // }
+
+    // class Woman {
+    //   constructor(name, age, hobby) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.hobby = hobby;
+    //     this.gender = 'f';
+    //     this.borschPots = 0;
+    //     this._init();
+    //   }
+    //   _init() {
+    //     console.log(this.name + ' greets you');
+    //   }
+    //   cookBorsch() {
+    //     console.log('Woman cooks borsch');
+    //     this.borschPots++;
+    //   }
+    // }
+
+    const olga = new Woman('Olga', 33, 'TV');
+    const oleg = new Man('Oleg', 30, 'Sport');
+
+  </script>
+</body>
+</html>
