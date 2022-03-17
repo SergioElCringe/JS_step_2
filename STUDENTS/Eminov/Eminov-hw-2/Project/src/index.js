@@ -13,4 +13,3 @@ const nav = new Navigation();
 cart;
 catalog;
 nav;
-

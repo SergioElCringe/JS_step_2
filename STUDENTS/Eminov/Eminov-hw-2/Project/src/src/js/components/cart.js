@@ -45,6 +45,10 @@ export default class Cart {
             };
         };
 
+        if (evt.path[2].classList.contains('clear-all')) {
+            this.removeAllItems();
+        };
+
         this._render();
     }
 
@@ -64,8 +68,7 @@ export default class Cart {
     createItem(item) {
         const { imgUrl, name, price, amount, id } = item;
 
-        return `
-        <hr>
+        return `<hr>
         <div class="cart__item">
             <img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
             <div class="cart__item__info">
@@ -98,7 +101,7 @@ export default class Cart {
                     price
                 });
             };
-            
+
             this._render();
         };
     }
@@ -121,12 +124,12 @@ export default class Cart {
         this.containerCounter.innerHTML = `(${this.itemsCount})`;
     }
 
-    _getTotal(itemsCount, itemsPrice) {
+    getTotal(itemsCount, itemsPrice) {
         return `<hr>
         <div class="total"><span>Total quantity: <b>${itemsCount}</b></span><span>Total price: <b>$${itemsPrice}</b></span></div>
         <hr>
         <div class="action">
-        <div class="continue"><span><b>Continue</b></span></div>
+        <div class="continue"><span><a href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/cart.html"><b>Continue</b></a></span></div>
             <div class="clear-all"><span><b>Remove all products</b></span></div>
         </div>`;
     }
@@ -135,9 +138,7 @@ export default class Cart {
         let result = `<h2 class="head-bascket">Main products</h2>`;
 
         if (!(this.items.length > 0)) {
-            result += `<hr>
-            <p class="no-bascket">There are no products. Select products to purchase from catalog.</p>
-            <hr>`;
+            result = `<p class="no-bascket">There are no products. Select products to purchase from catalog.</p>`;
         };
 
         this.items.forEach(item => {
@@ -148,10 +149,9 @@ export default class Cart {
         this.countAmount();
 
         if (result && this.items.length > 0) {
-            result += this._getTotal(this.itemsCount, this.itemsPrice);
+            result += this.getTotal(this.itemsCount, this.itemsPrice);
         };
 
         this.bascketItems.innerHTML = result;
     }
 };
-
