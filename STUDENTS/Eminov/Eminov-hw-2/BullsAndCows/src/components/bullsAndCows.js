@@ -31,17 +31,17 @@ export default class BullsAndCows {
     }
 
     getComputerChoice() {
-        let randomNumber = null;
+        const res = [];
 
-        while (this.computerChoice.length < 4) {
-            randomNumber = this.getRandom();
+        while (res < 4) {
+            let randomNumber = this.getRandom();
 
-            if (!this.computerChoice.includes(randomNumber)) {
-                this.computerChoice.push(randomNumber);
+            if (!res.includes(randomNumber)) {
+                res.push(randomNumber);
             };
         };
 
-        return this.computerChoice;
+        return res;
     }
 
     checkValues(inputValue, hiddenValue) {
