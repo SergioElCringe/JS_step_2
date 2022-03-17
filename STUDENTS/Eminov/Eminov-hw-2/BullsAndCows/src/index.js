@@ -5,5 +5,5 @@ const startPlay = new BullsAndCows();
 
 startPlay;
 
-document.querySelector('#move').onclick = () => startPlay._getWinner(startPlay.getComputerChoice());
-document.querySelector('#play').onclick = () => startPlay._startNewGame();
+document.querySelector('#move').onclick = () => startPlay.getWinner(startPlay.getComputerChoice());
+document.querySelector('#play').onclick = () => startPlay.startNewGame();

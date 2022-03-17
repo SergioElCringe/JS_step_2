@@ -26,7 +26,7 @@ export default class BullsAndCows {
         return [...this.selectedNumbers[this.selectedNumbers.length - 1].playerNumber];
     }
 
-    _getRandom() {
+    getRandom() {
         return Math.floor(Math.random() * 10);
     }
 
@@ -34,7 +34,7 @@ export default class BullsAndCows {
         let randomNumber = null;
 
         while (this.computerChoice.length < 4) {
-            randomNumber = this._getRandom();
+            randomNumber = this.getRandom();
 
             if (!this.computerChoice.includes(randomNumber)) {
                 this.computerChoice.push(randomNumber);
@@ -44,7 +44,7 @@ export default class BullsAndCows {
         return this.computerChoice;
     }
 
-    _checkValues(inputValue, hiddenValue) {
+    checkValues(inputValue, hiddenValue) {
         let bulls = 0;
         let cows = 0;
 
@@ -68,13 +68,13 @@ export default class BullsAndCows {
         return bulls === 4;
     }
 
-    _getWinner(computerChoice) {
+    getWinner(computerChoice) {
         let result = null;
 
         if (this.play) {
             if (this.attempts > 0) {
                 this.playerChoice = this.getPlayerChoice();
-                result = this._checkValues(this.playerChoice, computerChoice);
+                result = this.checkValues(this.playerChoice, computerChoice);
 
                 if (result) {
                     this.play = false;
@@ -87,7 +87,7 @@ export default class BullsAndCows {
         };
     }
 
-    _startNewGame() {
+    startNewGame() {
         this.container.innerHTML = '';
         this.playerChoice = [];
         this.computerChoice = [];
@@ -98,11 +98,11 @@ export default class BullsAndCows {
 
     _render() {
         let templateAll = '';
-        this.history.forEach(item => templateAll += this._getTemplate(item));
+        this.history.forEach(item => templateAll += this.getTemplate(item));
         this.container.innerHTML = templateAll;
     }
 
-    _getTemplate(item) {
+    getTemplate(item) {
         return `
         <div class="result-attempt">
             <p>Выбранная вами комбинация: <b>${item.choice}</b>. Быки: <b>${item.bulls}</b>, коровы: <b>${item.cows}</b>. Осталось: <b>${item.left} попыток!</b></p>
