@@ -19,7 +19,7 @@ export default class Cart {
     _init() {
         this.items = CARTITEMS;
         this.bascketItems = document.querySelector('#cart-items');
-        this.bascketItems.addEventListener('click', this.checkChanges.bind(this));
+        this.bascketItems.addEventListener('click', this._handleEvents.bind(this));
         this.containerCounter = document.querySelector('#cart-counter');
         this.containerPrice = document.querySelector('#cart-prices');
         this.containerItems = document.querySelector('#catalog');
@@ -28,17 +28,17 @@ export default class Cart {
         this._render();
     }
 
-    checkChanges(evt) {
-        const id = evt.path[1].dataset.id;
-        const prices = this.prices.find(cartItem => cartItem.id === id);
-        const find = this.items.find(cartItem => cartItem.id === id);
+    _handleEvents(evt) {
+        const prices = this.prices.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        const action = evt.target.classList;
 
-        if (evt.target.classList.contains('item-delete')) {
+        if (action.contains('item-delete')) {
             this.removeItem(find.id);
-        } else if (evt.target.classList.contains('right')) {
+        } else if (action.contains('right')) {
             find.amount++;
             find.price = (+find.price) + (+prices.price);
-        } else if (evt.target.classList.contains('left')) {
+        } else if (action.contains('left')) {
             if (find.amount > 1) {
                 find.amount--;
                 find.price = (+find.price) - (+prices.price);
