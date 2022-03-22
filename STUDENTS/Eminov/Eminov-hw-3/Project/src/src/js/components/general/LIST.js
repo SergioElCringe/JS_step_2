@@ -5,6 +5,7 @@ export default class List {
         this.container = null;
         this.url = url;
         this.items = [];
+        this.prices = [];
         this.type = type;
         this._init();
     }
@@ -15,6 +16,12 @@ export default class List {
             this.items = data;
             this._render();
         }.bind(this));
+
+        if (this.type === 'cart') {
+            this._getPrice(function(reqPrices) {
+                this.prices = reqPrices;
+            }.bind(this));
+        };
     }
 
     _render() {
@@ -48,9 +55,29 @@ export default class List {
             xhr.onreadystatechange = function() {
                 if (xhr.readyState != 4) {
                     return;
-                }
+                };
+
                 data = JSON.parse(xhr.responseText);
-                callback(data)
+                callback(data);
+            };
+        };
+    }
+
+    _getPrice(callback) {
+        let prices = [];
+
+        if (this.url) {
+            const reqPrices = new XMLHttpRequest();
+            reqPrices.open('GET', 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/prices.json', true);
+            reqPrices.send();
+
+            reqPrices.onreadystatechange = function() {
+                if (reqPrices.readyState != 4) {
+                    return;
+                };
+
+                prices = JSON.parse(reqPrices.responseText);
+                callback(prices);
             };
         };
     }

@@ -1100,7 +1100,8 @@ section {
 
 .product {
     width: calc((100% - 90px) / 4);
-    margin-bottom: 59px;
+    transition: 0.3s;
+    position: absolute;
 }
 
 .product_image {
@@ -1591,11 +1592,6 @@ section {
     color: #333;
     font-weight: 400;
     text-align: center;
-}
-
-.product {
-    transition: 0.3s;
-    position: absolute;
 }
 
 .product:hover {

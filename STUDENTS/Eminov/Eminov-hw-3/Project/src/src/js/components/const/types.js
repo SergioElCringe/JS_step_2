@@ -6,8 +6,8 @@ export default {
         getTemplate(item) {
             const { imgUrl, name, price, category, id } = item;
 
-            return `
-            <div class="product col">
+            return `<!-- Product -->
+            <div class="product">
                 <div class="product_image">
                     <img src="${PRODUCTS_API + imgUrl}" alt="">
                     <div 

@@ -17,16 +17,17 @@ export default class Cart extends List {
     _handleEvents(evt) {
         const action = evt.target.classList;
         const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        const prices = this.prices.find(cartItem => cartItem.id === evt.path[1].dataset.id);
 
         if (action.contains('item-delete')) {
             this.removeItem(find.id);
         } else if (action.contains('right')) {
             find.amount++;
-            find.price = (+find.price) + (+find.price);
+            find.price = (+find.price) + (+prices.price);
         } else if (action.contains('left')) {
             if (find.amount > 1) {
                 find.amount--;
-                find.price = (+find.price) - (+find.price);
+                find.price = (+find.price) - (+prices.price);
             };
         };
 
@@ -44,6 +45,11 @@ export default class Cart extends List {
                 id,
                 imgUrl: imgUrl,
                 amount: amount
+            });
+
+            this.prices.push({
+                id: id,
+                price: price
             });
         };
 
