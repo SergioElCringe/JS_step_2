@@ -45,11 +45,6 @@ export default class Cart extends List {
                 imgUrl: imgUrl,
                 amount: amount
             });
-
-            this.prices.push({
-                id: id,
-                price: price
-            });
         };
 
         this._render();
