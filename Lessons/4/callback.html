@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // console.log(1);
+    // console.log(2);
+    //                   setTimeout(() => { console.log(3); }, 1);
+    //                   setTimeout(() => { console.log(4); }, 0);
+    // console.log(5);
+    // //setTimeout(() => { console.log(4); }, 500);
+    // //setTimeout(() => { console.log(3); }, 1000);
+    // //12543
+
+    // function getData(callback) {
+    //   let data = null;
+
+    //   setTimeout(() => {
+    //     data = { a: 1 };
+    //     callback(data);
+    //   }, 1500);
+    // };
+
+    // let dataFromAsync = getData(); //null
+    // let dataFromAsync = null;
+    // function getFetch(data) {
+    //   dataFromAsync = data;
+    //   console.log(dataFromAsync);
+    // };
+    
+    // getData(getFetch);
+    // console.log(dataFromAsync);
+
+    //PROMISES
+
+    function getData(status) {
+      return new Promise((resolve, reject) => {
+        // resolve(100500);
+        // reject('ERROR 404');
+        let data = null;
+        console.log('Promise start');
+        setTimeout(() => {
+          if (status) {
+            data = { a: 1 };
+            resolve(data);
+          } else {
+            reject('Error 402');
+          }
+        }, 2000);
+      })
+    };
+
+    
+    function getAll(p) {
+      let a = null;
+      getData(p)
+        .then(d => ({ data: [d, d, d, d] }))
+        .then(d2 => { a = d2 })
+        .catch(err => { console.log(err) })
+        .finally(() => {
+          console.log('Promise end');
+          console.log(a);
+        });
+    };
+
+    getAll(1);
+    
+  </script>
+</body>
+</html>
