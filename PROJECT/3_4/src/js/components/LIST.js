@@ -1,6 +1,8 @@
 // CONTAINER
 import Item from "./LIST_ITEM";
-
+// ДЗ - 1 повторить всё
+//2 - доделать корзину, кроме отправки данных о добавлении/удалении товара
+//3 - просмотреть проект на наличие элементов, которые можно сделать классом и связать с АПИ
 export default class List {
   constructor(url, type = 'catalog') {
     this.items = [];
