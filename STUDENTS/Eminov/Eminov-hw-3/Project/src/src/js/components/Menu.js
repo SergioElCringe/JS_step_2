@@ -2,8 +2,8 @@ import List from "./general/LIST";
 const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/menu.json';
 
 export default class Menu extends List {
-    constructor(type) {
-        super(url, type = 'menu');
+    constructor(type = 'menu') {
+        super(url, type);
     }
 
     _initContainers() {
