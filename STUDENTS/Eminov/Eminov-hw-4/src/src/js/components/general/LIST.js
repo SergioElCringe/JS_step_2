@@ -14,14 +14,13 @@ export default class List {
     async _init() {
         try {
             this.items = await this._fetchData();
-            this.prices = await this._fetchPrice();   
         }
         catch {
             this.error = err;
         }
         finally {
             this._initContainers();
-            
+
             if (this.items.length) {
                 this._render();
             };
@@ -43,6 +42,13 @@ export default class List {
         this.items.forEach(item => {
             const newItem = new Item(item, this.type);
             accum += newItem.template;
+
+            if (this.type = 'cart') {
+                this.prices.push({
+                    id: item.id,
+                    price: item.price
+                });
+            };
         });
 
         this.container.innerHTML = accum;
@@ -50,16 +56,8 @@ export default class List {
 
     async _fetchData() {
         const response = await fetch(this.url)
-        .then(d => d.json())
-        .catch(err => err);
-
-        return response;
-    }
-
-    async _fetchPrice() {
-        const response = await fetch('https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/prices.json')
-        .then(d => d.json())
-        .catch(e => { throw e });
+            .then(d => d.json())
+            .catch(err => err);
 
         return response;
     }
