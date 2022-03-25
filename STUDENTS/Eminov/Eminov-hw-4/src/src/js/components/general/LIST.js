@@ -6,6 +6,7 @@ export default class List {
         this.container = null;
         this.items = [];
         this.prices = [];
+        this.aa = [];
         this.type = type;
         this.error = '';
         this._init();
@@ -56,6 +57,10 @@ export default class List {
                     });
                 };
             });
+
+            if (this.type === 'categories') {
+                this._categoriesHandler(this.items);
+            }
 
             this.container.innerHTML = accum;
         };

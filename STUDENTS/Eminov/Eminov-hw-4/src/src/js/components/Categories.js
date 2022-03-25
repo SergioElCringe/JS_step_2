@@ -4,6 +4,7 @@ const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/ca
 export default class Categories extends List {
     constructor(cart, type = 'categories') {
         super(url, type);
+        this.totaAmount = null;
         this.cart = cart;
     }
 
@@ -13,6 +14,12 @@ export default class Categories extends List {
         if (this.container) {
             this.container.addEventListener('click', this._handleEvents.bind(this));
         };
+    }
+
+    _categoriesHandler(items) {
+        const products = items;
+
+        this.totalAmount = document.querySelector('#total-amount').innerHTML = `${products.length}`;
     }
 
     _handleEvents(evt) {
