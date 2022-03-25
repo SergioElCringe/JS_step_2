@@ -1098,10 +1098,17 @@ section {
     z-index: 2;
 }
 
+.product_grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    position: relative !important;
+    justify-content: space-between;
+}
+
 .product {
-    width: calc((100% - 90px) / 4);
+    width: 250px;
     transition: 0.3s;
-    position: absolute;
 }
 
 .product_image {
@@ -1511,6 +1518,7 @@ section {
     font-size: 13px;
 }
 
+
 .quantity {
     display: flex;
     background-color: rgba(255, 255, 255, 0.788);
@@ -1609,10 +1617,10 @@ section {
     display: none;
     top: 201px;
     left: 0px;
-    width: 262px;
+    width: 250px;
     animation: fade 0.5s linear forwards;
     border: 2px solid #333;
-    height: 62px;
+    height: 50px;
     background-color: #333;
     transition: 0.3s;
     cursor: pointer;
@@ -1620,7 +1628,7 @@ section {
     color: #fff;
     text-align: center;
     font-weight: 900;
-    padding-top: 20px;
+    padding-top: 15px;
     transition: 0.3s;
 }
 
@@ -1628,6 +1636,15 @@ section {
     font-size: 15px;
     background-color: #333;
     transition: 0.3s;
+}
+
+.sale .old-price {
+    margin-right: 15px;
+    color: red;
+}
+
+.sale .new-price {
+    color: green;
 }
 
 @keyframes fade {
@@ -1642,8 +1659,8 @@ section {
 @media screen and (max-width: 1199px) {
     .btn-add {
         left: 0px;
-        top: 147px;
-        width: 209px;
+        top: 200px;
+        width: 250px;
         font-size: 12px;
     }
     .btn-add:hover {
@@ -1654,8 +1671,8 @@ section {
 @media screen and (max-width: 991px) {
     .btn-add {
         left: 0px;
-        top: 267px;
-        width: 330px;
+        top: 200px;
+        width: 250px;
         font-size: 14px;
     }
     .btn-add:hover {
@@ -1663,11 +1680,11 @@ section {
     }
 }
 
-@media screen and (max-width: 777px) {
+@media screen and (max-width: 767px) {
     .btn-add {
         left: 0px;
-        top: 178px;
-        width: 239px;
+        top: 200px;
+        width: 250px;
         font-size: 12px;
     }
     .btn-add:hover {
@@ -1675,10 +1692,13 @@ section {
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 546px) {
+    .product_grid {
+        justify-content: center;
+    }
     .btn-add {
         left: 0px;
-        top: 100px;
+        top: 200px;
         max-height: 377px;
         width: 100%;
         max-width: 560px;
