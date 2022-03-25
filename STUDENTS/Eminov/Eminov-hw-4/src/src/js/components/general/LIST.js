@@ -1,7 +1,7 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-    constructor(url, type = 'catalog') {
+    constructor(url, type) {
         this.url = url;
         this.container = null;
         this.items = [];

@@ -4,7 +4,7 @@ export const menuApi = 'https://raw.githack.com/SergioElCringe/JS_step_1/main/BA
 export default {
     catalog: {
         getTemplate(item) {
-            const { imgUrl, name, price, category, id } = item;
+            const { imgUrl, name, price, prevPrice, category, id } = item;
 
             return `<div class="product">
                 <div class="product_image">
@@ -20,7 +20,7 @@ export default {
                 ${this.getCategory(category)}
                 <div class="product_content">
                     <div class="product_title"><a href="product.html">${name}</a></div>
-                    <div class="product_price">$${price}</div>
+                    ${this.getPrice(category, prevPrice, price)}
                 </div>
             </div>`;
         },
@@ -38,15 +38,15 @@ export default {
 
                 case 2:
                     {
-                        className = 'product_hot';
-                        text = 'Hot';
+                        className = 'product_sale';
+                        text = 'Sale';
                         break;
                     };
 
                 default:
                     {
-                        className = 'product_sale';
-                        text = 'Sale';
+                        className = 'product_hot';
+                        text = 'Hot';
                     };
             };
 
@@ -60,6 +60,75 @@ export default {
             <div class="product_extra ${category.className}">
                 <a href="categories.html">${category.text}</a>
             </div>` : '';
+        },
+
+        getPrice(categoryid, prevPrice, price) {
+            return categoryid === 2 ? `<div class="product_price sale"><s><span class="old-price">$${prevPrice}</span></s><span class="new-price">$${price}</span></div>` : `<div class="product_price">$${price}</div>`;
+        }
+    },
+
+    categories: {
+        getTemplate(item) {
+            const { imgUrl, name, price, prevPrice, category, id } = item;
+
+            return `<div class="product">
+                <div class="product_image">
+                    <img src="${PRODUCTS_API + imgUrl}" alt="">
+                    <div 
+                        class="btn-add"
+                        data-imgurl="${imgUrl}"
+                        data-name="${name}"
+                        data-price="${price}"
+                        data-id="${id}"
+                    >Add this product</div>
+                </div>
+                ${this.getCategory(category)}
+                <div class="product_content">
+                    <div class="product_title"><a href="product.html">${name}</a></div>
+                    ${this.getPrice(category, prevPrice, price)}
+                </div>
+            </div>`;
+        },
+
+        checkCategory(categoryId) {
+            let className, text;
+
+            switch (categoryId) {
+                case 1:
+                    {
+                        className = 'product_new';
+                        text = 'New';
+                        break;
+                    };
+
+                case 2:
+                    {
+                        className = 'product_sale';
+                        text = 'Sale';
+                        break;
+                    };
+
+                default:
+                    {
+                        className = 'product_hot';
+                        text = 'Hot';
+                    };
+            };
+
+            return { className, text };
+        },
+
+        getCategory(categoryId) {
+            const category = categoryId ? this.checkCategory(categoryId) : null;
+
+            return category ? `
+            <div class="product_extra ${category.className}">
+                <a href="categories.html">${category.text}</a>
+            </div>` : '';
+        },
+
+        getPrice(categoryid, prevPrice, price) {
+            return categoryid === 2 ? `<div class="product_price sale"><s><span class="old-price">$${prevPrice}</span></s><span class="new-price">$${price}</span></div>` : `<div class="product_price">$${price}</div>`;
         }
     },
 

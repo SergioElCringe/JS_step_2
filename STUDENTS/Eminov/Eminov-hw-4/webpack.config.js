@@ -34,7 +34,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'index.html',
             template: './index.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'categories.html',
+            template: './categories.html',
             minify: {
                 collapseWhitespace: isProd
             }
