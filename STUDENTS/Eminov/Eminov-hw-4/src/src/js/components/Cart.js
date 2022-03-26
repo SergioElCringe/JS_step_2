@@ -18,6 +18,7 @@ export default class Cart extends List {
         const action = evt.target.classList;
         const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
         const prices = this.prices.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        console.log(this.items)
 
         if (action.contains('item-delete')) {
             this.removeItem(find.id);

@@ -5,6 +5,7 @@ export default class Categories extends List {
     constructor(cart, type = 'categories') {
         super(url, type);
         this.totaAmount = null;
+        this.sort = null;
         this.cart = cart;
     }
 
@@ -12,17 +13,44 @@ export default class Categories extends List {
         this.container = document.querySelector('#products');
 
         if (this.container) {
-            this.container.addEventListener('click', this._handleEvents.bind(this));
+            this.sort = document.querySelector('#sort-items').addEventListener('click', this._handleEventsSort.bind(this));
+            this.container.addEventListener('click', this._handleEventsAdd.bind(this));
+            this._getTotalAmount();
         };
     }
 
-    _categoriesHandler(items) {
-        const products = items;
-
-        this.totalAmount = document.querySelector('#total-amount').innerHTML = `${products.length}`;
+    _handleEventsSort(evt) {
+        const sort = evt.path[1].dataset.sort;
+        this._getTypeOfSort(sort, this.items);
     }
 
-    _handleEvents(evt) {
+    _getTypeOfSort(sort, products) {
+        switch (sort) {
+            case 'name': {
+                products.sort((prev, next) => {
+                    if (prev.name < next.name) return -1;
+                    if (prev.name < next.name) return 1;
+                });
+                break;
+            };
+            case 'price': {
+                products.sort((prev, next) => prev.price - next.price);
+                break;
+            }
+            default: {
+                products.sort((prev, next) => prev.id - next.id);
+                break;
+            };
+        };
+
+        this._render();
+    }
+
+    _getTotalAmount() {
+        this.totalAmount = document.querySelector('#total-amount').innerHTML = `${this.items.length}`;
+    }
+
+    _handleEventsAdd(evt) {
         if (evt.target.classList.contains('btn-add')) {
             const { name, price, imgurl, id } = evt.target.dataset;
             this.cart.addItem({

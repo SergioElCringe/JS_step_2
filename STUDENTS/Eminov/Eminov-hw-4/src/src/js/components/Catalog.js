@@ -9,7 +9,7 @@ export default class Catalog extends Categories {
         this.container = document.querySelector('#catalog');
 
         if (this.container) {
-            this.container.addEventListener('click', this._handleEvents.bind(this));
+            this.container.addEventListener('click', this._handleEventsAdd.bind(this));
         };
     }
 };
