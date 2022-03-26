@@ -143,14 +143,14 @@ export default {
 
             return `
             <li ${hassubs}>
-                <a href="${menuApi + '/' + url}">${name}</a>
+                <a href="${url}">${name}</a>
                 ${this.checkSubCategories(subCategories)}
             </li>`;
         },
 
         getTemplateSub(item) {
             const { url, name } = item;
-            return `<li><a href="${menuApi + '/' + url}">${name}</a></li>`;
+            return `<li><a href="${url}">${name}</a></li>`;
         },
 
         checkSubCategories(categories) {
