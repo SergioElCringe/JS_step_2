@@ -47,6 +47,13 @@ module.exports = {
                 collapseWhitespace: isProd
             }
         }),
+        new HtmlWebpackPlugin({
+            filename: 'product.html',
+            template: './product.html',
+            minify: {
+                collapseWhitespace: isProd
+            }
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: './src/styles/[name].css',

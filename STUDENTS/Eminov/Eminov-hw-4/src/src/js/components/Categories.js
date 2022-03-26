@@ -2,11 +2,12 @@ import List from './general/LIST';
 const url = 'https://raw.githubusercontent.com/schultznoan/FTP/main/fetchData/catalog.json';
 
 export default class Categories extends List {
-    constructor(cart, type = 'categories') {
+    constructor(cart, desprod, type = 'categories') {
         super(url, type);
         this.totaAmount = null;
         this.sort = null;
         this.cart = cart;
+        this.desprod = desprod;
     }
 
     _initContainers() {
@@ -52,7 +53,7 @@ export default class Categories extends List {
 
     _handleEventsAdd(evt) {
         if (evt.target.classList.contains('btn-add')) {
-            const { name, price, imgurl, id } = evt.target.dataset;
+            const { name, price, imgurl, id } = evt.path[2].dataset;
             this.cart.addItem({
                 name: name,
                 price: price,
@@ -60,6 +61,17 @@ export default class Categories extends List {
                 id: id,
                 amount: 1
             });
+        };
+
+        if (evt.path[1].classList.contains('product_title')) {
+            const { name, price, imgurl } = evt.path[3].dataset;
+            const product = {
+                name: name,
+                price: price,
+                imgUrl: imgurl
+            };
+
+            localStorage.setItem("product", JSON.stringify(product));
         };
     }
 }
