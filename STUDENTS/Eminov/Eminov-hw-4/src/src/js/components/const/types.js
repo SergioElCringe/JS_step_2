@@ -63,7 +63,10 @@ export default {
         },
 
         getPrice(categoryid, prevPrice, price) {
-            return categoryid === 2 ? `<div class="product_price sale"><s><span class="old-price">$${prevPrice}</span></s><span class="new-price">$${price}</span></div>` : `<div class="product_price">$${price}</div>`;
+            return categoryid === 2 ? `<div class="product_price sale">
+                <s><span class="old-price">$${prevPrice}</span></s>
+                <span class="new-price">$${price}</span>
+            </div>` : `<div class="product_price">$${price}</div>`;
         }
     },
 
@@ -126,7 +129,10 @@ export default {
         },
 
         getPrice(categoryid, prevPrice, price) {
-            return categoryid === 2 ? `<div class="product_price sale"><s><span class="old-price">$${prevPrice}</span></s><span class="new-price">$${price}</span></div>` : `<div class="product_price">$${price}</div>`;
+            return categoryid === 2 ? `<div class="product_price sale">
+                <s><span class="old-price">$${prevPrice}</span></s>
+                <span class="new-price">$${price}</span>
+            </div>` : `<div class="product_price">$${price}</div>`;
         }
     },
 
