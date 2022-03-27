@@ -91,6 +91,7 @@ export default class Cart extends List {
             return acc;
         }, 0);
 
-        document.querySelectorAll('.cart-counter').forEach(item => item.innerHTML = `(${totalCount})`);
+        document.querySelectorAll('.cart-counter')
+            .forEach(item => item.innerHTML = `(${totalCount})`);
     }
-}; 
+};

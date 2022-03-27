@@ -32,7 +32,10 @@ export default class List {
             this.countAmount();
 
             if (!(this.items.length > 0)) {
-                accum = `<hr><p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
+                accum = `<hr>
+                <p class="no-bascket">
+                    <b>There are no products. Select products to purchase from catalog.</b>
+                </p>`;
             };
         };
 
@@ -81,4 +84,4 @@ export default class List {
             };
         };
     }
-}; 
+};
