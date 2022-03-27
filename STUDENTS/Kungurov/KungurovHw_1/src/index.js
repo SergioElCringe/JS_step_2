@@ -17,7 +17,7 @@ const app = {
     this.operators = document.querySelector('.operators');
     this.handleEvents();
     this.end = document.querySelector('.event');
-    this.end.addEventListener('click', this.resultat.bind(this))
+    this.end.addEventListener('click', this.result.bind(this))
   },
 
   handleEvents() {
@@ -25,7 +25,7 @@ const app = {
     this.operators.addEventListener('click', this.addOperators.bind(this));
   },
 
-  resultat(evt) {
+  result(evt) {
     if (evt.target.id === 'conv'){
       this.draw();
     } else if (evt.target.id === 'back'){
