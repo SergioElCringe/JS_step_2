@@ -6,6 +6,7 @@ server.use(express.json());
 
 
 const catalogURL = './src/db/catalog.json';
+const cartURL = './src/db/cart.json';
 
 async function readJSON(path) {
   const options = { encoding: 'utf-8' };
@@ -16,12 +17,6 @@ async function readJSON(path) {
   } catch(err) {
     console.log('Read error');
   }
-  // fs.readFile(path, format, (err, data) => {
-  //   if (!err) {
-  //     dataFromJSON = data;
-  //   }
-  // });
-  // return dataFromJSON;
 }
 
 server.get('/catalog', async (req, res) => {
@@ -33,60 +28,54 @@ server.get('/catalog', async (req, res) => {
     console.log('GET /catalog ERR');
   }
 });
-//ДЗ
-// СДЕЛАТЬ get-запросы корзины, меню и что там еще захотите по образцу
 
-// Отдаем собранный фронт как статику
-// server.use('/', express.static('./public'));
+server.get('/cart', async (req, res) => {
+  try {
+    const data = await readJSON(cartURL);
+    res.json(data); 
+  } catch(err) {
+    console.log('GET /cart ERR');
+  }
+});
 
-// server.get('/', (req, res) => {
-//   res.send('<h1>Hello front</h1>');
-// });
+server.post('/cart', async (req, res) => {
+  const newItem = req.body;
+   try {
+    const data = await readJSON(cartURL);
+    data.items.push(newItem);
 
-// server.get('/:name', (req, res) => {
-//   const name = req.params.name.toUpperCase();
-//   res.send(`<h1>Hello ${ name }</h1>`);
-// });
+    await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+
+    res.json({ error: false });
+   }
+   catch(err) {
+    console.log('POST /cart ERR');
+    res.json({ error: true });
+   }
+});
+
+server.put('/cart/:id', async (req, res) => {
+  const { value } = req.body;
+  const { id } = req.params;
+   try {
+    const data = await readJSON(cartURL);
+    
+    const find = data.items.find(el => el.id === id);
+    find.amount += value;
+
+    await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+
+    res.json({ error: false });
+   }
+   catch(err) {
+    console.log('PUT /cart ERR');
+    res.json({ error: true });
+   }
+});
+
+// 1 - DELETE запрос на бэке
+// 2 - полностью реализовать удаление (PUT / DELETE на фронте)
+// 3 - придумать что делать с подсчетом общей стоимости и количества тов. в корзине (бэк и фронт)
+
 
 server.listen(3000);
-
-// READ FROM FILE
-// fs.readFile('./src/db/catalog.json', 'utf-8', (err, data) => {
-//   if (!err) {
-//     console.log(data);
-//   } else {
-//     console.log('Error');
-//   }
-// });
-
-
-// WRITE TO FILE
-// const newData = {
-//   a: 2,
-//   lol: false
-// };
-
-// function addData(val) {
-//   const fileUrl = './src/db/catalog.json';
-//   const format = 'utf-8';
-
-//   let dataFromFile = null;
-
-//   fs.readFile(fileUrl, format, (err, data) => {
-//     if (!err) {
-//       dataFromFile = JSON.parse(data);
-//       dataFromFile.push(val);
-//       fs.writeFile(fileUrl, JSON.stringify(dataFromFile, null, ' '), err => {
-//         if (!err) {
-//           console.log('Data written');
-//         } else {
-//           console.log('Data write error');
-//         }
-//       });
-//     } else {
-//       console.log('Data read error');
-//     }
-//   });
-// }
-
-// addData(newData);
