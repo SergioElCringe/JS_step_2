@@ -133,18 +133,20 @@ export default class Cart extends List {
 
     async _action(evt) {
         if (evt.path[1].id === 'remove' || evt.target.id === 'remove') {
-            let data = null;
+            try {
+                const data = fetch(this.url, {
+                    method: 'DELETE',
+                    headers: { "Content-Type": "application/json" }
+                });
 
-            data = fetch(this.url, {
-                method: 'DELETE',
-                headers: { "Content-Type": "application/json" }
-            });
+                if (!data.error) {
+                    this.items = [];
+                };
 
-            if (!data.error) {
-                this.items = [];
+                this._render();
+            } catch (err) {
+                console.warn(err);
             };
-
-            this._render();
         }
     }
 
