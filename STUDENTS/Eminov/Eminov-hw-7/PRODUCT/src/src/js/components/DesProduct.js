@@ -12,33 +12,35 @@ export default class Description extends Categories {
         this.container = document.querySelector('#des-prod');
 
         if (this.container) {
-            this.container.addEventListener('click', this._handleEvents.bind(this)); 
+            this.container.addEventListener('click', this._handleEvents.bind(this));
         };
     }
 
     async _init() {
-        const localProduct = JSON.parse(localStorage.product);
+        if (this.container) {
+            const localProduct = JSON.parse(localStorage.product);
 
-        try {
-            const data = await this.request.send(url, 'GET');
-            if (!data.error) {
-                const find = data.find(item => item.id == localProduct.id);
-                if (find) {
-                    this.items.push({
-                        id: localProduct.id,
-                        name: localProduct.name,
-                        price: localProduct.price,
-                        images: find.images
-                    });
+            try {
+                const data = await this.request.send(url, 'GET');
+                if (!data.error) {
+                    const find = data.find(item => item.id == localProduct.id);
+                    if (find) {
+                        this.items.push({
+                            id: localProduct.id,
+                            name: localProduct.name,
+                            price: localProduct.price,
+                            images: find.images
+                        });
+                    };
                 };
-            }; 
-        } catch (err) {
-            console.warn(err);
-        } finally {
-            this._initContainers();
+            } catch (err) {
+                console.warn(err);
+            } finally {
+                this._initContainers();
 
-            if (this.items.length > 0) {
-                this._render();
+                if (this.items.length > 0) {
+                    this._render();
+                };
             };
         };
     }
@@ -49,7 +51,6 @@ export default class Description extends Categories {
         if (evt.target.classList.contains('right')) {
             this.amount += 1;
             document.querySelector('#quantity_input').value = this.amount;
-            console.log(this.amount)
         } else if (evt.target.classList.contains('left')) {
             if (this.amount > 1) {
                 document.querySelector('#quantity_input').value = --this.amount;

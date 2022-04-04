@@ -1,7 +1,9 @@
+import modalSend from "./const/modalSend";
 const url = '/api/contact';
 
 export default class Contact {
     constructor(api) {
+        this.modal = null;
         this.inputName = null;
         this.inputSurname = null;
         this.inputSubject = null;
@@ -15,12 +17,14 @@ export default class Contact {
         this.submit = document.querySelector('.contact_button');
         if (this.submit) {
             this.submit.addEventListener('click', this._handleEvents.bind(this));
+            this.modal = document.querySelector('.modal-error');
         };
     }
 
     async _handleEvents(evt) {
         this._initInputs();
         if (evt.target.classList.contains('contact_button')) {
+            evt.preventDefault();
             await this._sendForm();
         }
     }
@@ -30,7 +34,6 @@ export default class Contact {
         this.inputSurname = document.querySelector('#contact_last_name').value;
         this.inputSubject = document.querySelector('#contact_company').value;
         this.inputMessage = document.querySelector('#contact_textarea').value;
-        console.log(this.inputName)
     }
 
     _prepareForm() {
@@ -45,17 +48,22 @@ export default class Contact {
 
     async _sendForm() {
         const form = this._prepareForm();
-        console.log(form)
         try {
             const data = await this.request.send(url, 'POST', form);
 
-            if (!data.error) {
-                console.log('cool');
-            } else {
-                console.log('all bad');
-            };
+            this.modal.innerHTML = modalSend.getModal(!data.error);
+            this.modal.style.display = 'flex';
+
+            setTimeout(() => {
+                this.modal.style.display = 'none';
+            }, 3000);
         } catch (err) {
             console.warn(err);
+        } finally {
+            document.querySelector('#contact_name').value = '';
+            document.querySelector('#contact_last_name').value = '';
+            document.querySelector('#contact_company').value = '';
+            document.querySelector('#contact_textarea').value = '';
         };
     }
 }
