@@ -4,19 +4,9 @@ const server = express();
 server.listen(3000);
 server.use('/', express.static('./public'));
 
-const pathFiles = [{
-        name: '/catalog',
-        path: './src/db/catalog.json'
-    },
-    {
-        name: '/menu',
-        path: './src/db/menu.json'
-    },
-    {
-        name: '/cart',
-        path: './src/db/cart.json'
-    }
-];
+const catalogURL = './src/db/catalog.json';
+const cartURL = './src/db/cart.json';
+const menuURL = './src/db/menu.json';
 
 async function readJSON(path) {
     const options = { encoding: 'utf-8' };
@@ -30,13 +20,29 @@ async function readJSON(path) {
     };
 };
 
-pathFiles.forEach(item => {
-    server.get(item.name, async(req, res) => {
-        try {
-            const data = await readJSON(item.path);
-            res.json(data);
-        } catch (err) {
-            console.log(`Error: + ${err}`);
-        };
-    });
+server.get('/catalog', async(req, res) => {
+    try {
+        const data = await readJSON(catalogURL);
+        res.json(data);
+    } catch (err) {
+        console.log(`Error: + ${err}`);
+    };
+});
+
+server.get('/cart', async(req, res) => {
+    try {
+        const data = await readJSON(cartURL);
+        res.json(data);
+    } catch (err) {
+        console.log(`Error: + ${err}`);
+    };
+});
+
+server.get('/menu', async(req, res) => {
+    try {
+        const data = await readJSON(menuURL);
+        res.json(data);
+    } catch (err) {
+        console.log(`Error: + ${err}`);
+    };
 });
