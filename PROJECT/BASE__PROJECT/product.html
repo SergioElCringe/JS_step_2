@@ -236,13 +236,13 @@
 								<span>Qty</span>
 								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
 								<div class="quantity_buttons">
-									<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+									<div id="quantity_inc_button" class="quantity_inc quantity_control" data-qty="1"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+									<div id="quantity_dec_button" class="quantity_dec quantity_control" data-qty="-1"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 								</div>
 							</div>
 							<div class="button cart_button"><a href="#">Add to cart</a></div>
 						</div>
-
+						
 						<!-- Share -->
 						<div class="details_share">
 							<span>Share:</span>
@@ -396,5 +396,30 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/easing/easing.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/product.js"></script>
+
+<script>
+	const lol = {
+		valInput: document.querySelector('#quantity_input'),
+		val: 0,
+		container: document.querySelector('.quantity_buttons'),
+		_init() {
+			this.valInput.value = this.val;
+			this._handleEvents();
+		},
+		_handleEvents() {
+			this.container.addEventListener('click', evt => {
+				if (evt.target.classList.contains('quantity_control')) {
+					this.changeVal(+evt.target.dataset.qty)
+				}
+			});
+		},
+		changeVal(v) {
+			this.val += v;
+			console.log(v, this.val)
+		}
+	}
+
+	lol._init();
+</script>
 </body>
 </html>
