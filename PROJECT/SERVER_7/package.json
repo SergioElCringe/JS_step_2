@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "api": "nodemon src"
+    "api": "nodemon src",
+    "fillDB": "node ./scripts/fillDB"
   },
   "nodemonConfig": { "ignore": ["*.json"] },
   "keywords": [],
