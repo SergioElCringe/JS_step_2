@@ -1,6 +1,0 @@
-**/public/
-**/styles/
-*.html
-*.json
-*.babelrc
-webpack.config.js
