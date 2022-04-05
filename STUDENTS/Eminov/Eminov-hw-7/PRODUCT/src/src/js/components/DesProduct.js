@@ -17,6 +17,8 @@ export default class Description extends Categories {
     }
 
     async _init() {
+        this._initContainers();
+        
         if (this.container) {
             const localProduct = JSON.parse(localStorage.product);
 
@@ -36,8 +38,6 @@ export default class Description extends Categories {
             } catch (err) {
                 console.warn(err);
             } finally {
-                this._initContainers();
-
                 if (this.items.length > 0) {
                     this._render();
                 };
