@@ -24,13 +24,6 @@ export default class Catalog extends Categories {
                 if (item.category) {
                     accum += newItem.template;
                 };
-
-                if (this.type === 'cart') {
-                    this.prices.push({
-                        id: item.id,
-                        price: item.price
-                    });
-                };
             });
 
             this.container.innerHTML = accum;

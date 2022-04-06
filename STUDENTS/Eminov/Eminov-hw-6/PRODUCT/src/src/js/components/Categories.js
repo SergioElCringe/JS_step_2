@@ -21,7 +21,7 @@ export default class Categories extends List {
     }
 
     _handleEventsSort(evt) {
-        const sort = evt.path[1].dataset.sort;
+        const { sort } = evt.target.dataset;
         this._getTypeOfSort(sort, this.items);
     }
 
@@ -55,8 +55,10 @@ export default class Categories extends List {
     }
 
     _handleEventsAdd(evt) {
-        if (evt.target.classList.contains('btn-add')) {
-            const { name, price, imgurl, id } = evt.path[2].dataset;
+        const action = evt.target.classList;
+
+        if (action.contains('btn-add')) {
+            const { name, price, imgurl, id } = evt.target.dataset;
             this.cart.addItem({
                 name: name,
                 price: Number(price),
@@ -67,8 +69,8 @@ export default class Categories extends List {
             });
         };
 
-        if (evt.path[1].classList.contains('product_title')) {
-            const { name, price, imgurl } = evt.path[3].dataset;
+        if (action.contains('desprod')) {
+            const { name, price, imgurl } = evt.target.dataset;
             const product = {
                 name: name,
                 price: price,

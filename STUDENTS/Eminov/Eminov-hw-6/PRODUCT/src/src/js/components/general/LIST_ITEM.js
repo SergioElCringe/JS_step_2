@@ -10,7 +10,7 @@ export default class Item {
 
     _defineType(item, type) {
         return types[type].getTemplate(item);
-        
+
     }
 
     _init() {

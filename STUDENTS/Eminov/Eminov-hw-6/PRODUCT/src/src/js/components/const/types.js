@@ -9,17 +9,17 @@ export default {
             return `<div class="product">
                 <div class="product_image">
                     <img src="${PRODUCTS_API + imgUrl}" alt="">
-                    <div 
-                        class="btn-add"
-                        data-imgurl="${imgUrl}"
-                        data-name="${name}"
-                        data-price="${price}"
-                        data-id="${id}"
-                    >Add this product</div>
+                    <div class="btn-add" data-imgurl="${imgUrl}"
+                    data-name="${name}"
+                    data-price="${price}"
+                    data-id="${id}">Add this product</div>
                 </div>
                 ${this.getCategory(category)}
                 <div class="product_content">
-                    <div class="product_title desprod"><a href="product.html">${name}</a></div>
+                    <div class="product_title"><a href="product.html" 
+                    data-imgurl="${imgUrl}"
+                    data-name="${name}"
+                    data-price="${price}" class="desprod">${name}</a></div>
                     ${this.getPrice(category, prevPrice, price)}
                 </div>
             </div>`;
@@ -74,18 +74,19 @@ export default {
         getTemplate(item) {
             const { imgUrl, name, price, prevPrice, category, id } = item;
 
-            return `<div class="product"
-                    data-imgurl="${imgUrl}"
-                    data-name="${name}"
-                    data-price="${price}"
-                    data-id="${id}">
+            return `<div class="product">
                 <div class="product_image">
                     <img src="${PRODUCTS_API + imgUrl}" alt="">
-                    <div class="btn-add">Add this product</div>
+                    <div class="btn-add" data-imgurl="${imgUrl}"
+                    data-name="${name}"
+                    data-price="${price}"
+                    data-id="${id}">Add this product</div>
                 </div>
                 ${this.getCategory(category)}
                 <div class="product_content">
-                    <div class="product_title" desprod><a href="product.html">${name}</a></div>
+                    <div class="product_title"><a href="product.html" class="desprod" data-imgurl="${imgUrl}"
+                    data-name="${name}"
+                    data-price="${price}">${name}</a></div>
                     ${this.getPrice(category, prevPrice, price)}
                 </div>
             </div>`;
@@ -182,13 +183,13 @@ export default {
                             <span>Cost: <b>$${price}</b></span>
                             <div class="qty-flex">
                                 <span>Qty:</span>
-                                <div class="quantity" data-id="${id}"><span class="left">-</span><span class="amount">${amount}</span><span class="right">+</span></div>
+                                <div class="quantity"><span id="item-minus" class="item-minus" data-id="${id}">-</span><span class="amount">${amount}</span><span id="item-plus" class="item-plus" data-id="${id}">+</span></div>
                             </div>
                             <span>Total: <b>$${totalPrice}</b></span>
                         </div>
                     </div>
                 </div>
-                <div data-id="${id}"><span class="item-delete">&#128465</span></div>
+                <div><span data-id="${id}" id="item-delete" class="item-delete">&#128465</span></div>
             </div>` : `<p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>`;
         }
     },

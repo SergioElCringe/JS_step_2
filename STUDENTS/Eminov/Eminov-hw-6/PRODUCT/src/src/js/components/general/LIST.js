@@ -1,20 +1,18 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-    constructor(url, api = '', type = 'categories') {
+    constructor(url, type = 'categories') {
         this.url = url;
         this.container = null;
         this.items = [];
-        this.prices = [];
         this.type = type;
-        this.request = api;
         this.error = '';
         this._init();
     }
 
     async _init() {
         try {
-            this.items = await this.request.send(this.url, 'GET');
+            this.items = await this._fetchData();
         } catch {
             this.error = err;
         } finally {
@@ -42,13 +40,6 @@ export default class List {
             this.items.forEach(item => {
                 const newItem = new Item(item, this.type);
                 accum += newItem.template;
-
-                if (this.type === 'cart') {
-                    this.prices.push({
-                        id: item.id,
-                        price: item.price
-                    });
-                };
             });
 
             this.container.innerHTML = accum;

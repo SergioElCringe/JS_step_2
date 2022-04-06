@@ -1,5 +1,4 @@
 import Item from "./general/LIST_ITEM";
-const url = '/api/description';
 
 export default class Description {
     constructor(cart, type = 'description') {
@@ -28,7 +27,7 @@ export default class Description {
                 const newItem = new Item(item, this.type);
                 accum += newItem.template;
             })
-    
+
             this.container.innerHTML = accum;
         };
     }

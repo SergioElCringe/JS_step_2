@@ -3,8 +3,8 @@ const url = '/api/cart';
 
 export default class Cart extends List {
     constructor(type = 'cart') {
-        super(url, type)
-        this.action = null;
+        super(url, type);
+        this.removeAllItems = null;
         this.toggleCart = null;
         this.open = false;
     }
@@ -29,36 +29,50 @@ export default class Cart extends List {
 
         if (this.container) {
             this.container.addEventListener('click', this._handleEvents.bind(this));
-            this.action = document.querySelector('.action');
-            this.action.addEventListener('click', this._action.bind(this));
-            this.toggleCart = document.querySelector('#cart').addEventListener('click', this._toggleEvents.bind(this));
+            this.removeAllItems = document.querySelector('.action');
+            this.removeAllItems.addEventListener('click', this._removeAllItems.bind(this));
+            this.toggleCart = document.querySelector('#cart');
+            this.toggleCart.addEventListener('click', this._toggleEvents.bind(this));
         };
     }
 
-    _toggleEvents(evt) {
+    _toggleEvents() {
         this.open = !this.open;
         const cart = document.querySelector('.cart__content');
 
-        if (evt.target.parentNode.id === 'cart' || evt.target.parentNode.parentNode.id === 'cart') {
-            if (!this.open) {
-                cart.classList.add('d-block');
-            } else {
-                cart.classList.remove('d-block');
-            };
+        if (!this.open) {
+            cart.classList.add('d-block');
+        } else {
+            cart.classList.remove('d-block');
         };
     }
 
     async _handleEvents(evt) {
-        const action = evt.target.classList;
-        const find = this.items.find(cartItem => cartItem.id === evt.path[1].dataset.id);
+        const { id } = evt.target.dataset;
+        const find = this.items.find(item => item.id === id);
+        const action = evt.target.id;
 
         try {
-            if (action.contains('item-delete')) {
-                await this.changeItem(find.id, 'DELETE', 'deleteItem');
-            } else if (action.contains('right')) {
-                await this.changeItem(find.id, 'PUT', 'plus');
-            } else if (action.contains('left')) {
-                await this.changeItem(find.id, 'PUT', 'minus');
+            switch (action) {
+                case 'item-plus':
+                    {
+                        await this.changeItem(find.id, 1, find.price);
+                        break;
+                    };
+                case 'item-minus':
+                    {
+                        await this.changeItem(find.id, -1, -find.price);
+                        break;
+                    };
+                case 'item-delete':
+                    {
+                        await this.deleteItem(find.id);
+                        break;
+                    };
+                default:
+                    {
+                        console.log('No method found!');
+                    };
             };
 
             this._render();
@@ -69,13 +83,12 @@ export default class Cart extends List {
 
     async addItem(item) {
         const { id, imgUrl, name, price, totalPrice } = item;
-        const find = this.items.find(cartItem => cartItem.id === id);
+        const find = this.items.find(item => item.id === id);
 
         if (!find) {
-            let data = null;
             const newItem = { id, imgUrl, name, price, totalPrice, amount: 1 };
             try {
-                data = await fetch(this.url, {
+                const data = await fetch(this.url, {
                     method: 'POST',
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(newItem)
@@ -91,52 +104,59 @@ export default class Cart extends List {
         };
     }
 
-    async changeItem(id, fetchMethod, operator) {
-        const find = this.items.find(cartItem => cartItem.id === id);
-        const putItem = { id: id, amount: find.amount, price: find.price, operator };
-        let data = null;
+    async changeItem(id, value, price) {
+        const find = this.items.find(item => item.id === id);
 
         try {
-            data = await fetch(this.url, {
-                method: fetchMethod,
+            const data = await fetch(this.url + `/${find.id}`, {
+                method: 'PUT',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(putItem)
+                body: JSON.stringify({ value, price })
             });
 
             if (!data.error) {
-                switch (operator) {
-                    case 'plus':
-                        {
-                            find.amount++;
-                            find.totalPrice += (+find.price);
-                            break;
-                        };
-                    case "minus":
-                        {
-                            if (find.amount > 1) {
-                                find.amount--;
-                                find.totalPrice = find.totalPrice - find.price;
-                            };
-                            break;
-                        };
-                    default:
-                        {
-                            let index = this.items.indexOf(find);
-                            this.items.splice(index, 1);
-                        };
-                };
+                if (value == -1 && find.amount == 1) {
+                    await this.deleteItem(find.id);
+                } else {
+                    find.amount += value;
+                    find.totalPrice += price;
+                }
             };
         } catch (err) {
             console.warn(err);
         };
     }
 
-    async _action(evt) {
-        if (evt.path[1].id === 'remove' || evt.target.id === 'remove') {
+    async deleteItem(id) {
+        const find = this.items.find(item => item.id === id);
+
+        try {
+            const data = await fetch(this.url + `/${find.id}`, {
+                method: 'DELETE',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ removeAll: false })
+            });
+
+            if (!data.error) {
+                const index = this.items.indexOf(find);
+                this.items.splice(index, 1);
+            };
+
+            
+        } catch (err) {
+            console.warn(err);
+        };
+    }
+
+    async _removeAllItems(evt) {
+        const remove = evt.target.id;
+
+        if (remove) {
             try {
-                const data = fetch(this.url, {
+                const data = fetch(this.url + `/${find.id}`, {
                     method: 'DELETE',
-                    headers: { "Content-Type": "application/json" }
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ removeAll: true })
                 });
 
                 if (!data.error) {
@@ -147,7 +167,7 @@ export default class Cart extends List {
             } catch (err) {
                 console.warn(err);
             };
-        }
+        };
     }
 
     countPrice() {
