@@ -68,7 +68,6 @@ export default class topNav  {
   createItem(item) {
     const sub = !!item.items?.length || false;
     const { link, text } = item;
-    // const sub2 = item.items && item.items.length ? true : false;
     let result = '';
     if (!sub) {
       result += `<li><a href="${ link }">${ text }</a></li>`;
