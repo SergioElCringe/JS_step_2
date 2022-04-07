@@ -1,0 +1,69 @@
+[
+    {
+        "url": "index.html",
+        "name": "Home",
+        "subCategories": [
+            {
+                "url": "categories.html",
+                "name": "Categories"
+            },
+            {
+                "url": "product.html",
+                "name": "Product"
+            },
+            {
+                "url": "cart.html",
+                "name": "Cart"
+            },
+            {
+                "url": "checkout.html",
+                "name": "Check out"
+            },
+            {
+                "url": "contact.html",
+                "name": "Contact"
+            }
+        ]
+    },
+    {
+        "url": "categories.html",
+        "name": "Categories",
+        "subCategories": [
+            {
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "url": "categories.html",
+                "name": "Category"
+            }
+        ]
+    },
+    {
+        "url": "#",
+        "name": "Accessories",
+        "subCategories": null
+    },
+    {
+        "url": "#",
+        "name": "Offers",
+        "subCategories": null
+    },
+    {
+        "url": "contact.html",
+        "name": "Contact",
+        "subCategories": null
+    }
+]

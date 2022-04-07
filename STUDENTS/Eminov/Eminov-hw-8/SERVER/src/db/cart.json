@@ -1,0 +1,14 @@
+{
+ "totalCounts": 1,
+ "totalPrice": 510,
+ "items": [
+  {
+   "id": "2",
+   "imgUrl": "/product_2.jpg",
+   "name": "COLUMNS",
+   "price": 510,
+   "totalPrice": 510,
+   "amount": 1
+  }
+ ]
+}
