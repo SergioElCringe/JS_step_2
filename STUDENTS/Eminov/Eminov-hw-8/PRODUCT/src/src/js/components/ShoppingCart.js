@@ -1,9 +1,11 @@
 import Cart from "./Cart";
 
 export default class ShoppingCart extends Cart {
-    constructor(api, type = 'shoppingCart') {
+    constructor(shipping, api, type = 'shoppingCart') {
         super(api, type);
-        this.shipping = null;
+        this.subtotal = null;
+        this.shipping = shipping;
+        this.total = null;
     }
 
     _initContainers() {
@@ -27,5 +29,6 @@ export default class ShoppingCart extends Cart {
         document.querySelectorAll('.cart-prices').forEach(item => item.innerHTML = `($${totalPrice})`);
         document.querySelector('.subtotal').innerHTML = `$${totalPrice}`;
         document.querySelector('.main-total').innerHTML = `$${totalPrice}`;
+        this.shipping.subtotal = totalPrice;
     }
 };

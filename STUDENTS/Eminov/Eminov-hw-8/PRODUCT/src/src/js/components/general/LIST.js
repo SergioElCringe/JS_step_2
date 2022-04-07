@@ -5,7 +5,6 @@ export default class List {
         this.url = url;
         this.container = null;
         this.items = [];
-        this.prices = [];
         this.type = type;
         this.request = api;
         this.error = '';

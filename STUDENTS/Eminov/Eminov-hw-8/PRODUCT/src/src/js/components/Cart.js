@@ -47,26 +47,22 @@ export default class Cart extends List {
         };
     }
 
-    async _handleEvents(evt) {
-        const { id } = evt.target.dataset;
-        const find = this.items.find(item => item.id === id);
-        const action = evt.target.id;
-
+    async _methodsAction(action, id, price) {
         try {
             switch (action) {
                 case 'item-plus':
                     {
-                        await this.changeItem(find.id, 1, find.price);
+                        await this.changeItem(id, 1, price);
                         break;
                     };
                 case 'item-minus':
                     {
-                        await this.changeItem(find.id, -1, -find.price);
+                        await this.changeItem(id, -1, -price);
                         break;
                     };
                 case 'item-delete':
                     {
-                        await this.deleteItem(find.id);
+                        await this.deleteItem(id);
                         break;
                     };
             };
@@ -77,12 +73,20 @@ export default class Cart extends List {
         };
     }
 
+    async _handleEvents(evt) {
+        const { id } = evt.target.dataset;
+        const find = this.items.find(item => item.id === id);
+        const action = evt.target.id;
+
+        await this._methodsAction(action, find.id, find.price);
+    }
+
     async addItem(item) {
         const { id, imgUrl, name, price, totalPrice, amount = 1 } = item;
         const find = this.items.find(item => item.id === id);
 
         if (!find) {
-            const newItem = { id, imgUrl, name, price, totalPrice, amount};
+            const newItem = { id, imgUrl, name, price, totalPrice, amount };
             try {
                 const data = await this.request.send(this.url, 'POST', newItem);
 

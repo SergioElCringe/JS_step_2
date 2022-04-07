@@ -292,7 +292,7 @@ export default {
         },
 
         getCarousel(val) {
-            let acc = ''; 
+            let acc = '';
 
             val.forEach(item => {
                 acc += `<div class="details_image_thumbnail"><img src="${carouselApi + item}" id="carousel-image" data-img="${item}"></div>`;
@@ -341,6 +341,22 @@ export default {
                 <div class="order_list_title">${name}</div>
                 <div class="order_list_value ml-auto"><b>$${totalPrice}</b></div>
             </li>`
+        }
+    },
+
+    shipping: {
+        getTemplate(item) {
+            const { method, price, id } = item;
+
+            return `<label class="delivery_option clearfix" data-id="${id}">${method}
+                ${this.checkInput(id)}
+                <span class="checkmark"></span>
+                <span class="delivery_price">$${price}</span>
+            </label>`;
+        },
+
+        checkInput(id) {
+            return id == 1 ? `<input type="radio" checked="checked" name="radio">` : `<input type="radio" name="radio">`;
         }
     }
 };

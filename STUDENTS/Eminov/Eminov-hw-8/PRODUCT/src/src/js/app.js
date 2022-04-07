@@ -5,6 +5,7 @@ import Categories from "./components/Categories";
 import Description from "./components/Description";
 import ShoppingCart from "./components/ShoppingCart";
 import Contact from "./components/Contact";
+import ShippingMethods from "./components/ShippingMethods";
 
 export default function(api) {
     const cart = new Cart(api);
@@ -12,6 +13,7 @@ export default function(api) {
     const menu = new Menu(api);
     const description = new Description(cart, api);
     const categories = new Categories(cart, api);
-    const shoppingCart = new ShoppingCart(api);
+    const shipping = new ShippingMethods(api);
+    const shoppingCart = new ShoppingCart(shipping, api);
     const contact = new Contact(api);
 };

@@ -13,9 +13,10 @@ const cartURL = './src/db/cart.json';
 const menuURL = './src/db/menu.json';
 const descriptionURL = './src/db/descriptionCatalog.json';
 const contactURL = './src/db/contact.json';
+const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
-server.get('/catalog', async (req, res) => {
+server.get('/catalog', async(req, res) => {
     try {
         const data = await readJSON(catalogURL);
         res.json(data);
@@ -24,7 +25,7 @@ server.get('/catalog', async (req, res) => {
     };
 });
 
-server.get('/description', async (req, res) => {
+server.get('/description', async(req, res) => {
     try {
         const data = await readJSON(descriptionURL);
         res.json(data);
@@ -33,7 +34,7 @@ server.get('/description', async (req, res) => {
     };
 });
 
-server.get('/cart', async (req, res) => {
+server.get('/cart', async(req, res) => {
     try {
         const data = await readJSON(cartURL);
         res.json(data);
@@ -42,7 +43,7 @@ server.get('/cart', async (req, res) => {
     };
 });
 
-server.get('/menu', async (req, res) => {
+server.get('/menu', async(req, res) => {
     try {
         const data = await readJSON(menuURL);
         res.json(data);
@@ -51,8 +52,18 @@ server.get('/menu', async (req, res) => {
     };
 });
 
+server.get('/shipping', async(req, res) => {
+    try {
+        const data = await readJSON(shippingMethods);
+        console.log(data)
+        res.json(data);
+    } catch (err) {
+        console.log(`Error: + ${err}`);
+    };
+});
+
 //POST REQUEST
-server.post('/cart', async (req, res) => {
+server.post('/cart', async(req, res) => {
     const newItem = req.body;
 
     try {
@@ -81,7 +92,7 @@ server.post('/contact', async(req, res) => {
 });
 
 //PUT REQUEST
-server.put('/cart/:id', async (req, res) => {
+server.put('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { value, price } = req.body;
 
@@ -97,7 +108,7 @@ server.put('/cart/:id', async (req, res) => {
 })
 
 //DELETE REQUEST
-server.delete('/cart/:id', async (req, res) => {
+server.delete('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { removeAll } = req.body;
 
