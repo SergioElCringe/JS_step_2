@@ -56,16 +56,12 @@ export default class Categories extends List {
 
     _handleEventsAdd(evt) {
         const action = evt.target.classList;
+        const { name, price, id, imgurl } = evt.target.dataset;
+        const product = { name, price: Number(price), imgUrl: imgurl, id, totalPrice: Number(price), amount: 1 };
 
         if (action.contains('btn-add')) {
-            const { name, price, imgurl, id } = evt.target.dataset;
-            this.cart.addItem({ name, price: Number(price), imgUrl: imgurl, id, totalPrice: Number(price), amount: 1 });
-        };
-
-        if (action.contains('desprod')) {
-            const { name, price, id, imgurl } = evt.target.dataset;
-            const product = { name, price: Number(price), imgUrl: imgurl, id, totalPrice: Number(price), amount: 1 }
-
+            this.cart.addItem(product);
+        } else if (action.contains('desprod')) {
             localStorage.setItem("product", JSON.stringify(product));
         };
     }

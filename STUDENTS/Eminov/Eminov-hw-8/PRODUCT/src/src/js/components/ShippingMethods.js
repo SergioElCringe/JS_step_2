@@ -24,6 +24,8 @@ export default class ShippingMethods extends List {
 
         if (evt.target.classList.contains('delivery_option')) {
             const total = this.subtotal + (+find.price);
+            this.method = find;
+
 
             document.querySelector('.shipping').innerHTML = `$${find.price}`;
             document.querySelector('.main-total').innerHTML = `$${total}`;
