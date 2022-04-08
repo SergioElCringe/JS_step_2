@@ -15,6 +15,7 @@ export default class ShippingMethods extends List {
         if (this.container) {
             this.container.addEventListener('click', this._handleEvents.bind(this));
             this.shipping = document.querySelector('.shipping');
+            this.total = document.querySelector('.main-total');
         };
     }
 
@@ -26,8 +27,8 @@ export default class ShippingMethods extends List {
             const total = this.subtotal + (+find.price);
             this.method = find;
 
-            document.querySelector('.shipping').innerHTML = `$${find.price}`;
-            document.querySelector('.main-total').innerHTML = `$${total}`;
+            this.shipping.innerHTML = `$${find.price}`;
+            this.total.innerHTML = `$${total}`;
         };
     }
 }
