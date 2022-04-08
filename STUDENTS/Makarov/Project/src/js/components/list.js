@@ -1,39 +1,30 @@
+import ListItem from './list-item.js';
 export default class List {
-    constructor(url, imgURLTemplate, type) {
+    constructor(url, type) {
         this.url = url;
         this.items = [];
-        this.imgURLTemplate = imgURLTemplate;
         this.type = type;
+        this.stickerTypes = null;
         this._init();
     }
+
     _init() {
-        this._fetchData(function(data) {
+        this._fetchData(function (data) {
             this.items = data[this.type].items;
-            switch (this.type) {
-                case 'catalog': 
-                    this.stickerTypes = data[this.type].stickerTypes;
-                    this._initContainer();
-                    this._render();
-                    this._handleEvents();
-                    break;
-                case 'cart': 
-                    this._countAmount();
-                    this._initContainer();
-                    this._render();
-                    this._handleEvents();
-                    break;
-                default:
-                    console.log('New List was created');
-            }
-        }.bind(this));
+            this.stickerTypes = data[this.type].stickerTypes;
+            this._initContainer();
+            this._render();
+            this._handleEvents();
+        }.bind(this), this.url);
     }
-    _fetchData(callback) {
+
+    _fetchData(callback, url) {
         let data = [];
-        if (this.url) {
+        if (url) {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', this.url, true);
+            xhr.open('GET', url, true);
             xhr.send();
-            xhr.onreadystatechange = function() {
+            xhr.onreadystatechange = function () {
                 if (xhr.readyState != 4) {
                     return;
                 }
@@ -41,5 +32,14 @@ export default class List {
                 callback(data)
             }
         }
+    }
+    
+    _render() {
+        this.container.innerHTML = this.items.reduce((accum, current) => {
+            const itemObj = new ListItem(current, this.type, this.stickerTypes);
+            accum += itemObj.template;
+            return accum;
+        }, '');
+        this._countAmount?.();
     }
 }

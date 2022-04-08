@@ -1,80 +1,79 @@
-const MENU_DATA = [
-    {
-        text: 'Home',
-        link: 'index.html',
-        items: [
-            {
-                text: 'Categories',
-                link: 'categories.html',
-            },
-            {
-                text: 'Product',
-                link: 'product.html',
-            },
-            {
-                text: 'Cart',
-                link: 'cart.html',
-            },
-            {
-                text: 'Check out',
-                link: 'checkout.html',
-            },
-            {
-                text: 'Contact',
-                link: 'contact.html',
-            },
-        ]
-    },
-    {
-        text: 'Categories',
-        link: 'categories.html',
-        items: [
-            {
-                text: 'Category',
-                link: 'categories.html',
-            },
-            {
-                text: 'Category',
-                link: 'categories.html',
-            },
-            {
-                text: 'Category',
-                link: 'categories.html',
-            },
-            {
-                text: 'Category',
-                link: 'categories.html',
-            },
-            {
-                text: 'Category',
-                link: 'categories.html',
-            },
-        ]
-    },
-    {
-        text: 'Accessories',
-        link: '#',
-    },
-    {
-        text: 'Offers',
-        link: '#',
-    },
-    {
-        text: 'Contact',
-        link: 'contact.html'
-    }
-];
+// const MENU_DATA = [
+//     {
+//         text: 'Home',
+//         link: 'index.html',
+//         items: [
+//             {
+//                 text: 'Categories',
+//                 link: 'categories.html',
+//             },
+//             {
+//                 text: 'Product',
+//                 link: 'product.html',
+//             },
+//             {
+//                 text: 'Cart',
+//                 link: 'cart.html',
+//             },
+//             {
+//                 text: 'Check out',
+//                 link: 'checkout.html',
+//             },
+//             {
+//                 text: 'Contact',
+//                 link: 'contact.html',
+//             },
+//         ]
+//     },
+//     {
+//         text: 'Categories',
+//         link: 'categories.html',
+//         items: [
+//             {
+//                 text: 'Category',
+//                 link: 'categories.html',
+//             },
+//             {
+//                 text: 'Category',
+//                 link: 'categories.html',
+//             },
+//             {
+//                 text: 'Category',
+//                 link: 'categories.html',
+//             },
+//             {
+//                 text: 'Category',
+//                 link: 'categories.html',
+//             },
+//             {
+//                 text: 'Category',
+//                 link: 'categories.html',
+//             },
+//         ]
+//     },
+//     {
+//         text: 'Accessories',
+//         link: '#',
+//     },
+//     {
+//         text: 'Offers',
+//         link: '#',
+//     },
+//     {
+//         text: 'Contact',
+//         link: 'contact.html'
+//     }
+// ];
 export default class NavMenu {
-    constructor() {
-        this.menuData = [];
+    constructor(url, fetchFunc) {
+        this.url = url;
         this.container = null;
-        this._init();
+        this._init(fetchFunc);
     }
 
-    _init() {
-        this.menuData = MENU_DATA;
+    _init(fetchFunc) {
         this.container = document.querySelector('#main_nav');
-        this._render();
+        fetchFunc(this._render.bind(this), this.url);
     }
 
     _createItem(item) {
@@ -100,8 +99,8 @@ export default class NavMenu {
         return `<ul>${subMenuContent}</ul>`;
     }
 
-    _render() {
-        const result = this.menuData.reduce((accum, current) => {
+    _render(menuData) {
+        const result = menuData.reduce((accum, current) => {
             accum += this._createItem(current);
             return accum;
         }, '');
