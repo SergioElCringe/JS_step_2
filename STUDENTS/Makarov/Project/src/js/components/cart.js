@@ -43,19 +43,6 @@ export default class Cart extends List {
     `;
   }
 
-  // _addItem(item) {
-  //   const { imgFileName, title, price, id } = item;
-  //   const find = this.items.find(cartItem => cartItem.id === id);
-  //   if (!find) {
-  //     const newItem = { imgFileName, title, price, id };
-  //     newItem.amount = 1;
-  //     this.items.push(newItem);
-  //   } else {
-  //     find.amount++;
-  //   }
-  //   this._render();
-  // }
-
   _removeItem(id) {
     let index = null;
     this.items.forEach((el, i) => {
