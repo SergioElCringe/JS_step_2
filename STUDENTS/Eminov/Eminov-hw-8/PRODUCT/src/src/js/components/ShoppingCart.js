@@ -32,7 +32,7 @@ export default class ShoppingCart extends Cart {
 
         this.cartPrices.forEach(item => item.innerHTML = `($${totalPrice})`);
         this.subtotal.innerHTML = `$${totalPrice}`;
-        this.shipping.total = totalPrice;
+        this.shipping.subtotal = totalPrice;
 
         if (this.shipping.method) {
             const shippingPrice = this.shipping.method.price;

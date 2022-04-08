@@ -26,7 +26,6 @@ export default class ShippingMethods extends List {
             const total = this.subtotal + (+find.price);
             this.method = find;
 
-
             document.querySelector('.shipping').innerHTML = `$${find.price}`;
             document.querySelector('.main-total').innerHTML = `$${total}`;
         };
