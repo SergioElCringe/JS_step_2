@@ -53,7 +53,7 @@ export class Cart {
 		if (evt.target.classList.contains('remove')) {
 			this.items.pop();
 		}
-		this.render();
+		this._render();
 	}
 
 	countPrice() {
