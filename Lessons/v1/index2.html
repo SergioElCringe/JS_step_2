@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      width: 40%;
+      margin: 0 auto
+    }
+
+    .item {
+      border-radius: 5px;
+      border: 2px solid grey;
+      padding: 15px;
+      margin-bottom: 10px;
+      width: 150px;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="items" v-if="ready">
+      <div class="item" v-for="item of items" :key="item.id">
+        <b>{{ item.name }}</b>
+        <p>${{ item.price }}</p>
+        <button @click="buy(item)">Buy</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        items: null,
+        url: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/SERVER_7/src/db/catalog.json',
+        ready: false,
+      },
+      methods: {
+        async getData() {
+          try {
+            const data = await fetch(this.url).then(d => d.json());
+            this.items = data;
+            console.log(this.items);
+          }
+          catch(err) {
+            throw err;
+          }
+          finally {
+            this.ready = !!this.items;
+          }
+        },
+        buy(item) {
+          console.log(item.name + ' куплен!');
+        }
+      },
+      async created() {
+        await this.getData();
+      }
+    })
+  </script>
+</body>
+</html>

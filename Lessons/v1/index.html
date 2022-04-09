@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ helloText }}</h1>
+
+    <!-- <button v-on:click="sayHello">Say hello</button> -->
+    
+    <form action="POST">
+      <button @click.prevent="sayHello">{{ btnText }}</button>
+    </form>
+
+    <div v-if="showChangeInput">
+      <p>Text here will replace header above</p>
+      <input type="text" v-model="helloText"> <!-- input is VALUE object (input.value) -->
+    </div>
+    <!-- div v-else-if="1 + 2 === 10"> never </div -->
+    <!-- <div v-else>
+      <p>Press the button</p>
+    </div> -->
+
+    <div v-show="showChangeInput">
+      <!-- show/hide cart container -->
+      text avaliable
+    </div>
+  </div>
+
+  
+
+  <!--<div id="not-app">
+     <h1>{{ helloText }}</h1> not working here  
+    <p>No vue here!</p>
+  </div>-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app', //указываем контейнер приложения
+
+      data: {
+        // конструктор класса (аналог)
+        helloText: '',
+        showChangeInput: false,
+      },
+
+      methods: {
+        sayHello() {
+          //methods могут содержать параметры
+          this.helloText = 'Hello Vue!';
+          this.showChangeInput = !this.showChangeInput;
+        },
+
+      },
+
+      computed: {
+        btnText() {
+          //computed работают без параметров
+          // const res = this.showChangeInput ? 'Hide' : 'Show';
+          // return res;
+          return this.showChangeInput ? 'Hide' : 'Show';
+        }
+      },
+
+      created() {
+        console.log('created');
+      },
+
+      mounted() {
+        console.log('mounted');
+      }
+    });
+  </script>
+</body>
+</html>
