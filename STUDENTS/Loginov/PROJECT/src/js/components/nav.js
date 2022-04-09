@@ -51,7 +51,7 @@ export class navMenu {
     _init() {
         this.items = MENU;
         this.container = document.querySelector('#main_nav');
-        this.render();
+        this._render();
     }
 
     createMenu(items) {
@@ -82,7 +82,7 @@ export class navMenu {
         return result;
     }
 
-    render() {
+    _render() {
         this.container.innerHTML = this.createMenu(this.items);
     }
 };
