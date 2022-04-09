@@ -44,7 +44,7 @@ export class Cart {
 		} else {
 			find.amount++;
 		}
-		this.render();
+		this._render();
 	}
 
 	
