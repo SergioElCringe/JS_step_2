@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Bulls_and_cows</title>
+</head>
+<body>
+    <div class="game">
+        <div class="game__form">
+            Добро пожаловать в игру!
+            <form class="game__input">
+                <label class="game__player-number">
+                    <input type="text" id="playerNum" placeholder="Введите ваше число:"/>
+                </label>
+                <label class="game__attempts-number">
+                    <input type="text" id="attemptNum" placeholder="Попыток осталось: " readonly = "readonly"/>
+                </label>
+            </form>
+            <button class="game__play-btn">Игра</button>
+        </div>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script src = './components/script.js'></script>  
+</body>
+</html>
