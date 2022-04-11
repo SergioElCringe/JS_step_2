@@ -1,14 +1,22 @@
 {
- "totalCounts": 7,
- "totalPrice": 3360,
+ "totalCounts": 4,
+ "totalPrice": 1470,
  "items": [
   {
-   "id": "1",
-   "imgUrl": "/product_1.jpg",
-   "name": "IPHONE 13 PRO MAX",
-   "price": 480,
-   "totalPrice": 3360,
-   "amount": 7
+   "id": 5,
+   "imgUrl": "/product_5.jpg",
+   "name": "HEADPHONES",
+   "price": 510,
+   "totalPrice": 510,
+   "amount": 1
+  },
+  {
+   "id": 6,
+   "imgUrl": "/product_6.jpg",
+   "name": "SET MACBOOK AND IPHONE",
+   "price": 320,
+   "totalPrice": 960,
+   "amount": 3
   }
  ]
 }

@@ -17,7 +17,7 @@
 
 <body>
 
-    <div class="super_container">
+    <div class="super_container" id="app">
 
         <!-- Header -->
 
@@ -30,27 +30,43 @@
                                 <div class="logo"><a href="#">Sublime.</a></div>
                                 <nav class="main_nav">
                                     <ul id="main_nav">
-                                        <!-- HERE Menu.js -->
+
                                     </ul>
                                 </nav>
                                 <div class="header_extra ml-auto">
                                     <div class="shopping_cart">
-                                        <button id="cart">
+                                        <button id="cart" @click="toggleCart">
                                             <img src="https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/backet.svg"
                                                 height="20px" width="20px">
                                             <div>Cart <span class="cart-counter">(0)</span> <span
                                                     class="cart-prices">$0</span></div>
                                         </button>
-                                        <div class="cart__content">
+                                        <div class="cart__content" v-show="open">
                                             <div id="cart-items">
-                                                <p class="no-bascket"><b>There are no products. Select products to purchase from catalog.</b></p>
+                                                <div class="cart" v-for="item of itemsCart" :key="item.id">
+                                                    <div class="cart__item">
+                                                        <img class="cart__item__img" :src="productsApi + item.imgUrl">
+                                                        <div class="cart__item__info">
+                                                            <span>Name: <b>{{ item.name }}</b></span>
+                                                            <div class="price__block">
+                                                                <span>Cost: <b>${{ item.price }}</b></span>
+                                                                <div class="qty-flex">
+                                                                    <span>Qty:</span>
+                                                                    <div class="quantity"><span id="item-minus" class="item-minus" @click="changeItem(item.id, -1, -item.price)">-</span><span class="amount">{{ item.amount }}</span><span id="item-plus" class="item-plus" @click="changeItem(item.id, 1, item.price)">+</span></div>
+                                                                </div>
+                                                                <span>Total: <b>${{ item.totalPrice }}</b></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div><span id="item-delete" class="item-delete" @click="deleteItem(false, item.id)">&#128465</span></div>
+                                                </div>
                                             </div>
                                             <hr>
                                             <div class="action">
                                                 <div class="continue"><span><a
                                                             href="cart.html"><b>Continue</b></a></span>
                                                 </div>
-                                                <div class="clear-all"><b><span id="remove">Remove all
+                                                <div class="clear-all"><b><span id="remove" @click="deleteItem(true)">Remove all
                                                             products</span></b></div>
                                             </div>
                                         </div>
@@ -288,6 +304,16 @@
         <div class="products">
             <div class="container">
                 <div class="product_grid" id="catalog">
+                    <div class="product" v-for="item of itemsCatalog" :key="item.id">
+                        <div class="product_image">
+                            <img :src="productsApi + item.imgUrl">
+                            <div class="btn-add" @click="addItem(item)">Add this product</div>
+                        </div>
+                        <div class="product_content">
+                            <div class="product_title"><a href="product.html" class="desprod">{{ item.name }}</a></div>
+                            <div class="product_price">${{ item.price }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -395,14 +421,14 @@
                     <div class="col">
                         <div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
                             <div class="footer_logo"><a href="#">Sublime.</a></div>
-                            <div class="copyright ml-auto mr-auto">
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
+                            <!-- <div class="copyright ml-auto mr-auto"> -->
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <!-- Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </div>
+                                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <!-- </div> -->
                             <div class="footer_social ml-lg-auto">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
@@ -417,6 +443,133 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+
+            data: {
+                urlCatalog: '/api/catalog',
+                urlCart: '/api/cart',
+                itemsCatalog: [],
+                itemsCart: [],
+                productsApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products/',
+                open: false
+            },
+
+            methods: {
+                toggleCart() {
+                    this.open = !this.open;
+                },
+
+                async addItem(item) {
+                    const {
+                        id,
+                        imgUrl,
+                        name,
+                        price,
+                        totalPrice = price,
+                        amount = 1
+                    } = item;
+                    const find = this.itemsCart.find(item => item.id == id);
+
+                    if (!find) {
+                        const newItem = {
+                            id,
+                            imgUrl,
+                            name,
+                            price,
+                            totalPrice,
+                            amount
+                        };
+
+                        try {
+                            const data = await fetch(this.urlCart, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(newItem)
+                            });
+
+                            if (!data.error) {
+                                this.itemsCart.push(newItem)
+                            };
+                        } catch (err) {
+                            console.warn(err);
+                        };
+                    };
+                },
+
+                async changeItem(id, value, price) {
+                    const find = this.itemsCart.find(item => item.id == id);
+
+                    try {
+                        const data = await fetch(this.urlCart + `/${find.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                value,
+                                price
+                            })
+                        });
+
+                        if (!data.error) {
+                            if (value == -1 && find.amount == 1) {
+                                await this.deleteItem(find.id);
+                            } else {
+                                find.amount += value;
+                                find.totalPrice += price;
+                            };
+                        };
+                    } catch (err) {
+                        console.warn(err);
+                    };
+                },
+
+                async deleteItem(removeAllItems, id = '') {
+                    const find = this.itemsCart.find(item => {
+                        item.id == id
+                    });
+
+                    try {
+                        const data = await fetch(this.urlCart, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                removeAllItems,
+                                id: find.id
+                            })
+                        });
+
+                        if (!data.error) {
+                            if (removeAllItems) {
+                                this.itemsCart = [];
+                            } else {
+                                const index = this.itemsCart.indexOf(find);
+                                this.itemsCart.splice(index, 1);
+                            };
+                        };
+                    } catch (err) {
+                        console.warn(err);
+                    };
+                }
+            },
+
+            async created() {
+                const catalog = await fetch(this.urlCatalog).then(d => d.json());
+                const cart = await fetch(this.urlCart).then(d => d.json());
+                this.itemsCatalog = catalog;
+                this.itemsCart = cart.items;
+            }
+        });
+    </script>
 
     <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/js/jquery-3.2.1.min.js"></script>
     <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/styles/bootstrap4/popper.js"></script>
