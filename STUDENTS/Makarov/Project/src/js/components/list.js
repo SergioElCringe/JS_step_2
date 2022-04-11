@@ -1,3 +1,4 @@
+require("babel-polyfill");
 import ListItem from './list-item.js';
 export default class List {
     constructor(url, type) {
@@ -8,30 +9,22 @@ export default class List {
         this._init();
     }
 
-    _init() {
-        this._fetchData(function (data) {
-            this.items = data[this.type].items;
-            this.stickerTypes = data[this.type].stickerTypes;
+    async _init() {
+        try {
+            const response = await this._fetchData(this.url);
+            this.items = response[this.type].items;
+            this.stickerTypes = response[this.type].stickerTypes;
+        } catch(err) {
+            console.log(err);
+        } finally {
             this._initContainer();
             this._render();
             this._handleEvents();
-        }.bind(this), this.url);
+        };
     }
 
-    _fetchData(callback, url) {
-        let data = [];
-        if (url) {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.send();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState != 4) {
-                    return;
-                }
-                data = JSON.parse(xhr.responseText);
-                callback(data)
-            }
-        }
+    async _fetchData(url) {
+        return await fetch(url).then(d => d.json()).catch(err => {throw err});
     }
     
     _render() {

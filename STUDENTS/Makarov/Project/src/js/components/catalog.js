@@ -16,5 +16,6 @@ export default class Catalog extends List {
     
     _initContainer() {
         this.container = document.querySelector('#catalog');
+        this.container.style.height = 'auto';
     }
 }
