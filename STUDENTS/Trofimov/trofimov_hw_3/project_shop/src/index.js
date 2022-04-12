@@ -13,11 +13,5 @@ import './src/styles/cart_responsive.css'
 import './src/styles/f-a/css/font-awesome.min.css'
 
 import app from './src/js/components/app'
-import topNav from './src/js/components/topNav'
-
-const nav = new topNav();
-nav;
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 app();
