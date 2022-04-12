@@ -1,22 +1,5 @@
 {
- "totalCounts": 4,
- "totalPrice": 1470,
- "items": [
-  {
-   "id": 5,
-   "imgUrl": "/product_5.jpg",
-   "name": "HEADPHONES",
-   "price": 510,
-   "totalPrice": 510,
-   "amount": 1
-  },
-  {
-   "id": 6,
-   "imgUrl": "/product_6.jpg",
-   "name": "SET MACBOOK AND IPHONE",
-   "price": 320,
-   "totalPrice": 960,
-   "amount": 3
-  }
- ]
+ "totalCounts": 0,
+ "totalPrice": 0,
+ "items": []
 }

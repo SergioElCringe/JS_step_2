@@ -55,7 +55,6 @@ server.get('/menu', async(req, res) => {
 server.get('/shipping', async(req, res) => {
     try {
         const data = await readJSON(shippingMethods);
-        console.log(data)
         res.json(data);
     } catch (err) {
         console.log(`Error: + ${err}`);

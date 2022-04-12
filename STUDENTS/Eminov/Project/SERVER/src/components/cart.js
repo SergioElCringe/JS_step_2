@@ -28,7 +28,6 @@ module.exports = {
 
     deleteItem(data, changeableItem, removeAll) {
         const find = findItem(data, changeableItem);
-        console.log(find)
 
         if (!removeAll) {
             const index = data.items.indexOf(find);
