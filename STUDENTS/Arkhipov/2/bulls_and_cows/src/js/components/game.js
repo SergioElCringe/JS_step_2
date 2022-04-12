@@ -17,6 +17,7 @@ export default class Game {
 		this.finishContainer = document.querySelector('.finish');
 		this.roundContainer = document.querySelector("#round");
 		this.goal = this._getNumber();
+		console.log(this.goal);//специально оставил как пасхалку
 		this._renderRoundAll();
 		const tryButton = document.querySelector('#try');
 		tryButton.addEventListener("click", () => {
@@ -24,7 +25,7 @@ export default class Game {
 			this._renderRound();
 			this.infoItems.push(this.userInput);
 			if (this.play && this.rounds) {
-				this._renderInfo.bind();
+				this._renderInfoAll();
 			}
 		});
 	}
@@ -44,17 +45,18 @@ export default class Game {
 		if (this.play) {
 			if (this.rounds) {
 				const userVariant = document.querySelector("#select").value;
-				this.play = this._check(this.goal, userVariant);
+				this.play = this.check(this.goal, userVariant);
 				this.play ? --this.rounds : this._renderFinish();
 			} else {
 				this.finishResult = 'lose'
 				this._renderFinish();
 				this.play = false;
+
 			}
 		}
 	}
 
-	_check(riddle, userVariant) {
+	check(riddle, userVariant) {
 		let bulls = 0;
 		let cows = 0;
 		for (let i = 0; i < 4; i++) {
@@ -87,7 +89,7 @@ export default class Game {
 		roundWrapper.innerText = `${this.rounds} round`;
 	}
 
-	_renderInfo() {
+	_renderInfoAll() {
 		const infoItem = this.infoItems.reduce((acc, item, index) => {
 			let tryNumber = index;
 			acc += this._renderInfo(tryNumber);
@@ -115,6 +117,7 @@ export default class Game {
 			<div class=" finish__result style">You are ${this.finishResult}</br>It was ${goal}</div>
 			`
 	}
+
 
 	_randomize() {
 		return Math.floor(Math.random() * 10);

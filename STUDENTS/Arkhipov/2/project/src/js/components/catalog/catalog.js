@@ -1,4 +1,6 @@
 import { data } from "./catalogData";
+import { PRODUCTS_API } from "../app";
+import Cart from '../cart/cart';
 
 const ENUMS = {
 	category: {
@@ -7,12 +9,6 @@ const ENUMS = {
 		3: 'sale',
 	},
 };
-
-import Cart from '../cart/cart'
-
-
-const PRODUCTS_API = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/images/';
-
 export default class Catalog {
 	constructor() {
 		this.items = [];
@@ -20,6 +16,7 @@ export default class Catalog {
 		this.cart = null;
 		this._init();
 	}
+
 	_init() {
 		this.items = data.PRODUCTS;
 		this.cart = new Cart();
@@ -80,13 +77,11 @@ export default class Catalog {
 				text = 'New';
 				break;
 			}
-
 			case 2: {
 				className = 'product_hot';
 				text = 'Hot';
 				break;
 			}
-
 			default: {
 				className = 'product_sale';
 				text = 'Sale';
@@ -97,13 +92,9 @@ export default class Catalog {
 
 	_render() {
 		let result = '';
-
 		this.items.forEach(item => {
 			result += this._createTemplate(item);
 		});
-
 		this.container.innerHTML = result;
 	}
 }
-
-

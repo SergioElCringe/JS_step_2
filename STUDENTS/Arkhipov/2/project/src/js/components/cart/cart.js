@@ -1,5 +1,5 @@
+import { PRODUCTS_API } from "../app";
 const CARTITEMS = [];
-const PRODUCTS_API = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/images/';
 
 export default class Cart {
 	constructor() {
@@ -28,7 +28,7 @@ export default class Cart {
 	}
 
 	_changeAmount(event) {
-		const idElem = event.target.parentElement.parentElement.parentElement.parentElement.id;//ужас !!!!! Оч плохое решение
+		const idElem = event.target.parentElement.parentElement.parentElement.parentElement.id;//ужас !!!!! Оч плохое решение. Я так понимаю тут надо со всплатием что то делать.
 		if (event.target.dataset.quantity === '+') {
 			this.items.forEach(item => {
 				if (idElem === item.id) {
