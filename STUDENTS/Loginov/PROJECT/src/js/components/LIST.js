@@ -22,20 +22,12 @@ export default class List {
   _render() {
     let result = '';
 
-    if (this.type === 'cart') {
-      this.countAmount();
-		  this.countPrice();
-      if (result && this.items.length > 0) {
-        result += this.getTotal(this.itemsCount, this.itemsPrice);
-      };
-    };
     this.items.forEach(item => {
       const newItem = new Item(item, this.type);
       result += newItem.template;
     });
 
     this.container.innerHTML = result;
-    this.containerCounter.innerHTML = `(${this.itemsCount})`;
   }
 
   _fetchData(callback) {
