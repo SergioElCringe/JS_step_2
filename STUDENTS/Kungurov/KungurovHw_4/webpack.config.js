@@ -27,12 +27,7 @@ module.exports = {
       filename: "css/[name].css",
       chunkFilename: "[id].css",
     }),
-   // new CopyPlugin({
-   //   patterns: [
-   //     { from: './src/assets/img', to: 'assets/img' },
-   //     { from: './src/assets/plugins', to: 'assets/plugins' },
-   //   ]
-   // }),
+
   ],
 
   module: {
@@ -43,14 +38,6 @@ module.exports = {
           loader: MiniCssExtractPlugin.loader,
         }, 'css-loader']
       },
-     // {
-     //   test: /\.(png|jpe?g|gif|svg)$/i,
-     //   use: [
-     //     {
-     //       loader: 'file-loader',
-     //     },
-     //   ],
-     // },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,

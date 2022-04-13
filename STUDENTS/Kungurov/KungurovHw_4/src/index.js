@@ -14,7 +14,5 @@ import './styles/responsive.css'
 
 import app from './js/components/app'
 
-//import 'bootstrap/dist/css/bootstrap.min.css'
-
 
 app();
