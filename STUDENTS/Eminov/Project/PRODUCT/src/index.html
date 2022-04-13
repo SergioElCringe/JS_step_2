@@ -344,14 +344,21 @@
         <div class="products">
             <div class="container">
                 <div class="product_grid" id="catalog">
-                    <div class="product" v-for="item of itemsCatalog" :key="item.id">
+                    <div class="product" v-for="item of itemsCatalog" v-if="item.category" :key="item.id">
                         <div class="product_image">
                             <img :src="productsApi + item.imgUrl">
                             <div class="btn-add" @click="addItem(item)">Add this product</div>
                         </div>
+                        <div class="product_extra" :class="category(item.category).className">
+                            <a href="categories.html">{{ category(item.category).text }}</a>
+                        </div>
                         <div class="product_content">
                             <div class="product_title"><a href="product.html" class="desprod">{{ item.name }}</a></div>
-                            <div class="product_price">${{ item.price }}</div>
+                            <div class="product_price" v-if="item.category !== 2">${{ item.price }}</div>
+                            <div class="product_price sale" v-else>
+                                <s><span class="old-price">${{ item.prevPrice }}</span></s>
+                                <span class="new-price">${{ item.price }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -592,11 +599,39 @@
                     } catch (err) {
                         console.warn(err);
                     };
+                },
+
+                category(category) {
+                    let className, text;
+
+                    switch (category) {
+                        case 1:
+                            {
+                                className = 'product_new';
+                                text = 'New';
+                                break;
+                            };
+
+                        case 2:
+                            {
+                                className = 'product_sale';
+                                text = 'Sale';
+                                break;
+                            };
+
+                        default:
+                            {
+                                className = 'product_hot';
+                                text = 'Hot';
+                            };
+                    };
+
+                    return { className, text };
                 }
             },
 
             computed: {
-                totalCount: function () {
+                totalCount() {
                     let totalCount = 0;
 
                     this.itemsCart.forEach(item => {
@@ -606,7 +641,7 @@
                     return totalCount;
                 },
 
-                totalPrice: function () {
+                totalPrice() {
                     let totalPrice = 0;
 
                     this.itemsCart.forEach(item => {
@@ -614,7 +649,7 @@
                     });
 
                     return totalPrice;
-                }
+                },
             },
 
             async created() {
