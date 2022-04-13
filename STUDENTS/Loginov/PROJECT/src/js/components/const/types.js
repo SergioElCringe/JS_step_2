@@ -82,7 +82,7 @@ export default {
     }
   },
   menu: {
-    createMenu(items) {
+    get(items) {
       let res = '<ul>';
       items.forEach(item => {
         res += this.createItem(item);

@@ -15,4 +15,4 @@ export default class Item {
   _init() {
     this.template = getTemplate(this.item, this.type);
   }
-}
+};
