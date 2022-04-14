@@ -1,20 +1,14 @@
+require("babel-polyfill");
 import List from './list.js';
 export default class Catalog extends List {
-    constructor(url, type, cart) {
-        super(url, type);
+    constructor(url, type, cart, requestManager) {
+        super(url, type, requestManager);
         this.cart = cart;
+        this.requestManager = requestManager;
     }
 
     async addItem(id) {
-        const options = {
-            method: 'POST',
-            body: JSON.stringify({ id: id }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        const path = `/api/catalog/${id}`;
-        const response = await fetch(path, options).then(d => d.json()).catch(err => { throw err });
+        const response = await this.requestManager.send(`/api/catalog/${id}`, 'POST', JSON.stringify({ id: id }));
         if (response) {
             const item = this.cart.items.find(el => el.id === id);
             if (item) {

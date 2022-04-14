@@ -1,17 +1,18 @@
 require("babel-polyfill");
 import ListItem from './list-item.js';
 export default class List {
-    constructor(url, type) {
+    constructor(url, type, requestManager) {
         this.url = url;
         this.items = [];
         this.type = type;
         this.stickerTypes = null;
+        this.requestManager = requestManager;
         this._init();
     }
 
     async _init() {
         try {
-            const response = await this._fetchData(this.url);
+            const response = await this.requestManager.send(this.url, 'GET');
             this.items = response[this.type].items;
             this.stickerTypes = response[this.type].stickerTypes;
         } catch(err) {
@@ -21,10 +22,6 @@ export default class List {
             this._render();
             this._handleEvents();
         };
-    }
-
-    async _fetchData(url) {
-        return await fetch(url).then(d => d.json()).catch(err => {throw err});
     }
     
     _render() {

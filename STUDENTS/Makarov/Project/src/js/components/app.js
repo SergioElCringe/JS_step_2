@@ -5,8 +5,8 @@ import NavMenu from './nav-menu.js';
 import Catalog from './catalog.js';
 import Cart from './cart.js';
 
-export default function() {
-  const cart = new Cart(URL, 'cart');
-  const catalog = new Catalog(URL, 'catalog', cart);
-  const menu = new NavMenu(menuURL, cart._fetchData);
+export default function(requestManager) {
+  const cart = new Cart(URL, 'cart', requestManager);
+  const catalog = new Catalog(URL, 'catalog', cart, requestManager);
+  const menu = new NavMenu(menuURL, requestManager);
 }
