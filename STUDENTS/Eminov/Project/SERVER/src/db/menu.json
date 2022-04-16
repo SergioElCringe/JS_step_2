@@ -1,69 +1,84 @@
 [
- {
-  "url": "index.html",
-  "name": "Home",
-  "subCategories": [
-   {
-    "url": "categories.html",
-    "name": "Categories"
-   },
-   {
-    "url": "product.html",
-    "name": "Product"
-   },
-   {
-    "url": "cart.html",
-    "name": "Cart"
-   },
-   {
-    "url": "checkout.html",
-    "name": "Check out"
-   },
-   {
-    "url": "contact.html",
-    "name": "Contact"
-   }
-  ]
- },
- {
-  "url": "categories.html",
-  "name": "Categories",
-  "subCategories": [
-   {
-    "url": "categories.html",
-    "name": "Category"
-   },
-   {
-    "url": "categories.html",
-    "name": "Category"
-   },
-   {
-    "url": "categories.html",
-    "name": "Category"
-   },
-   {
-    "url": "categories.html",
-    "name": "Category"
-   },
-   {
-    "url": "categories.html",
-    "name": "Category"
-   }
-  ]
- },
- {
-  "url": "#",
-  "name": "Accessories",
-  "subCategories": null
- },
- {
-  "url": "#",
-  "name": "Offers",
-  "subCategories": null
- },
- {
-  "url": "contact.html",
-  "name": "Contact",
-  "subCategories": null
- }
+    {
+        "id": 1,
+        "url": "index.html",
+        "name": "Home",
+        "subCategories": [
+            {
+                "id": 1,
+                "url": "categories.html",
+                "name": "Categories"
+            },
+            {
+                "id": 2,
+                "url": "product.html",
+                "name": "Product"
+            },
+            {
+                "id": 3,
+                "url": "cart.html",
+                "name": "Cart"
+            },
+            {
+                "id": 4,
+                "url": "checkout.html",
+                "name": "Check out"
+            },
+            {
+                "id": 5,
+                "url": "contact.html",
+                "name": "Contact"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "url": "categories.html",
+        "name": "Categories",
+        "subCategories": [
+            {
+                "id": 1,
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "id": 2,
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "id": 3,
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "id": 4,
+                "url": "categories.html",
+                "name": "Category"
+            },
+            {
+                "id": 5,
+                "url": "categories.html",
+                "name": "Category"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "url": "#",
+        "name": "Accessories",
+        "subCategories": null
+    },
+    {
+        "id": 4,
+        "url": "#",
+        "name": "Offers",
+        "subCategories": null
+    },
+    {
+        "id": 5,
+        "url": "contact.html",
+        "name": "Contact",
+        "subCategories": null
+    }
 ]

@@ -1,5 +1,5 @@
 function findItem(data, id) {
-    return data.items.find(item => item.id === id);
+    return data.items.find(item => item.id == id);
 };
 
 module.exports = {
@@ -26,10 +26,10 @@ module.exports = {
         };
     },
 
-    deleteItem(data, changeableItem, removeAll) {
+    deleteItem(data, changeableItem) {
         const find = findItem(data, changeableItem.id);
 
-        if (!removeAll) {
+        if (!changeableItem.removeAllItems) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
 
@@ -41,4 +41,4 @@ module.exports = {
             data.totalCounts = 0;
         };
     }
-}
+} 

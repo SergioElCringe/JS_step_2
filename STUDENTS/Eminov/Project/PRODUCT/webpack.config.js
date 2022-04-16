@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 require('babel-polyfill');
+const { VueLoaderPlugin } = require('vue-loader')
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -48,42 +49,20 @@ module.exports = {
                 collapseWhitespace: isProd
             }
         }),
-        new HtmlWebpackPlugin({
-            filename: 'categories.html',
-            template: './categories.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'product.html',
-            template: './product.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'cart.html',
-            template: './cart.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'contact.html',
-            template: './contact.html',
-            minify: {
-                collapseWhitespace: isProd
-            }
-        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: './src/styles/[name].css',
             chunkFilename: "[id].css"
         }),
+        new VueLoaderPlugin()
     ],
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.css$/,
                 use: [{
                     loader: MiniCssExtractPlugin.loader

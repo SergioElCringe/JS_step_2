@@ -95,6 +95,7 @@ server.post('/contact', async(req, res) => {
 server.put('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { value, price } = req.body;
+    console.log(putItem.id)
 
     try {
         const data = await readJSON(cartURL);
@@ -108,13 +109,12 @@ server.put('/cart/:id', async(req, res) => {
 })
 
 //DELETE REQUEST
-server.delete('/cart/:id', async(req, res) => {
-    const putItem = req.params;
-    const { removeAll } = req.body;
+server.delete('/cart', async(req, res) => {
+    const { removeAllItems, id } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        cart.deleteItem(data, { id: putItem.id }, removeAll);
+        cart.deleteItem(data, { id, removeAllItems });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
