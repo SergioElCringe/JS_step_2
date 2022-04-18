@@ -4,6 +4,7 @@
 		"name": "Smart Phone",
 		"price": 670,
 		"category": 1,
+		"amount": 1,
 		"id": "p1"
 	},
 	{
@@ -11,6 +12,7 @@
 		"name": "Speaker",
 		"price": 67,
 		"category": null,
+		"amount": 2,
 		"id": "p2"
 	}
 ]
