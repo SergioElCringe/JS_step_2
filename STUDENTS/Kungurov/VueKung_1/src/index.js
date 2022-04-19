@@ -11,3 +11,7 @@ import './styles/product_responsive.css'
 import './styles/product.css'
 import './styles/responsive.css'
 
+import app from './js/app'
+
+
+const project = new Vue(app);
