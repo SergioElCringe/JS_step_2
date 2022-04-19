@@ -2,7 +2,7 @@ require("babel-polyfill");
 import RequestManager from "./api/request-manager";
 const requestManager = new RequestManager();
 
-export default vueApp = new Vue({
+export default {
     el: '#vueApp',
     data: {
         rawData: [],
@@ -75,4 +75,4 @@ export default vueApp = new Vue({
     async created() {
         await this.getData();
     }
-});
+}
