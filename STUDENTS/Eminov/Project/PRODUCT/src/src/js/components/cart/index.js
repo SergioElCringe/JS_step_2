@@ -14,53 +14,8 @@ export default {
                 productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
                 url: '/api/cart'
             },
-            actions: {
-                type: 'cart',
-                changeItem: this.changeItem,
-                deleteItem: this.deleteItem
-            }
+            type: 'cart'
         };
-    },
-
-    methods: {
-        async changeItem(item, value, price) {
-            try {
-                const data = await this.$api.send(this.api.url + `/${item.id}`, 'PUT', { value, price });
-    
-                if (!data.error) {
-                    if (value == -1 && item.amount == 1) {
-                        await this.deleteItem(false, item.id);
-                    } else {
-                        item.amount += value;
-                        item.totalPrice += price;
-                    };
-                };
-            } catch (err) {
-                console.warn(err);
-            };
-        },
-
-        async deleteItem(removeAllItems, id = '') {
-            try {
-                if (!removeAllItems) {
-                    const find = this.items.find(item => item.id == id);
-                    const data = await this.$api.send(this.api.url, 'DELETE', { removeAllItems, id: find.id })
-
-                    if (!data.error) {
-                        const index = this.items.indexOf(find);
-                        this.items.splice(index, 1)
-                    };
-                } else {
-                    const data = await this.$api.send(this.api.url, 'DELETE', { removeAllItems })
-
-                    if (!data.error) {
-                        this.items = [];
-                    };
-                }
-            } catch (err) {
-                console.warn(err);
-            };
-        },
     },
 
     computed: {
@@ -111,7 +66,7 @@ export default {
                             </span>
                         </div>
                         <div class="clear-all">
-                            <span id="remove" @click="deleteItem(true)"><b>Remove all products</b></span>
+                            <span id="remove"><b>Remove all products</b></span>
                         </div>
                     </div> 
                 </div>

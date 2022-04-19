@@ -1,7 +1,7 @@
 import './style.css';
 
 export default {
-    props: ['item', 'api', 'actions'],
+    props: ['item', 'api', 'type'],
 
     data() {
         return {
@@ -25,7 +25,7 @@ export default {
 
     template: `
         <div>
-            <div class="product" v-if="actions.type === 'catalog' && item.category">
+            <div class="product" v-if="type === 'catalog' && item.category">
                 <div class="product_image">
                     <img :src="api.productApi + item.imgUrl">
                     <div class="btn-add">Add this product</div>
@@ -44,7 +44,7 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="cart" v-else-if="actions.type === 'cart'">
+            <div class="cart" v-else-if="type === 'cart'">
                 <div class="cart__item">
                     <img class="cart__item__img" :src="api.productApi + item.imgUrl">
                     <div class="cart__item__info">
@@ -54,9 +54,9 @@ export default {
                             <div class="qty-flex">
                                 <span>Qty:</span>
                                 <div class="qty">
-                                    <button class="item-minus" @click="actions.changeItem(item, -1, -item.price)">-</button>
+                                    <button class="item-minus">-</button>
                                     <span class="amount">{{ item.amount }}</span>
-                                    <button class="item-plus" @click="actions.changeItem(item, 1, item.price)">+</button>
+                                    <button class="item-plus">+</button>
                                 </div>
                             </div>
                             <span>Total: <b>{{ item.totalPrice }}$</b></span>
@@ -64,10 +64,10 @@ export default {
                     </div>
                 </div>
                 <div>
-                    <span class="item-delete" @click="actions.deleteItem(false, item.id)">&#128465</span>
+                    <span class="item-delete">&#128465</span>
                 </div>
             </div>
-            <li v-else-if="actions.type === 'menunavigation'" :class="{ hassubs: item.subCategories }">
+            <li v-else-if="type === 'menunavigation'" :class="{ hassubs: item.subCategories }">
                 <a :href="item.url">{{ item.name }}</a>
                 <ul v-if="item.subCategories">
                     <li v-for="item of item.subCategories">
