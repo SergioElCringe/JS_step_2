@@ -26,7 +26,7 @@
 
 <script>
 export default {
-    name: 'catalog-item',
+    name: 'CatalogItem',
     props: {
         item: {
             type: Object

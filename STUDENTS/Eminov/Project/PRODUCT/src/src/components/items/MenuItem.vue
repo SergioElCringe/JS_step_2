@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'menu-navigation-item',
+    name: 'MenuItem',
     props: {
         item: {
             type: Object
