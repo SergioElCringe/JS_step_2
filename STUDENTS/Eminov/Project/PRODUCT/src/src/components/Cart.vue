@@ -34,19 +34,19 @@
 </template>
 
 <script>
-import cartItem from './items/cart-item.vue';
+import cartItem from './items/CartItem.vue';
 export default {
-  name: "cart",
+  name: 'Cart',
   components: { cartItem },
 
   data() {
     return {
       items: [],
       openCart: false,
-      cartIcon: "https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/backet.svg",
+      cartIcon: 'https://raw.githack.com/SergioElCringe/JS_step_1/main/students/Eminov/Project/Eminov-hw-8/src/assets/img/backet.svg',
       api: {
-        productApi: "https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products",
-        url: "/api/cart"
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+        url: '/api/cart'
       },
     };
   },
@@ -100,7 +100,7 @@ export default {
           if (!data.error) {
             const index = this.items.indexOf(find);
             this.items.splice(index, 1);
-          }
+          };
         } else {
           const data = await $api.send(this.api.url, "DELETE", {
             removeAllItems,
@@ -108,12 +108,21 @@ export default {
 
           if (!data.error) {
             this.items = [];
-          }
-        }
+          };
+        };
       } catch (err) {
         console.warn(err);
-      }
+      };
     },
+
+    async fetchCart() {
+      try {
+        const data = await $api.send(this.api.url, "GET");
+        this.items = data.items;
+      } catch (err) {
+        console.warn(err);
+      }; 
+    }
   },
 
   computed: {
@@ -130,13 +139,8 @@ export default {
     },
   },
 
-  async created() {
-    try {
-      const data = await $api.send(this.api.url, "GET");
-      this.items = data.items;
-    } catch (err) {
-      console.warn(err);
-    }
+  created() {
+    this.fetchCart();
   },
 };
 </script>

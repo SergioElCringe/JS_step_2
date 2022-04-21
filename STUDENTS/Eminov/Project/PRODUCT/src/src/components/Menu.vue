@@ -10,28 +10,33 @@
 </template>
 
 <script>
-import menuItem from './items/menu-item.vue'
+import menuItem from './items/MenuItem.vue'
 export default {
-  name: "menu-navigation",
+  name: "MenuNavigation",
   components: { menuItem },
 
   data() {
     return {
       items: [],
       api: {
-        menuApi:
-          "https://raw.githack.com/SergioElCringe/JS_step_1/main/BASE__PROJECT",
-        url: "/api/menu"
+        menuApi: 'https://raw.githack.com/SergioElCringe/JS_step_1/main/BASE__PROJECT',
+        url: '/api/menu'
       },
     };
   },
 
-  async created() {
-    try {
-      this.items = await $api.send(this.api.url, "GET");
-    } catch (err) {
-      console.log(err);
+  methods: {
+    fetchMenu() {
+      try {
+        this.items = await $api.send(this.api.url, "GET");
+      } catch (err) {
+        console.log(err);
+      };
     }
+  },
+
+  created() {
+    this.fetchMenu(); 
   },
 };
 </script>

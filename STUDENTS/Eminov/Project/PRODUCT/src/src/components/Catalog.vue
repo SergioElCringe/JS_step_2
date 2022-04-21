@@ -10,33 +10,32 @@
 </template>
 
 <script>
-import catalogItem from "./items/catalog-item.vue";
+import catalogItem from "./items/CatalogItem.vue";
 export default {
-  name: "categories",
+  name: "Catalog",
   components: { catalogItem },
   data() {
     return {
       items: [],
       api: {
-        productApi:
-          "https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products",
-        url: "/api/catalog",
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+        url: '/api/catalog',
       },
     };
   },
 
   methods: {
-    addItem(item) {
-      console.log(item)
+    async fetchCatalog() {
+      try {
+        this.items = await $api.send(this.api.url, "GET");
+      } catch (err) {
+        console.warn(err);
+      };
     }
   },
 
-  async created() {
-    try {
-      this.items = await $api.send(this.api.url, "GET");
-    } catch (err) {
-      console.warn(err);
-    }
+  created() {
+    this.fetchCatalog();  
   },
 };
 </script>
