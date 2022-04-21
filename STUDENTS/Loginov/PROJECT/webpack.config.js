@@ -2,10 +2,19 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+require('babel-polyfill');
 
 module.exports = {
-  entry: './src/index.js',
-  mode: 'production',
+  entry: {
+    app: ['babel-polyfill', './src/index.js'],
+  },
+  mode: 'development',
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAsswtSize: 512000
+  },
+  target: ["web", 'es5'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index.js',
