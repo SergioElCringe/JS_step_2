@@ -1459,12 +1459,11 @@ section {
 .cart__content {
     box-shadow: 0 0 9px gray;
     position: absolute;
-    display: none;
     width: 530px;
     min-height: 90px;
     border-radius: 4px;
     background: #fff;
-    left: 0px;
+    left: -200px;
     flex-direction: column;
     color: black;
     top: 40px;
