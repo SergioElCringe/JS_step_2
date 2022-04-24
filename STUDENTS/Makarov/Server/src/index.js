@@ -10,6 +10,7 @@ server.use(express.json());
 // catalog and cart data is available in lists.json
 // nav-menu data is available in menu.json
 
+
 server.get('/:comp', async (req, res) => {
     const path = `./src/public/${req.params.comp}.json`;
     const options = { encoding: 'utf-8' };
@@ -57,15 +58,17 @@ server.post('/catalog/:id', async (req, res) => {
     try {
         const lists = await readData(path, options);
         const item = lists.catalog.items.find(el => el.id === id);
-        item.amount = 1;
-        if (!lists.cart.items.find(el => el.id === id)) {
-            lists.cart.items.push(item);
-            const letter = JSON.stringify(lists);
-            await writeData(path, letter).then(d => res.json(d));
-        } else {
-            lists.cart.items.find(el => el.id === id).amount++;
-            const letter = JSON.stringify(lists);
-            await writeData(path, letter).then(d => res.json(d));
+        if(item) {
+            item.amount = 1;
+            if (!lists.cart.items.find(el => el.id === id)) {
+                lists.cart.items.push(item);
+                const letter = JSON.stringify(lists);
+                await writeData(path, letter).then(d => res.json(d));
+            } else {
+                lists.cart.items.find(el => el.id === id).amount++;
+                const letter = JSON.stringify(lists);
+                await writeData(path, letter).then(d => res.json(d));
+            }
         }
     } catch (err) {
         throw err;

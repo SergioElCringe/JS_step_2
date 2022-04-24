@@ -60,7 +60,8 @@
                 "link": "categories.html",
                 "title": "Smart Phone 7",
                 "price": 700,
-                "id": 7
+                "id": 7,
+                "amount": 1
             },
             {
                 "imgFileName": "product_8.jpg",
@@ -68,7 +69,8 @@
                 "link": "categories.html",
                 "title": "Smart Phone 8",
                 "price": 800,
-                "id": 8
+                "id": 8,
+                "amount": 1
             }
         ],
         "stickerTypes": {

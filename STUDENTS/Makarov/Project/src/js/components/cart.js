@@ -1,9 +1,11 @@
+require("babel-polyfill");
 import List from './list.js';
 export default class Cart extends List {
-  constructor(url, type) {
-    super(url, type);
+  constructor(url, type, requestManager) {
+    super(url, type, requestManager);
     this.itemsCount = 0;
     this.cartToggle = null;
+    this.requestManager = requestManager;
   }
 
   _handleEvents() {
@@ -23,9 +25,7 @@ export default class Cart extends List {
   }
 
   async removeItem(id) {
-    const options = { method: 'DELETE' };
-    const path = `/api/cart/${id}`
-    const response = await fetch(path, options).then(d => d.json()).catch(err => { throw err });
+    const response = await this.requestManager.send(`/api/cart/${id}`, 'DELETE');
     if (response) {
       this.items = this.items.filter(el => el.id !== id)
       this._render();
@@ -37,15 +37,7 @@ export default class Cart extends List {
     if (item.amount === 1 && value === -1) {
       await this.removeItem(id);
     } else {
-      const options = {
-        method: 'PUT',
-        body: JSON.stringify({ value: value }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-      const path = `/api/cart/${id}`;
-      const response = await fetch(path, options).then(d => d.json()).catch(err => { throw err });
+      const response = await this.requestManager.send(`/api/cart/${id}`, 'PUT', JSON.stringify({ value: value }));
       if (response) {
         const selected = this.items.find(item => item.id === id);
         if (selected) {
