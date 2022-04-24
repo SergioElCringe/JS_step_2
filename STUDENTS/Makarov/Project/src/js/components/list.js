@@ -15,7 +15,7 @@ export default class List {
             this.items = response[this.type].items;
             this.stickerTypes = response[this.type].stickerTypes;
         } catch(err) {
-            console.log(err);
+            throw err;
         } finally {
             this._initContainer();
             this._render();

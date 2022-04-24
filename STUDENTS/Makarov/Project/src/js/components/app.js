@@ -1,5 +1,5 @@
-const URL = 'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/data.json';
-const menuURL = 'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/menu-data.json';
+const URL = '/api/lists';
+const menuURL = '/api/menu';
 
 import NavMenu from './nav-menu.js';
 import Catalog from './catalog.js';
