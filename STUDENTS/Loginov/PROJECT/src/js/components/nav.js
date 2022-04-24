@@ -1,88 +1,14 @@
-const MENU = [
-    {
-        text: 'Home',
-        link: './imdex.html',
-        items: [
-            {
-                text: 'Categories',
-                link: './categories.html',
-            },
-            {
-                text: 'Product',
-                link: './product.html',
-            },
-            {
-                text: 'Cart',
-                link: './cart.html',
-            },
-            {
-                text: 'Check out',
-                link: "./checkout.html"
-            },
-            {
-                text: 'Contact us',
-                link: './contact.html'
-            },
-        ]
-    },
-    {
-        text: 'Categories',
-        link: './categories.html',
-        items: [
-            {
-                text: 'Some category',
-                link: '.#',
-            },
-        ],
-    },
-    {
-        text: 'Contacts',
-        link: './contact.html'
-    },
-];
+import List from "./LIST";
+const baseURL = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/Loginov-hw-3/STUDENTS/Loginov/PROJECT/src/js/components/';
+const url = baseURL + '/menu.json';
 
-export class navMenu {
-    container = null;
-    items = null;
-    constructor() {
-        this._init();
+export default class Navigation extends List {
+    constructor(type = 'menu') {
+        super(type);
+        this.url = url;
     }
 
-    _init() {
-        this.items = MENU;
+    _initContainers() {
         this.container = document.querySelector('#main_nav');
-        this._render();
-    }
-
-    createMenu(items) {
-        let res = '<ul>';
-        items.forEach(item => {
-            res += this.createItem(item);
-        });
-        res += '</ul>';
-
-        return res;
-    }
-
-    createItem(item) {
-        const sub = !!item.items?.length || false;
-        const { link, text } = item;
-
-        let result = '';
-        if (!sub) {
-            result += `<li><a href="${link}">${text}</a></li>`;
-        } else {
-            result += `
-                <li  class="hassubs">
-                    <a href="${link}">${text}</a>
-                    ${this.createMenu(item.items)}
-                </li>
-            `;
-        };
-        return result;
-    }
-
-    _render() {
-        this.container.innerHTML = this.createMenu(this.items);
     }
 };

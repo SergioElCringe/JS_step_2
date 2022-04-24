@@ -1,37 +1,78 @@
-export class Cart {
-	containerItems = null;
-	containerCounter = null;
-	containerPrice = null;
-	items = null;
-	itemsCount = 0;
-	itemsPrice = 0;
+// import List from "./LIST";
 
-	_init() {
-		this.items = CARTITEMS;
-		this.containerItems = document.querySelector('#cart-items');
-		this.containerCounter = document.querySelector('#cart-counter');
-		this.containerPrice = document.querySelector('#cart-price');
-		this.containerItems.addEventListener('click', this.removeItem.bind(this));
-		this._render();
-	}
+// const baseURL = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/Loginov-hw-3/STUDENTS/Loginov/PROJECT/src/js/components/';
+// const url = baseURL + '/catalog.json';
+
+// export default class Cart extends List {
+// 	constructor() {
+// 		super(url, 'cart');
+// 		this.container = null;
+// 		this.containerCounter = null;
+// 		this.containerPrice = null;
+// 		this.items = null;
+// 		this.itemsCount = 0;
+// 		this.itemsPrice = 0;
+// 	}
+// 	_initContainers() {
+// 		this.container = document.querySelector('#cart-items');
+// 		this.containerCounter = document.querySelector('#cart-counter');
+// 		this.containerPrice = document.querySelector('#cart-price');
+// 		this.containerItems.addEventListener('click', this.removeItem.bind(this));
+// 	}
 
 
-	createItem(item) {
-		const { imgUrl, name, price, amount } = item;
-		return `
-			<div class="cart__item">
-				<img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
-				<div class="cart__item__info">
-					<span>${name}</span>
-					<div class="price__block">
-						<span>$${price}</span>
-						<span>${amount}</span>
-					</div>
-				</div>
-				<button class="remove"> x </button>
-			</div>
-			`;
-	}
+// 	addItem(item) {
+// 		const { imgUrl, name, price, id } = item;
+// 		const find = this.items.find(cartItem => cartItem.id === id);
+
+// 		if (!find) {
+// 			const newItem = { imgUrl, name, price, id };
+// 			newItem.amount = 1;
+// 			this.items.push(newItem);
+// 		} else {
+// 			find.amount++;
+// 		}
+// 		this._render();
+// 	}
+
+// 	removeItem(evt) {
+// 		if (evt.target.classList.contains('remove')) {
+// 			this.items.pop();
+// 		}
+// 		this._render();
+// 	}
+
+// 	countPrice() {
+// 		this.itemsPrice = this.items.reduce((acc, item) => {
+// 			acc += (+item.price) * item.amount;
+// 			return acc;
+// 		}, 0);
+// 	}
+
+// 	countAmount() {
+// 		this.itemsCount = this.items.reduce((acc, item) => {
+// 			acc += item.amount;
+// 			return acc;
+// 		}, 0);
+// 	}
+// }
+import List from "./LIST";
+const url = '';
+
+export default class Cart extends List {
+  constructor() {
+    super(url, 'cart');
+    this.container = null;
+    this.containerCounter = null;
+    this.counter = 0;
+  }
+
+  _initContainers() {
+    this.container = document.querySelector('#cart-items');
+    this.containerCounter = document.querySelector('#cart-counter');
+    this.containerPrice = document.querySelector('#cart-price');
+    this.containerItems.addEventListener('click', this.removeItem.bind(this));
+  }
 
 	addItem(item) {
 		const { imgUrl, name, price, id } = item;
@@ -46,50 +87,38 @@ export class Cart {
 		}
 		this._render();
 	}
+  removeItem(evt) {
+    if (evt.target.classList.contains('remove')) {
+      this.items.pop();
+    }
+    this._render();
+  }
 
-	
+  countPrice() {
+    this.itemsPrice = this.items.reduce((acc, item) => {
+      acc += (+item.price) * item.amount;
+      return acc;
+    }, 0);
+  }
 
-	removeItem(evt) {
-		if (evt.target.classList.contains('remove')) {
-			this.items.pop();
-		}
-		this._render();
-	}
-
-	countPrice() {
-		this.itemsPrice = this.items.reduce((acc, item) => {
-			acc += (+item.price) * item.amount;
-			return acc;
-		}, 0);
-	}
-
-	countAmount() {
-		this.itemsCount = this.items.reduce((acc, item) => {
-			acc += item.amount;
-			return acc;
-		}, 0);
-	}
-
-	getTotal(itemsCount, itemsPrice) {
-		return `<hr>
-			<div>Total quantity:${itemsCount}<br></vr>Total price:$${itemsPrice}</div>
-			<hr>
-			</div>
-			`;
-	}
-
-	_render() {
+  countAmount() {
+    this.itemsCount = this.items.reduce((acc, item) => {
+      acc += item.amount;
+      return acc;
+    }, 0);
+  }
+  _render() {
 		let result = '';
 		this.countAmount();
 		this.countPrice();
 		this.items.forEach(item => {
-			result += this.createItem(item);
-
+      const newItem = new Item(item, this.type);
+      result += newItem.template;
 		});
 		if (result && this.items.length > 0) {
-			result += this.getTotal(this.itemsCount, this.itemsPrice);
-		};
-		this.containerItems.innerHTML = result;
+            result += this.getTotal(this.itemsCount, this.itemsPrice);
+        };
+		this.container.innerHTML = result;
 		this.containerCounter.innerHTML = `(${this.itemsCount})`;
 	}
 }
