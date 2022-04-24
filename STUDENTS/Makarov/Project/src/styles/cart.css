@@ -1,3 +1,13 @@
+#cartToggle {
+    display: flex;
+    justify-content: space-around;
+    width: calc(20px + 5em);
+    border: none;
+    background: none;
+}
+.cart_hidden {
+    display: none;
+}
 .cart__icon {
     width: 20px;
 }
@@ -5,8 +15,7 @@
 .cart__content {
     position: absolute;
     left: -200px;
-	top: 20px;
-	display: none;
+	top: 30px;
     flex-direction: column;
 	width: 300px;
 	min-height: 200px;
@@ -16,9 +25,7 @@
     box-shadow: 0 0 5px #6c6a74;
 	color: black;
 }
-.shopping_cart:hover .cart__content {
-	display: flex;
-}
+
 
 .cart-item {
 	display: flex;
