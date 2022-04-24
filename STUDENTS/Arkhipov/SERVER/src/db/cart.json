@@ -1,0 +1,18 @@
+[
+	{
+		"imgUrl": "/product_1.jpg",
+		"name": "Smart Phone",
+		"price": 670,
+		"category": 1,
+		"counter": 1,
+		"id": "p1"
+	},
+	{
+		"imgUrl": "/product_2.jpg",
+		"name": "Speaker",
+		"price": 67,
+		"category": null,
+		"counter": 2,
+		"id": "p2"
+	}
+]
