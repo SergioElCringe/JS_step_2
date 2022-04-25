@@ -1,6 +1,6 @@
-import catalog from "../vueComponents/catalog"
-import cart from "../vueComponents/cart"
+import Catalog from "../vueComponents/Catalog"
+import Cart from "../vueComponents/Cart"
 export default {
     el: '#vueApp',
-    components: { catalog, cart },
+    components: { Catalog, Cart },
 }

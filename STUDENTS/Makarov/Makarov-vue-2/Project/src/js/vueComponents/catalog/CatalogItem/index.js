@@ -1,5 +1,5 @@
 export default {
-    name: "catalog__item",
+    name: "CatalogItem",
     props: ["item", "stickerTypes", "imgURLTemplate"],
     methods: {
         getStickerContent(stickerNum) {

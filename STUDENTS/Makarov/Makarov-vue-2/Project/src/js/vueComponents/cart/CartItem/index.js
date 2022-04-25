@@ -1,5 +1,5 @@
 export default {
-    name: "cart__item",
+    name: "CartIem",
     props: ["item", "imgURLTemplate"],
     template: `
         <div class="cart-item">

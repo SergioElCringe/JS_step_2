@@ -1,9 +1,9 @@
 import "./style.css";
-import catalog__item from "./catalog__item";
+import CatalogItem from "./CatalogItem";
 
 export default {
-    name: "catalog",
-    components: { catalog__item },
+    name: "Catalog",
+    components: { CatalogItem },
     data: function () {
         return {
             catalog: [],
@@ -28,7 +28,7 @@ export default {
     },
     template: `
         <div class="catalog" v-if="ready">
-            <catalog__item
+            <CatalogItem
                 v-for="item in catalog"
                 :key="item.id"
                 :item="item"

@@ -1,9 +1,9 @@
 import "./style.css"
-import cart__item from "./cart__item";
+import CartItem from "./CartItem";
 
 export default {
     name: "cart",
-    components: { cart__item },
+    components: { CartItem },
     data: function () {
         return {
             cartToggle: false,
@@ -46,7 +46,7 @@ export default {
                 <div>Cart <span id="cart__counter">({{ cartCounter }})</span></div>
             </button>
             <div class="cart__content" id="cart__items" v-show="cartToggle">
-                <cart__item 
+                <CartItem 
                     v-for="item in cart"
                     :key="item.id"
                     :item="item"
