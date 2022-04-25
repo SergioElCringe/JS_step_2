@@ -74,11 +74,7 @@ export default class Cart extends List {
     }
 
   onMouseDown() {
-        if (this.click == false) {
-            this.click = true;
-        } else {
-            this.click = false;
-        };
+        this.click = !this.click;
     }
 
     _render() {
@@ -117,5 +113,5 @@ export default class Cart extends List {
             result += el.price * el.amount;
             this.money.value = '$' + result;
         });
-    }
-}
+    };
+};
