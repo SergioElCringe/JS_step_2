@@ -1,4 +1,4 @@
-require("babel-polyfill");
+// require("babel-polyfill");
 export default class RequestManager {
     constructor() {
         this.method = '';
