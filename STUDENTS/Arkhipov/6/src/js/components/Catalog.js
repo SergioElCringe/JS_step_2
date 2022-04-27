@@ -1,6 +1,5 @@
 import List from "./LIST";
-const baseURL = '/api';
-const url = baseURL + '/catalog';
+const url = '/api/catalog';
 
 
 export default class Catalog extends List {

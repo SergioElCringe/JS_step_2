@@ -1,28 +1,29 @@
 .cart__content {
 	position: absolute;
-	display: none;
+	display: flex;
 	width: 300px;
 	min-height: 200px;
 	border-radius: 5px;
 	background: #ddf;
+	/* left: 1900px; */
 	left: -200px;
-	top: 20px;
+	top: 95px;
 	flex-direction: column;
 	justify-content: space-between;
 	color: black;
+	transition: left 0.3s ease 0s;
+	
 }
 
+.active {
+	left: -100px;
+}
 .cart__total {
 	font-size: 20px;
 	height: 40px;
 	padding: 0px 10px;
 	text-align: right;
 	justify-self: end;
-}
-
-.shopping_cart:hover .cart__content {
-	/* .shopping_cart .cart__content { */
-	display: flex;
 }
 
 .button_custom {
@@ -48,14 +49,40 @@
 	height: 60px;
 }
 
-.cart__btn-del {
-	border: 1px solid black;
-	border-radius: 5px;
-	width: 20px;
-	text-align: center;
-	cursor: pointer;
+.btn__cart{
+	border: none;
+	background: none;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 600;
+	
 }
 
+button:active,
+button:focus {
+	outline: none !important;
+}
+
+.btn__cart svg{
+	width: 30px;
+	margin: 0px 10px 0px 0px;
+}
+.header_extra {
+	display: flex !important;
+	align-items: center !important;
+}
+
+.cart__action-btn{
+		border: 1px solid black;
+		border-radius: 5px;
+		width: 20px;
+		text-align: center;
+		cursor: pointer;
+}
+.search_icon svg{
+	width: 20px;
+}
 .cart__item___info {
 	display: flex;
 	flex-direction: column;

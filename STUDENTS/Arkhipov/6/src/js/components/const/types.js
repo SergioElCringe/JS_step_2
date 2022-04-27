@@ -58,27 +58,27 @@ export default {
 	},
 	cart: {
 		get(item) {
-			const { imgUrl, name, price, counter, id } = item;
+			const { imgUrl, name, price, amount, id } = item;
 			return `
-        <div class="cart__item" id="${id}">
+        <div class="cart__item"">
         <img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
         <div class="cart__item__info">
           <span>${name}</span>
           <div class="price__block">
             <span>$${price}</span>
 				<div class="cart__quantity" > 
-					<span data-quantity="-">-</span>
-					<span>${counter}</span>
-					<span data-quantity="+">+</span>
+					<button class="cart__delete cart__action-btn" data-id="${id}">-</button>
+					<span>${amount}</span>
+					<button class="cart__add cart__action-btn" data-id="${id}">+</button>
 				</div>
           </div>
         </div>
 				<div>
-				$${price * counter}
+				$${price * amount}
 				</div>
-        <div class="cart__btn-del">
+        <button class="cart__delete-all cart__action-btn" data-id="${id}">
         X
-        </div>
+        </button>
     </div>
       `;
 		}
@@ -101,14 +101,11 @@ export default {
 
 		_createSubMenu(items) {
 			let result = '<ul>';
-
 			items.forEach(subMenu => {
 				const { link, text } = subMenu;
 				result += `<li><a href="${link}">${text}</a></li>`
 			})
-
 			result += '</ul>'
-
 			return result;
 		}
 

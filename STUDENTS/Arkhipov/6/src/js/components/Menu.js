@@ -1,7 +1,7 @@
 import Item from "./LIST_ITEM";
 import List from "./LIST";
-const baseURL = '/api';
-const url = baseURL + '/menu';
+
+const url = '/api/menu';
 
 export default class Menu extends List {
 	constructor(items) {
