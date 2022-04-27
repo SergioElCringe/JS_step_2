@@ -9,14 +9,23 @@ export default class List {
     this._init();
   }
 
-  _init() {
-    this.items = this._fetchData(function(data) {
+  async _init() {
+    try {
+      this.items = await this._fetchData();
+    } 
+    catch {
+      this.error = err;
+    }
+    finally {
       this._initContainers();
-      this.items = data;
-      this._render();
-      this._handleEvents();
-    }.bind(this));
-
+      
+      if(!this.error) {
+        this._render();
+        if (this.items.length) {
+          this._handleEvents();
+        }
+      }
+    }
   }
 
   _render() {
@@ -30,23 +39,10 @@ export default class List {
     this.container.innerHTML = result;
   }
 
-  _fetchData(callback) {
-    let data = [];
-
-    if (this.url) {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', this.url, true);
-      xhr.send();
-
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState != 4) {
-          return;
-        };
-
-        data = JSON.parse(xhr.responseText);
-        callback(data);
-      };
-    };
+  async _fetchData() {
+    return await fetch(this.url)
+            .then(d => d.json())
+            .catch(e => {throw e})
   }
 }
 
