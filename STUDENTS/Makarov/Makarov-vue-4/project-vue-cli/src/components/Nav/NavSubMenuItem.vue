@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a :href='item.text'>{{ item.link }}</a>
+    <router-link :to='item.text'>{{ item.link }}</router-link>
   </li>
 </template>
 
