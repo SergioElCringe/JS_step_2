@@ -1,6 +1,6 @@
 <template>
   <li>
-    <router-link :to='item.text'>{{ item.link }}</router-link>
+    <router-link :to='item.link'>{{ item.text }}</router-link>
   </li>
 </template>
 

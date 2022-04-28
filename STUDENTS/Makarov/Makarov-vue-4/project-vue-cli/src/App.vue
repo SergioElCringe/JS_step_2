@@ -4,7 +4,7 @@
 
 <script>
 import RequestManager from "./plugins/api/RequestManager.js";
-import Home from "./views/Home.vue";
+import Home from "./views/Home/Home.vue";
 
 export default {
   data() {

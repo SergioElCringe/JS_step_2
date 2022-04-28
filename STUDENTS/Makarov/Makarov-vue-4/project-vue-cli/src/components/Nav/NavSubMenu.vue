@@ -1,6 +1,6 @@
 <template>
   <li :class='item?.items ? `hassubs` : ``'>
-    <a :href='item.link'>{{ item.text }}</a>
+    <router-link :to='item.link'>{{ item.text  }}</router-link>
     <ul v-if='item?.items'>
       <NavSubMenuItem
         v-for='item in items'

@@ -5,9 +5,7 @@
                 <div class="row">
                     <div class="col">
                         <div id="header" class="header_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="logo">
-                                <a href="#">Sublime.</a>
-                            </div>
+                            <Logo/>
                             <Nav/>
                             <div class="header_extra ml-auto">
                                 <Cart/>
@@ -30,10 +28,11 @@ import Cart from '../Cart/Cart.vue';
 import SearchIcon from '../SearchIcon/SearchIcon.vue';
 import Hamburger from '../Hamburger/Hamburger.vue';
 import Socials from '../Socials/Socials.vue';
+import Logo from '../Logo/Logo.vue';
 
 export default {
     name: 'Header',
-    components: { Nav, Cart, SearchIcon, Hamburger, Socials }
+    components: { Nav, Cart, SearchIcon, Hamburger, Socials, Logo}
 }
 </script>
 

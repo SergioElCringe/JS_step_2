@@ -7,11 +7,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div
-							class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-							<div class="footer_logo">
-								<a href="#">Sublime.</a>
-							</div>
+						<div class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-between">
+							<Logo/>
                             <Socials class="footer_social" />
 						</div>
 					</div>
@@ -22,11 +19,12 @@
 </template>
 
 <script>
-
 import Socials from '../Socials/Socials.vue';
+import Logo from '../Logo/Logo.vue';
+
 export default {
     name: 'Footer',
-    components: { Socials }
+    components: { Socials, Logo }
 }
 </script>
 
