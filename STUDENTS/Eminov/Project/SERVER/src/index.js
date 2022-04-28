@@ -55,6 +55,7 @@ server.get('/menu', async(req, res) => {
 server.get('/shipping', async(req, res) => {
     try {
         const data = await readJSON(shippingMethods);
+        console.log(data)
         res.json(data);
     } catch (err) {
         console.log(`Error: + ${err}`);
@@ -94,6 +95,7 @@ server.post('/contact', async(req, res) => {
 server.put('/cart/:id', async(req, res) => {
     const putItem = req.params;
     const { value, price } = req.body;
+    console.log(putItem.id)
 
     try {
         const data = await readJSON(cartURL);
@@ -112,7 +114,7 @@ server.delete('/cart', async(req, res) => {
 
     try {
         const data = await readJSON(cartURL);
-        cart.deleteItem(data, id, removeAllItems);
+        cart.deleteItem(data, { id, removeAllItems });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
