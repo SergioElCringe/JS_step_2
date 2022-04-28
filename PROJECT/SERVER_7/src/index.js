@@ -7,7 +7,6 @@ server.use(express.json());
 
 const catalogURL = './src/db/catalog.json';
 const cartURL = './src/db/cart.json';
-const menuURL = './src/db/menu.json';
 
 const reader = require('../plugins/reader');
 const writer = require('../plugins/writer');
@@ -20,15 +19,6 @@ server.get('/catalog', async (req, res) => {
     res.json(data); 
   } catch(err) {
     console.log('GET /catalog ERR');
-  }
-});
-
-server.get('/menu', async (req, res) => {
-  try {
-    const data = await reader(menuURL);
-    res.json(data); 
-  } catch(err) {
-    console.log('GET /menu ERR');
   }
 });
 
