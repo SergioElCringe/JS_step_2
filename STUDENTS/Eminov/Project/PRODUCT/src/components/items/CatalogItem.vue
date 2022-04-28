@@ -1,8 +1,8 @@
 <template>
-  <div class="product" v-if="hasCategory ? item.category : true">
+  <div class="product">
     <div class="product_image">
       <img :src="imgUrl" />
-      <div class="btn-add">Add this product</div>
+      <div class="btn-add" @click="getNewItem({api: '/api/cart', item})">Add this product</div>
     </div>
     <div class="product_extra" :class="category.class" v-if="item.category">
       <a href="categories.html">{{ category.text }}</a>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'CatalogItem',
   props: {
@@ -45,15 +47,19 @@ export default {
     };
   },
 
+  methods: {
+    ...mapActions({
+      getNewItem: 'Cart/getNewItem',
+    }),
+  },
+
   computed: {
     category() {
       const { category } = this.item;
-      return category
-        ? {
-            class: `product_${this.categories[category].toLowerCase()}`,
-            text: this.categories[category],
-          }
-        : null;
+      return category ? {
+        class: `product_${this.categories[category].toLowerCase()}`,
+        text: this.categories[category],
+      } : null;
     },
 
     imgUrl() {

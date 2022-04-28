@@ -1,5 +1,5 @@
 function findItem(data, id) {
-    return data.items.find(item => item.id === id);
+    return data.items.find(item => item.id == id);
 };
 
 module.exports = {
@@ -10,18 +10,19 @@ module.exports = {
     },
 
     changeItem(data, changeableItem) {
-        const { id, value, price } = changeableItem;
+        const { id, amount, price } = changeableItem;
         const find = findItem(data, id);
-
-        if (value == -1 && find.amount == 1) {
+        console.log(amount, price)
+        
+        if (amount == -1 && find.amount == 1) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         } else {
-            find.amount += value;
+            find.amount += amount;
             find.totalPrice += price;
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         };
     },

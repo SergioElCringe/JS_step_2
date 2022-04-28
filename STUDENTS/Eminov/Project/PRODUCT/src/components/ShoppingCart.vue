@@ -16,13 +16,13 @@
 
 <script>
 import ShoppingCartItem from "./items/ShoppingCartItem.vue";
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: "ShoppingCart",
   components: { ShoppingCartItem },
   data() {
     return {
-      items: [],
       api: {
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
         url: '/api/cart',
@@ -31,18 +31,19 @@ export default {
   },
 
   methods: {
-    async fetchCart() {
-      try {
-        const data = await $api.send(this.api.url, 'GET');
-        this.items = data.items;
-      } catch (err) {
-        console.warn(err);
-      };
-    },
+    ...mapActions({
+      getCart: 'Cart/getCart',
+    }),
   },
 
-  created() {
-    this.fetchCart();
+  computed: {
+    ...mapState({
+      items: state => state.Cart.items,
+    }),
+  },
+
+  async created() {
+    await this.getCart(this.api.url);
   },
 };
 </script>

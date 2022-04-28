@@ -2,10 +2,10 @@
   <div class="delivery">
     <div class="section_title">Shipping method</div>
     <div class="section_subtitle">Select the one you want</div>
-    <div class="delivery_options" id="shipping">
+    <div class="delivery_options">
       <ShippingMethodsItem 
         v-for="item of items"
-        :key="item.id"
+        :key="item.name"
         :item="item"
       />
     </div>
@@ -16,30 +16,26 @@
 import ShippingMethodsItem from "./items/ShippingMethodsItem.vue";
 
 export default {
-  name: "ShippingMethods",
+  name: 'ShippingMethods',
   components: { ShippingMethodsItem },
   data() {
     return {
-      items: [],
-      url: "/api/shipping",
+      url: '/api/shipping',
+      items: [
+        {
+          method: 'Personal pickup',
+          price: 0,
+        },
+        {
+          method: 'Standart delivery',
+          price: 1.99,
+        },
+        {
+          method: 'New day delivery',
+          price: 4.99,
+        },
+      ],
     };
-  },
-
-  methods: {
-    async fetchMethods() {
-      try {
-        this.items = await $api.send(this.url, "GET");
-      } catch (err) {
-        console.warn(err);
-      };
-    },
-  },
-
-  created() {
-    this.fetchMethods();
   },
 };
 </script>
-
-<style>
-</style>

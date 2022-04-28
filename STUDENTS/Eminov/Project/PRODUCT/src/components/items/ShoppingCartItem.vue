@@ -21,10 +21,10 @@
             :value="item.amount"
           />
           <div class="quantity_buttons">
-            <div class="quantity_inc quantity_control">
+            <div class="quantity_inc quantity_control" @click="changeItem({api: api.url, changes: { id: item.id, amount: 1, price: item.price }})">
               <i class="fa fa-chevron-up" aria-hidden="true"></i>
             </div>
-            <div class="quantity_dec quantity_control">
+            <div class="quantity_dec quantity_control" @click="changeItem({api: api.url, changes: { id: item.id, amount: -1, price: -item.price }})">
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </div>
           </div>
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "ShoppingCartItems",
   props: {
@@ -45,6 +47,12 @@ export default {
     api: {
       type: Object,
     },
+  },
+
+  methods: {
+    ...mapActions({
+      changeItem: 'Cart/changeItem',
+    }),
   },
 
   computed: {

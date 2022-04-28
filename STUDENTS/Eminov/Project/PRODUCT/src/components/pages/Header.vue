@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col">
             <div class="header_content d-flex flex-row align-items-center justify-content-start">
-              <div class="logo"><a href="#">Sublime.</a></div>
+              <div class="logo"><router-link to="/">Sublime.</router-link></div>
               <nav class="main_nav">
                   <MenuNavigation />
               </nav>
