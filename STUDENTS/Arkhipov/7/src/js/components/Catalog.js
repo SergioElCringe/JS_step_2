@@ -3,8 +3,8 @@ const url = '/api/catalog';
 
 
 export default class Catalog extends List {
-	constructor(cart) {
-		super(url, 'catalog')
+	constructor(api, cart) {
+		super(api, url, 'catalog')
 		this.cart = cart;
 		this.container = null;
 	}

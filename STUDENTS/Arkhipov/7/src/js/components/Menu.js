@@ -4,8 +4,8 @@ import List from "./LIST";
 const url = '/api/menu';
 
 export default class Menu extends List {
-	constructor(items) {
-		super(url, 'menu')
+	constructor(api, items) {
+		super(api, url, 'menu')
 		this.container = null;
 		this.items = items;
 	}

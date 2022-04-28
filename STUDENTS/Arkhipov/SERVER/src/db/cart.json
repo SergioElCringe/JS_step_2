@@ -1,18 +1,26 @@
-[
-	{
-		"imgUrl": "/product_1.jpg",
-		"name": "Smart Phone",
-		"price": 670,
-		"category": 1,
-		"counter": 1,
-		"id": "p1"
-	},
-	{
-		"imgUrl": "/product_2.jpg",
-		"name": "Speaker",
-		"price": 67,
-		"category": null,
-		"counter": 2,
-		"id": "p2"
-	}
-]
+{
+ "total": 7257,
+ "items": [
+  {
+   "imgUrl": "/product_3.jpg",
+   "name": "USB",
+   "price": "70",
+   "id": "p3",
+   "amount": 7
+  },
+  {
+   "imgUrl": "/product_4.jpg",
+   "name": "Notebook",
+   "price": "6700",
+   "id": "p4",
+   "amount": 1
+  },
+  {
+   "imgUrl": "/product_2.jpg",
+   "name": "Speaker",
+   "price": "67",
+   "id": "p2",
+   "amount": 1
+  }
+ ]
+}

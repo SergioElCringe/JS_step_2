@@ -1,17 +1,19 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-	constructor(url, type) {
+	constructor(api, url, type) {
 		this.items = [];
 		this.url = url;
 		this.type = type;
 		this.error = '';
+		this.request = api;
 		this._init();
 	}
 
 	async _init() {
 		try {
-			this.items = await this._fetchData();
+			const data = await this.request.send(this.url, 'GET');
+			this.items = data;
 		}
 		catch (err) {
 			this.error = err;
@@ -29,18 +31,10 @@ export default class List {
 
 	_render() {
 		let result = '';
-
 		this.items.forEach(item => {
 			const newItem = new Item(item, this.type);
 			result += newItem.template;
 		});
-
 		this.container.innerHTML = result;
-	}
-
-	_fetchData() {
-		return fetch(this.url)
-			.then(d => d.json())
-			.catch(e => { throw e })
 	}
 }
