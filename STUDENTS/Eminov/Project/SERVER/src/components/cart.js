@@ -1,5 +1,5 @@
 function findItem(data, id) {
-    return data.items.find(item => item.id === id);
+    return data.items.find(item => item.id == id);
 };
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
     },
 
     deleteItem(data, changeableItem, removeAll) {
-        const find = findItem(data, changeableItem.id);
+        const find = findItem(data, changeableItem);
 
         if (!removeAll) {
             const index = data.items.indexOf(find);
