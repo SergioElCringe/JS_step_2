@@ -44,14 +44,14 @@
 <script>
 import Cart from '../../components/Cart/Cart.vue';
 import Catalog from '../../components/Catalog/Catalog.vue';
-import SmallAdvert from '../../components/Adverts/SmallAdvert.vue';
-import LargeAdvert from '../../components/Adverts/LargeAdvert.vue'
-import ExtraLargeAdvert from '../../components/Adverts/ExtraLargeAdvert.vue';
+import SmallAdvert from './components/Adverts/SmallAdvert.vue';
+import LargeAdvert from './components/Adverts/LargeAdvert.vue'
+import ExtraLargeAdvert from './components/Adverts/ExtraLargeAdvert.vue';
 import SideMenu from '../../components/SideMenu/SideMenu.vue';
 import Header from '../../components/Header/Header.vue';
 import Footer from '../../components/Footer/Footer.vue';
 import IconGroup from '../../components/IconGroup/IconGroup.vue';
-import Slider from '../../components/Slider/Slider.vue';
+import Slider from './components/Slider/Slider.vue';
 import NewsLetter from '../../components/NewsLetter/NewsLetter.vue';
 
 export default {
