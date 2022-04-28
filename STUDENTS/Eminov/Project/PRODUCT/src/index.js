@@ -1,8 +1,5 @@
 import './src/styles/main_styles.css';
-import app from './src/js/app';
-// import RequestManager from './src/js/components/api/index';
+import { createApp } from 'vue';
+import app from './src/app.vue';
 
-// const request = new RequestManager();
-// app(request);
-
-const project = new Vue(app);
+const myApp = createApp(app).mount('#app');
