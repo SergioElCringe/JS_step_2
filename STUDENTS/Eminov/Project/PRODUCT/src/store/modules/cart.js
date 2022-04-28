@@ -52,7 +52,7 @@ export default {
                 const data = await $api.send(url, 'GET');
                 commit('setCart', data);
             } catch (err) {
-                console.warn(err);
+                throw err;
             };
         },
 
@@ -69,7 +69,7 @@ export default {
                         commit('setNewItem', newItem);
                     };
                 } catch (err) {
-                    console.warn(err);
+                    throw err;
                 };
             };
         },
@@ -89,7 +89,7 @@ export default {
                     };
                 };
             } catch (err) {
-                console.warn(err);
+                throw err;
             };
         },
     },
