@@ -18,7 +18,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/template.html'),
             filename: 'index.html',
-            title: 'Development'
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),
@@ -52,17 +51,5 @@ module.exports = {
                 type: 'asset/inline',
             },
         ],
-    },
-    devServer: {
-        hot: true,
-        open: true,
-        proxy: {
-            '/api': {
-                target: 'http://localhost:3000',
-                pathRewrite: { '^/api': '' },
-                secure: false,
-                changeOrigin: true,
-            }
-        }
     },
 }
