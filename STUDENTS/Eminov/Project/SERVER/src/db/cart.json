@@ -1,14 +1,14 @@
 {
- "totalCounts": 1,
- "totalPrice": 320,
+ "totalCounts": 2,
+ "totalPrice": 1020,
  "items": [
   {
-   "id": 6,
-   "imgUrl": "/product_6.jpg",
-   "name": "SET MACBOOK AND IPHONE",
-   "price": 320,
-   "totalPrice": 320,
-   "amount": 1
+   "id": 2,
+   "imgUrl": "/product_2.jpg",
+   "name": "COLUMNS",
+   "price": 510,
+   "totalPrice": 1020,
+   "amount": 2
   }
  ]
 }

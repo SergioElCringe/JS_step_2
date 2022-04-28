@@ -26,10 +26,10 @@ module.exports = {
         };
     },
 
-    deleteItem(data, changeableItem) {
-        const find = findItem(data, changeableItem.id);
+    deleteItem(data, changeableItem, removeAll) {
+        const find = findItem(data, changeableItem);
 
-        if (!changeableItem.removeAllItems) {
+        if (!removeAll) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
 
@@ -41,4 +41,4 @@ module.exports = {
             data.totalCounts = 0;
         };
     }
-} 
+}
