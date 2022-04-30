@@ -15,5 +15,6 @@ module.exports = defineConfig({
     chainWebpack: config => {
         config.resolve.alias.set('@api', path.join(__dirname, 'src', 'api'));
         config.resolve.alias.set('@components', path.join(__dirname, 'src', 'components'));
+        config.resolve.alias.set('@views', path.join(__dirname, 'src', 'views'));
     },
 });

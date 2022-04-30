@@ -12,6 +12,7 @@ const reader = require('../plugins/reader');
 const writer = require('../plugins/writer');
 
 const cart = require('./components/cart');
+const catalog = require('./components/catalog');
 
 server.get('/catalog', async (req, res) => {
   try {
@@ -19,6 +20,30 @@ server.get('/catalog', async (req, res) => {
     res.json(data); 
   } catch(err) {
     console.log('GET /catalog ERR');
+  }
+});
+
+server.get('/catalog/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const data = await reader(catalogURL);
+    const item = catalog.findItem(data, id) || null;
+    if (item) {
+      res.json(item);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch(err) {
+    console.log('GET /catalog ERR');
+  }
+});
+
+server.get('/menu', async (req, res) => {
+  try {
+    const data = await reader(menuURL);
+    res.json(data); 
+  } catch(err) {
+    console.log('GET /menu ERR');
   }
 });
 
@@ -46,11 +71,11 @@ server.post('/cart', async (req, res) => {
 });
 
 server.put('/cart/:id', async (req, res) => {
-  const { value } = req.body;
+  const { amount } = req.body;
   const { id } = req.params;
    try {
     const data = await reader(cartURL);
-    const newCart = cart.change(data, id, value);
+    const newCart = cart.change(data, id, amount);
     await fs.writeFileSync(cartURL, JSON.stringify(newCart, null, ' '));
     res.json({ error: false });
    }

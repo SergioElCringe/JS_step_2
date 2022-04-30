@@ -13,11 +13,11 @@ export const catalog = {
     }
   },
 
-  async testMethod(pl) {
+  async getProduct(id) {
     const method = 'GET';
-    const { params } = pl;
+    const URL = `${ url }/${ id }`;
     try {
-      const data = await instance({url, method, params});
+      const data = await instance({url: URL, method});
       return data;
     }
     catch(err) {

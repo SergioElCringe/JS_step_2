@@ -15,6 +15,7 @@
           :key="item.id"
           :item="item"
           :api="api"
+          @changeItem="changeItem($event)"
         />
         <hr />
         <div class="action">
@@ -56,6 +57,7 @@ export default {
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
         url: '/api/cart',
       },
+      interval: null,
     };
   },
 
@@ -78,18 +80,19 @@ export default {
       };
     },
 
-    async changeItem(id, value, price) {
+    // async changeItem(id, value, price) {
+    async changeItem(pl) {
+      const { id, amount } = pl;
       const find = this.items.find((item) => item.id == id);
 
       try {
-        const data = await $api.send(this.api.url + `/${id}`, 'PUT', { value, price });
+        const data = await $api.send(this.api.url + `/${id}`, 'PUT', { amount });
 
         if (!data.error) {
-          if (value == -1 && find.amount == 1) {
+          if (amount == -1 && find.amount == 1) {
             await this.deleteItem(false, id);
           } else {
-            find.amount += value;
-            find.totalPrice += price;
+            find.amount += amount;
           };
         };
       } catch (err) {
@@ -132,7 +135,7 @@ export default {
   computed: {
     totalPrice() {
       return this.items.reduce((acc, item) => {
-        return (acc += item.totalPrice);
+        return (acc += +item.price * item.amount);
       }, 0);
     },
 
@@ -145,7 +148,13 @@ export default {
 
   created() {
     this.fetchCart();
-    console.log(this.$store.state.item)
+    this.interval = setInterval(() => {
+      this.fetchCart();
+    }, 10000)
+  },
+  beforeUnmount() {
+    window.clearInterval(this.interval);
+    this.interval = null;
   },
 };
 </script>

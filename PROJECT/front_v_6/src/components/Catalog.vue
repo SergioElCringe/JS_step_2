@@ -6,6 +6,7 @@
       :item="item"
       :api="api"
       :hasCategory="discountProducts ? discountProducts : false"
+      @addItem="addItem"
     />
   </div>
 </template>
@@ -41,6 +42,9 @@ export default {
     //     console.warn(err);
     //   }
     // },
+    addItem(id) {
+      console.log(id);
+    },
     ...mapActions({
       getCatalog: 'Catalog/getCatalog'
     }),
