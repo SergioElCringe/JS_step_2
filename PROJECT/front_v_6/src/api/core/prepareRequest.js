@@ -6,11 +6,11 @@ export default pl => {
       const { data = {}, params = {} } = parametres;
       base.data = data;
       base.params = params;
-      console.log(base)
       break;
     }
 
     default: {
+      console.log(parametres)
       //GET
       // { id: '123', filter: 'up', amount: 10 } === params
       base.params = parametres;

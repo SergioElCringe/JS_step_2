@@ -1,48 +1,54 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainPage from '../views/Main/Main.vue';
-import Categories from '../views/Categories/Categories.vue';
-import Cart from '../views/Cart/Cart.vue';
-import Contact from '../views/Contact/Contact.vue';
+import MainPage from '@views/Main/Main.vue';
+import Categories from '@views/Categories/Categories.vue';
+import Cart from '@views/Cart/Cart.vue';
+import Contact from '@views/Contact/Contact.vue';
+import Product from '@views/Product/Product.vue';
 
 const routes = [{
         path: '/',
         name: 'Home',
-        component: MainPage
+        component: MainPage,
     },
     {
         path: '/categories',
         name: 'Categories',
-        component: Categories
+        component: Categories,
     },
     {
         path: '/contact',
         name: 'Contact',
-        component: Contact
+        component: Contact,
     },
     {
         path: '/checkOut',
         name: 'Сheck out',
-        component: {}
+        component: {},
     },
     {
         path: '/product/:id',
         name: 'Product',
-        component: {}
+        component: {},
     },
     {
         path: '/cart',
         name: 'Cart',
-        component: Cart
+        component: Cart,
     },
     {
         path: '/accessories',
         name: 'Accessories',
-        component: {}
+        component: {},
     },
     {
         path: '/offers',
         name: 'Offers',
-        component: {}
+        component: {},
+    },
+    {
+        path: '/catalog/:id',
+        name: 'Product',
+        component: Product,
     },
 ];
 

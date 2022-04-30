@@ -6,21 +6,21 @@
    "name": "Smart Phone",
    "price": "670",
    "id": "p1",
-   "amount": 3
+   "amount": 2
   },
   {
    "imgUrl": "/product_2.jpg",
    "name": "Speaker",
    "price": "67",
    "id": "p2",
-   "amount": 2
+   "amount": 5
   },
   {
    "imgUrl": "/product_7.jpg",
    "name": "Camera",
    "price": "510",
    "id": "p7",
-   "amount": 1
+   "amount": 3
   },
   {
    "imgUrl": "/product_3.jpg",

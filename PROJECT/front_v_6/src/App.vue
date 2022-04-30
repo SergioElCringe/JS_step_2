@@ -1,7 +1,9 @@
 <template>
   <div class="super_container">
     <Header />
-    <router-view />
+    <div class="view-container">
+      <router-view />
+    </div>
     <Footer />
   </div>
 </template>
@@ -15,3 +17,9 @@ export default {
   components: { Header, Footer }, 
 };
 </script>
+
+<style lang="scss" scoped>
+  .view-container {
+    margin-top: 130px;
+  }
+</style>

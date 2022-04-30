@@ -9,9 +9,11 @@
                 <div class="qty-flex">
                     <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="$parent.changeItem(item.id, -1, -item.price)">-</button>
+                        <!-- <button class="item-minus" @click="$parent.changeItem(item.id, -1, -item.price)">-</button> -->
+                        <button class="item-minus" @click="changeAmount(false)">-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="$parent.changeItem(item.id, 1, item.price)">+</button>
+                        <!-- <button class="item-plus" @click="$parent.changeItem(item.id, 1, item.price)">+</button> -->
+                        <button class="item-plus" @click="changeAmount(true)">+</button>
                     </div>
                 </div>
                 <span>Total: <b>{{ item.totalPrice }}$</b></span>
@@ -29,17 +31,24 @@ export default {
   name: 'CartItem',
   props: {
     item: {
-    type: Object,
+      type: Object,
     },
     api: {
-    type: Object,
+      type: Object,
     },
   },
 
   computed: {
     ImgUrl() {
-    return this.api.productApi + this.item.imgUrl;
+      return this.api.productApi + this.item.imgUrl;
     },
   },
+
+  methods: {
+    changeAmount(add) {
+      //$emit
+      this.$emit('changeItem', { id: this.item.id, amount: add ? 1 : -1 });
+    },
+  }
 };
 </script>
