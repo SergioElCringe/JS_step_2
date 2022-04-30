@@ -8,20 +8,14 @@ const catalogURL = './src/db/catalog.json';
 const cartURL = './src/db/cart.json';
 const menuURL = './src/db/menu.json';
 
-async function readJSON(path) {
-	const options = { encoding: 'utf-8' };
-	let dataFromJSON = null;
-	try {
-		dataFromJSON = await fs.readFileSync(path, options);
-		return JSON.parse(dataFromJSON);
-	} catch (err) {
-		console.log(err);
-	};
-};
+const reader = require('../plugins/reader');
+const writer = require('../plugins/writer');
+
+const cart = require('./components/cart');
 
 server.get('/menu', async (req, res) => {
 	try {
-		const data = await readJSON(menuURL);
+		const data = await reader(menuURL);
 		res.json(data);
 	} catch (err) {
 		console.log(`ERROR: + ${err}`);
@@ -30,7 +24,7 @@ server.get('/menu', async (req, res) => {
 
 server.get('/catalog', async (req, res) => {
 	try {
-		const data = await readJSON(catalogURL);
+		const data = await reader(catalogURL);
 		res.json(data);
 	} catch (err) {
 		console.log('GET /catalog ERROR');
@@ -39,7 +33,7 @@ server.get('/catalog', async (req, res) => {
 
 server.get('/cart', async (req, res) => {
 	try {
-		const data = await readJSON(cartURL);
+		const data = await reader(cartURL);
 		res.json(data);
 	} catch (err) {
 		console.log(`ERROR: + ${err}`);
@@ -49,10 +43,10 @@ server.get('/cart', async (req, res) => {
 server.post('/cart', async (req, res) => {
 	const newItem = req.body;
 	try {
-		const data = await readJSON(cartURL);
+		const data = await reader(cartURL);
 		data.items.push(newItem);
-		data.total = 2;
-		await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+		const newCart = cart.add(data, newItem);
+		await writer(cartURL, newCart);
 		res.json({ error: false });
 	}
 	catch (err) {
@@ -66,10 +60,9 @@ server.put('/cart/:id', async (req, res) => {
 	const { value } = req.body;
 	const { id } = req.params;
 	try {
-		const data = await readJSON(cartURL);
-		const find = data.items.find(el => el.id === id);
-		find.amount += value;
-		await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+		const data = await reader(cartURL);
+		const newCart = cart.change(data, id, value);
+		await fs.writeFileSync(cartURL, JSON.stringify(newCart, null, ' '));
 		res.json({ error: false });
 	}
 	catch (err) {
@@ -82,10 +75,9 @@ server.put('/cart/:id', async (req, res) => {
 server.delete('/cart/:id', async (req, res) => {
 	const { id } = req.params;
 	try {
-		const data = await readJSON(cartURL);
-		const newList = data.items.filter(el => el.id !== id);
-		data.items = newList;
-		await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+		const data = await reader(cartURL);
+		const newCart = cart.remove(data, id);
+		await fs.writeFileSync(cartURL, JSON.stringify(newCart, null, ' '));
 		res.json({ error: false });
 	}
 	catch (err) {
