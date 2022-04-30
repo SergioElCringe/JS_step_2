@@ -9,8 +9,6 @@ export default {
             value: 'id',
         }],
         productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        page: 1,
-        pagesCount: 1,
     }),
 
     getters: {
@@ -37,9 +35,7 @@ export default {
 
     mutations: {
         setCatalog(state, data) {
-            state.items = data.products;
-            state.page = data.page;
-            state.pagesCount = data.pageCount;
+            state.items = data;
         },
 
         setSort(state, val) {
@@ -48,9 +44,9 @@ export default {
     },
 
     actions: {
-        async getCatalog({ commit }, val = {}) {
+        async getCatalog({ commit }) {
             try {
-                const data = await catalog.increment(val);
+                const data = await catalog.getCatalog();
                 commit('setCatalog', data);
             } catch (err) {
                 console.warn(err);

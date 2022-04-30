@@ -2,7 +2,7 @@ import instance from '@api/core';
 
 export const menu = {
     url: '/menu',
-    async increment() {
+    async getMenu() {
         try {
             return await instance({ url: this.url });
         } catch (err) {

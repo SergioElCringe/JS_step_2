@@ -4,12 +4,9 @@
       <img :src="imgUrl" />
       <div class="btn-add" @click="getNewItem({ item })">Add this product</div>
     </div>
-    <div class="product_extra" :class="category.class" v-if="item.category">
-      <a href="categories.html">{{ category.text }}</a>
-    </div>
     <div class="product_content">
       <div class="product_title">
-        <router-link :to="`/product/${item.id}`">{{ item.name }}</router-link>
+        <router-link :to="`/catalog/${item.id}`">{{ item.name }}</router-link>
         <div class="product_price sale" v-if="item.category === 2">
           <span class="old-price"><s>{{ item.prevPrice }}$</s></span>
           <span class="new-price">{{ item.price }}$</span>
@@ -43,7 +40,7 @@ export default {
 
   methods: {
     ...mapActions({
-      getNewItem: 'Cart/getNewItem',
+      getNewItem: 'Cart/addItem',
     }),
   },
 

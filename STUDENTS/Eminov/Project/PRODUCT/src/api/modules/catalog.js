@@ -2,9 +2,9 @@ import instance from '@api/core';
 
 export const catalog = {
     url: '/catalog',
-    async increment(params = {}) {
+    async getCatalog() {
         try {
-            return await instance({ url: this.url, params });
+            return await instance({ url: this.url });
         } catch (err) {
             throw err;
         };

@@ -16,8 +16,8 @@
     </div>
     <div class="product_pagination">
       <ul>
-        <li class="active mr-3" v-for="(index) in pagesCount" :key="index">
-          <button @click="changePage(index)" class="newsletter_button trans_200"><span>{{ index }}</span></button>
+        <li class="active mr-3">
+          <button><span>1</span></button>
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@
 
 <script>
 import CatalogItem from './items/CatalogItem.vue';
-import { mapActions, mapGetters, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Catalog',
@@ -41,10 +41,6 @@ export default {
     ...mapActions({
       getCatalog: 'Catalog/getCatalog',
     }),
-
-    async changePage(index) {
-      await this.getCatalog({ page: index });
-    },
   },
 
   computed: {
@@ -52,15 +48,10 @@ export default {
       filteredCatalog: 'Catalog/filteredCatalog',
       sortedCatalog: 'Catalog/sortedCatalog',
     }),
-
-    ...mapState({
-      pagesCount: state => state.Catalog.pagesCount,
-      page: state => state.Catalog.page,
-    }),
   },
 
   async created() {
-    await this.getCatalog({ page: 1 });
+    await this.getCatalog();
   },
 };
 </script>

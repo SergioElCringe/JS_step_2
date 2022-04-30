@@ -9,12 +9,12 @@
                 <div class="qty-flex">
                     <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="changeItem({ id: item.id, amount: -1, price: -item.price })">-</button>
+                        <button class="item-minus" @click="increment(false)">-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="changeItem({ id: item.id, amount: 1, price: item.price })">+</button>
+                        <button class="item-plus" @click="increment(true)">+</button>
                     </div>
                 </div>
-                <span>Total: <b>${{ item.totalPrice }}</b></span>
+                <span>Total: <b>${{ item.price * item.amount }}</b></span>
             </div>
         </div>
     </div>
@@ -37,9 +37,13 @@ export default {
 
   methods: {
     ...mapActions({
-      changeItem: 'Cart/changeItem',
+      incrementAmount: 'Cart/incrementAmount',
       deleteItem: 'Cart/deleteItem',
     }),
+
+    increment(val) {
+      this.incrementAmount({ id: this.item.id, amount: val ? 1 : -1 });
+    },
   },
 
   computed: {

@@ -15,7 +15,7 @@ export default {
     actions: {
         async getMenu({ commit }) {
             try {
-                const data = await menu.increment();
+                const data = await menu.getMenu();
                 commit('setMenu', data);
             } catch (err) {
                 throw err;

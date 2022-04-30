@@ -17,7 +17,7 @@ const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
 server.get('/catalog', async (req, res) => {
-    const { id, page } = req.query;
+    const { id } = req.query;
 
     try {
         const data = await readJSON(catalogURL);
@@ -28,19 +28,7 @@ server.get('/catalog', async (req, res) => {
             return;
         };
 
-        if (page) {
-            const pageLimit = 8;
-            const pageCount = Math.ceil(data.length / pageLimit);
-            res.json({
-                "page": page,
-                "pageCount": pageCount,
-                "products": data.slice(page * pageLimit - pageLimit, page * pageLimit)
-            });
-            return;
-        };
-
         res.json(data);
-
     } catch (err) {
         console.log(`Error: + ${err}`);
     };
@@ -114,12 +102,12 @@ server.post('/contact', async (req, res) => {
 
 //PUT REQUEST
 server.put('/cart', async (req, res) => {
-    const id = req.query.id;
-    const { amount, price } = req.body;
+    const { id } = req.query;
+    const { amount } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        cart.changeItem(data, { amount, price, id });
+        cart.changeItem(data, { amount, id });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
@@ -131,6 +119,7 @@ server.put('/cart', async (req, res) => {
 //DELETE REQUEST
 server.delete('/cart', async (req, res) => {
     const { clearCart, id } = req.query;
+    console.log(clearCart, id)
 
     try {
         const data = await readJSON(cartURL);

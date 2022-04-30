@@ -53,7 +53,7 @@ export default {
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
-      getClearCart: 'Cart/getClearCart',
+      getClearCart: 'Cart/clearCart',
     }),
   },
 
