@@ -10,35 +10,35 @@ module.exports = {
     },
 
     changeItem(data, changeableItem) {
-        const { id, value, price } = changeableItem;
+        const { id, amount, price } = changeableItem;
         const find = findItem(data, id);
+        console.log(amount, price)
 
-        if (value == -1 && find.amount == 1) {
+        if (amount == -1 && find.amount == 1) {
             const index = data.items.indexOf(find);
             data.items.splice(index, 1);
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         } else {
-            find.amount += value;
+            find.amount += amount;
             find.totalPrice += price;
-            data.totalCounts += value;
+            data.totalCounts += amount;
             data.totalPrice += price;
         };
     },
 
-    deleteItem(data, changeableItem, removeAll) {
+    deleteItem(data, changeableItem) {
         const find = findItem(data, changeableItem);
+        const index = data.items.indexOf(find);
+        data.items.splice(index, 1);
 
-        if (!removeAll) {
-            const index = data.items.indexOf(find);
-            data.items.splice(index, 1);
+        data.totalPrice = data.totalPrice - find.totalPrice;
+        data.totalCounts = data.totalCounts - find.amount;
+    },
 
-            data.totalPrice = data.totalPrice - find.totalPrice;
-            data.totalCounts = data.totalCounts - find.amount;
-        } else {
-            data.items = [];
-            data.totalPrice = 0;
-            data.totalCounts = 0;
-        };
-    }
-}
+    clearCart(data) {
+        data.items = [];
+        data.totalCounts = 0;
+        data.totalPrice = 0;
+    },
+};
