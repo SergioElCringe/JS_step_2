@@ -31,11 +31,11 @@ export default {
         items: [],
         urlCart: '/api/cart',
         error: null,
-        productsApi:  'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products/',
-        itemsCart:    [],
-	    click:        false,
-	    value:        0,
-	    money:        0,
+        productsApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products/',
+        itemsCart: [],
+	    click: false,
+	    value: 0,
+	    money: 0,
       };
     },
 

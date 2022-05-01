@@ -18,27 +18,27 @@
 
 <script>
 export default {
-    name: 'CatalogItem',
-    props: ['item', 'imgApi' , 'id' ],
-    data() {
-      return {
-        categories: {
-          '1': 'New',
-          '2': 'Hot',
-          '3': 'Sale'
+  name: 'CatalogItem',
+  props: ['item', 'imgApi' , 'id' ],
+  data() {
+    return {
+      categories: {
+        '1': 'New',
+        '2': 'Hot',
+        '3': 'Sale'
+      },
+    };
+  },
+
+  computed: {
+      category() {
+          const { category } = this.item;
+          return !category ? null : {
+            class: 'product_' + this.categories[category].toLowerCase(),
+            text: this.categories[category],
+          };
         },
-      };
-    },
-  
-    computed: {
-        category() {
-            const { category } = this.item;
-            return !category ? null : {
-              class: 'product_' + this.categories[category].toLowerCase(),
-              text: this.categories[category],
-            };
-          },
-        },
+      },
 };
 </script>
 
