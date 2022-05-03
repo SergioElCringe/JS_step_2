@@ -12,7 +12,7 @@
         </span>
       </div>
     </div>
-    <button class='cart__delete-btn'  @click='removeItem(item.id)'>×</button>
+    <button class='cart__delete-btn'>×</button>
   </div>
 </template>
 
@@ -20,11 +20,6 @@
 export default {
   name: 'CartItem',
   props: ['item', 'imgURLTemplate'],
-  methods: {
-    async removeItem(id) {
-      
-    }
-  }
 };
 </script>
 

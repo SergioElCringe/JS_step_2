@@ -1,7 +1,7 @@
 <template>
-  <div class='catalog'>
+  <div class='catalog' v-if='ready'>
     <CatalogItem
-      v-for='item in items'
+      v-for='item in catalog'
       :key='item.id'
       :item='item'
       :stickerTypes='stickerTypes'
@@ -12,39 +12,38 @@
 
 <script>
 import CatalogItem from './CatalogItem.vue';
-import { mapState, mapGetters, mapActions } from 'vuex';
-
 export default {
   name: 'Catalog',
   components: { CatalogItem },
-
   data: function () {
     return {
+      catalog: [],
+      stickerTypes: [],
       ready: false,
-      URL: '/api/catalog',
+      URL: '/api/lists',
       imgURLTemplate:
         'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
     };
   },
-
   methods: {
-    ...mapActions({
-      getCatalog: 'Catalog/getCatalog',
-    }),
-  },
+    async getData() {
+      try {
+        const data = await $api.send(this.URL);
+        this.stickerTypes = data.catalog.stickerTypes;
+        this.catalog = data.catalog.items;
+      } catch (err) {
+        throw err;
+      } finally {
+        this.ready = !!this.catalog;
+      }
+    },
 
-  computed: {
-    ...mapGetters({
-      items: 'Catalog/getItems',
-      stickerTypes: 'Catalog/getStickers',
-    }),
   },
-
   async created() {
     try {
-      await this.getCatalog();
+      await this.getData();
     } catch (err) {
-      throw err;
+      console.warn(err);
     }
   },
 };
