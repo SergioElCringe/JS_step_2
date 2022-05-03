@@ -7,12 +7,13 @@
         alt='cart icon'
       />
       <div>
-        Cart <span id='cart__counter'>({{ cartCounter }})</span>
+        Cart
+        <span id='cart__counter'>({{ cartCounter }})</span>
       </div>
     </button>
     <div class='cart__content' id='cart__items' v-show='cartToggle'>
       <CartItem
-        v-for='item in cart'
+        v-for='item in items'
         :key='item.id'
         :item='item'
         :imgURLTemplate='imgURLTemplate'
@@ -23,14 +24,15 @@
 
 <script>
 import CartItem from './CartItem.vue'
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'Cart',
   components: { CartItem },
   data: function () {
     return {
       cartToggle: false,
-      cart: [],
-      URL: '/api/lists',
+      URL: '/api/cart',
       imgURLTemplate:
         'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
     };
@@ -39,25 +41,25 @@ export default {
     showCart() {
       this.cartToggle = !this.cartToggle;
     },
-    async getData() {
-      try {
-        const data = await $api.send(this.URL);
-        this.cart = data.cart.items;
-      } catch (err) {
-        throw err;
-      }
-    },
+
+    ...mapActions({
+      getCart: 'Cart/getCart',
+    }),
   },
+
   computed: {
-    cartCounter: function () {
-      return this.cart.reduce((acc, cur) => acc + cur.amount, 0);
-    },
+    ...mapGetters({
+      items: 'Cart/getCartItems',
+      cartCounter: 'Cart/cartCounter'
+    }),
   },
+
   async created() {
     try {
-      await this.getData();
-    } catch (err) {
-      console.warn(err);
+      await this.getCart();
+    } 
+    catch (err) {
+      throw err;
     }
   },
 };

@@ -51,24 +51,6 @@ export default {
           num: "3",
           isActive: false,
         },
-                {
-          title: " A new Online Shop experience.",
-          subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.",
-          linkText: "Shop Now",
-          imgLink: "/home_slider_3.jpg",
-          num: "4",
-          isActive: false,
-        },
-                {
-          title: " A new Online Shop experience.",
-          subtitle:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.",
-          linkText: "Shop Now",
-          imgLink: "/home_slider_3.jpg",
-          num: "5",
-          isActive: false,
-        },
       ],
     };
   },

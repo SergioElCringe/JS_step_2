@@ -1,5 +1,5 @@
 <template>
-    <li class="home_slider_custom_dot" :class="{active: active}">{{ dotNum }}</li>
+    <li class="home_slider_custom_dot" :class="{ active: active }">{{ dotNum }}</li>
 </template>
 
 <script>

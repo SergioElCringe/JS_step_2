@@ -12,7 +12,7 @@ export default {
       api: null,
     };
   },
-  components: {  Home },
+  components: { Home },
   created() {
     this.api = new RequestManager();
   },

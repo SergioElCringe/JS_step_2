@@ -29,10 +29,11 @@ import SearchIcon from '../SearchIcon/SearchIcon.vue';
 import Hamburger from '../Hamburger/Hamburger.vue';
 import Socials from '../Socials/Socials.vue';
 import Logo from '../Logo/Logo.vue';
+import SearchPanel from '../SearchPanel/SearchPanel.vue';
 
 export default {
     name: 'Header',
-    components: { Nav, Cart, SearchIcon, Hamburger, Socials, Logo}
+    components: { Nav, Cart, SearchIcon, Hamburger, Socials, Logo, SearchPanel}
 }
 </script>
 
