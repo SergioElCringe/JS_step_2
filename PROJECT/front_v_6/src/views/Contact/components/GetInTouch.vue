@@ -4,10 +4,11 @@
       <div class="section_title">Get in Touch</div>
       <div class="section_subtitle">Say hello</div>
       <div class="contact_form_container">
-        <form action="#" id="contact_form" class="contact_form">
+        <ContactForm />
+        <!--form action="#" id="contact_form" class="contact_form">
           <div class="row">
             <div class="col-xl-6">
-              <!-- Name -->
+
               <label for="contact_name">First Name*</label>
               <input
                 type="text"
@@ -17,7 +18,7 @@
               />
             </div>
             <div class="col-xl-6 last_name_col">
-              <!-- Last Name -->
+
               <label for="contact_last_name">Last Name*</label>
               <input
                 type="text"
@@ -28,7 +29,7 @@
             </div>
           </div>
           <div>
-            <!-- Subject -->
+
             <label for="contact_company">Subject</label>
             <input type="text" id="contact_company" class="contact_input" />
           </div>
@@ -41,8 +42,15 @@
             ></textarea>
           </div>
           <button class="button contact_button">Send Message</button>
-        </form>
+        </form-->
       </div>
     </div>
   </div>
 </template>
+<script>
+import ContactForm from './UI/ContactForm.vue'
+export default {
+  name: 'GetInTouch',
+  components: { ContactForm },
+}
+</script>
