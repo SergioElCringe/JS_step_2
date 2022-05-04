@@ -7,6 +7,7 @@ server.use(express.json());
 
 const catalogURL = './src/db/catalog.json';
 const cartURL = './src/db/cart.json';
+const menuURL = './src/db/menu.json';
 
 const reader = require('../plugins/reader');
 const writer = require('../plugins/writer');
