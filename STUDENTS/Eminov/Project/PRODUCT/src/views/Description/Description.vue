@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import Gallery from "./components/Gallery.vue";
+import Gallery from "./components/UI/Gallery.vue";
 import ProductContent from "./components/ProductContent.vue";
 import Social from "@components/pages/UI/Social.vue";
 import HomePageBanner from "@components/pages/UI/HomePageBanner.vue";
-import Reviews from './components/Reviews.vue';
+import Reviews from './components/UI/Reviews.vue';
 import { mapActions, mapState, mapMutations } from "vuex";
 
 export default {

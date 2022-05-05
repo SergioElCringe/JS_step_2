@@ -35,10 +35,10 @@
 
 <script>
 import HomePageBanner from '@components/pages/UI/HomePageBanner.vue';
-import ShoppingCart from '@components/ShoppingCart.vue';
-import ShippingMethods from '@components/ShippingMethods.vue';
-import Coupon from './components/Coupon.vue';
-import TotalCart from './components/TotalCart.vue';
+import ShoppingCart from './components/ShoppingCart.vue';
+import ShippingMethods from './components/ShippingMethods.vue';
+import Coupon from './components/UI/Coupon.vue';
+import TotalCart from './components/UI/TotalCart.vue';
 import { mapGetters, mapState} from 'vuex';
 
 export default {

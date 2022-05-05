@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ReviewsItem from './items/ReviewsItem.vue';
+import ReviewsItem from '../items/ReviewsItem.vue';
 
 export default {
   name: "Reviews",
