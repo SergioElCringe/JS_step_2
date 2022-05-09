@@ -22,7 +22,6 @@
 <script>
 import cartItems from '../components/items/cartItem.vue'
 import { mapState, mapGetters , mapActions} from 'vuex';
-
 export default {
  name: 'Cart',
     components: { cartItems },
@@ -35,7 +34,6 @@ export default {
 	    value:        0,
       };
     },
-
     methods: {
 		...mapActions({
       		getCart: 'Cart/getCart'
@@ -44,14 +42,12 @@ export default {
 			this.click = !this.click;
 		},
 },
-
  	computed: {
  	   ...mapGetters({
  	     items: 'Cart/itemsCheck',
 		 money: 'Cart/moneyCheck'
  	   })
  	 },
-
     async created() {
      try {
       	await this.getCart(this.urlCart)
