@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 const cart = require('./components/cart');
 const contact = require('./components/contact');
+const catalog = require('./components/catalog');
 const readJSON = require('../plugins/readJSON');
 const writeJSON = require('../plugins/writeJSON');
 
@@ -16,16 +17,25 @@ const contactURL = './src/db/contact.json';
 const shippingMethods = "./src/db/shippingMethods.json";
 
 //GET REQUEST
-server.get('/catalog', async(req, res) => {
+server.get('/catalog', async (req, res) => {
+    const { id } = req.query;
+
     try {
         const data = await readJSON(catalogURL);
+
+        if (id) {
+            const findItem = catalog.findItem(data, (+id))
+            res.json(findItem);
+            return;
+        };
+
         res.json(data);
     } catch (err) {
         console.log(`Error: + ${err}`);
     };
 });
 
-server.get('/description', async(req, res) => {
+server.get('/description', async (req, res) => {
     try {
         const data = await readJSON(descriptionURL);
         res.json(data);
@@ -34,7 +44,7 @@ server.get('/description', async(req, res) => {
     };
 });
 
-server.get('/cart', async(req, res) => {
+server.get('/cart', async (req, res) => {
     try {
         const data = await readJSON(cartURL);
         res.json(data);
@@ -43,7 +53,7 @@ server.get('/cart', async(req, res) => {
     };
 });
 
-server.get('/menu', async(req, res) => {
+server.get('/menu', async (req, res) => {
     try {
         const data = await readJSON(menuURL);
         res.json(data);
@@ -52,7 +62,7 @@ server.get('/menu', async(req, res) => {
     };
 });
 
-server.get('/shipping', async(req, res) => {
+server.get('/shipping', async (req, res) => {
     try {
         const data = await readJSON(shippingMethods);
         res.json(data);
@@ -62,7 +72,7 @@ server.get('/shipping', async(req, res) => {
 });
 
 //POST REQUEST
-server.post('/cart', async(req, res) => {
+server.post('/cart', async (req, res) => {
     const newItem = req.body;
 
     try {
@@ -76,7 +86,7 @@ server.post('/cart', async(req, res) => {
     }
 });
 
-server.post('/contact', async(req, res) => {
+server.post('/contact', async (req, res) => {
     const form = req.body;
 
     try {
@@ -91,13 +101,13 @@ server.post('/contact', async(req, res) => {
 });
 
 //PUT REQUEST
-server.put('/cart/:id', async(req, res) => {
-    const putItem = req.params;
-    const { value, price } = req.body;
+server.put('/cart', async (req, res) => {
+    const { id } = req.query;
+    const { amount } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        cart.changeItem(data, { value, price, id: putItem.id });
+        cart.changeItem(data, { amount, id });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
@@ -107,12 +117,17 @@ server.put('/cart/:id', async(req, res) => {
 })
 
 //DELETE REQUEST
-server.delete('/cart', async(req, res) => {
-    const { removeAllItems, id } = req.body;
+server.delete('/cart', async (req, res) => {
+    const { clearCart, id } = req.query;
+    console.log(clearCart, id)
 
     try {
         const data = await readJSON(cartURL);
-        cart.deleteItem(data, id, removeAllItems);
+        if (clearCart) {
+            cart.clearCart(data);
+        } else {
+            cart.deleteItem(data, id);
+        };
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
