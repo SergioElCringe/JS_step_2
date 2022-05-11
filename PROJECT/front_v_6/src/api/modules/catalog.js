@@ -3,9 +3,9 @@ import instance from '@api/core';
 const url = '/catalog';
 
 export const catalog = {
-  async getCatalog() {
+  async getCatalog(parametres = {}) {
     try {
-      const data = await instance({url});
+      const data = await instance({url, parametres});
       return data;
     }
     catch(err) {

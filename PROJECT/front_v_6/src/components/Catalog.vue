@@ -22,6 +22,10 @@ export default {
     discountProducts: {
       type: Boolean
     },
+    query: {
+      type: Object,
+      default: () => null
+    }
   },
 
   data() {
@@ -58,15 +62,24 @@ export default {
     //   return this.$store.state.catalogItems;
     // }
     ...mapGetters({
-      items: 'Catalog/itemsMain',
+      items: 'Catalog/items',
     })
+  },
+
+  watch: {
+    query: {
+      deep: true,
+      async handler() {
+        await this.getCatalog(this.query);
+      },
+    }
   },
 
   async created() {
     // this.fetchCatalog();
     try {
       // this.$store.dispatch('getCatalog', this.api.url);
-      await this.getCatalog(this.api.url);
+      await this.getCatalog(this.query);
     }
     catch(err) {
       console.warn(err);

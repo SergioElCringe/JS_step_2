@@ -6,14 +6,8 @@
         <ProductSorting />
         <div class="row">
           <div class="col">
-            <Catalog :discountProducts="false" />
-            <div class="product_pagination">
-              <ul>
-                <li class="active mr-3"><a href="#">1.</a></li>
-                <li class="mr-3"><a href="#">2.</a></li>
-                <li><a href="#">3.</a></li>
-              </ul>
-            </div>
+            <Catalog :discountProducts="false" :query="query" />
+            <Pagination :onPage="4" @paginate="query.page = $event" />
           </div>
         </div>
       </div>
@@ -29,10 +23,20 @@ import ProductSorting from "../../components/ProductSorting.vue";
 import Catalog from "../../components/Catalog.vue";
 import IconBoxs from "../../components/pages/UI/IconBoxs.vue";
 import NewsLetter from "../../components/pages/UI/NewsLetter.vue";
+import Pagination from '@components/Pagination.vue';
 
 export default {
   name: 'Categories',
-  components: { CategorySlider, ProductSorting, Catalog, IconBoxs, NewsLetter },
+  components: { CategorySlider, ProductSorting, Catalog, IconBoxs, NewsLetter, Pagination },
+  data() {
+    return {
+      query: {
+        page: 1,
+        show: 4,
+        sort: 'ad',
+      },
+    }
+  },
 };
 </script>
 

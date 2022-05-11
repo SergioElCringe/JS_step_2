@@ -10,7 +10,6 @@ export default pl => {
     }
 
     default: {
-      console.log(parametres)
       //GET
       // { id: '123', filter: 'up', amount: 10 } === params
       base.params = parametres;

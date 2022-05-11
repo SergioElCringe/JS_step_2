@@ -17,8 +17,29 @@ const catalog = require('./components/catalog');
 
 server.get('/catalog', async (req, res) => {
   try {
-    const data = await reader(catalogURL);
-    res.json(data); 
+    let data = await reader(catalogURL);
+    let total = data.length;
+    console.log(req.query);
+    const query = Object.keys(req.query); // ['categories']
+    if (query.length) {
+      const params = req.query;
+      if (params.filter) {
+        data = catalog.filter(data, params.filter);
+        total = data.length;
+      }
+
+      if (params.show) {
+        let { page, show } = params;
+        page--;
+        const firstElNum = page * +show; // 0
+        const lastElNum = firstElNum + +show; // 4
+
+        data = data.slice(firstElNum, lastElNum);
+      }
+    }
+
+    
+    res.json({ data, pagination: { total } }); 
   } catch(err) {
     console.log('GET /catalog ERR');
   }
