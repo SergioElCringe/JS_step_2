@@ -10,13 +10,16 @@ const app = new Vue({
 
 	data: {
 		PRODUCT_API: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+
 		catalogItems: null,
 		catalogUrl: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/SERVER_7/src/db/catalog.json',
-		catalogReady: true,
 
 		menuItems: null,
 		menuUrl: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/SERVER_7/src/db/menu.json',
-		menuReady: true,
+
+		cartItems: null,
+		cartUrl: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/SERVER_7/src/db/cart.json',
+
 	},
 
 	methods: {
@@ -27,7 +30,6 @@ const app = new Vue({
 			}
 			catch (err) {
 				console.log('ERROR = ' + err);
-				this.catalogReady = !!this.catalogItems;
 				throw err;
 			}
 		},
@@ -67,6 +69,7 @@ const app = new Vue({
 	async created() {
 		this.catalogItems = await this.getData(this.catalogUrl);
 		this.menuItems = await this.getData(this.menuUrl);
-		console.log(this.menuItems);
+		this.cartItems = await this.getData(this.cartUrl);
+		console.log(this.cartItems);
 	}
 })

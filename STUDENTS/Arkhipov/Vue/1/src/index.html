@@ -41,9 +41,8 @@
 								<!-- МЕНЮ -->
 								<nav class="main_nav" id="menu-nav">
 									<ul>
-										<li v-for="item of menuItems">
+										<li v-for="item of menuItems" class="hassubs">
 											<a v-bind:href="item.url">{{item.name}}</a>
-
 											<ul v-if="item.subCategories">
 												<li v-for="item of item.subCategories">
 													<a v-bind:href="item.url">{{item.name}}</a>
@@ -52,7 +51,6 @@
 										</li>
 									</ul>
 								</nav>
-
 
 
 								<div class="header_extra ml-auto">
@@ -73,8 +71,29 @@
 											<div class="cart__total" id="cart__total"></div>
 										</button>
 
-										<div class="cart__content" id="cart-items">
-											<!-- корзина -->
+
+										<!-- КОРЗИНА -->
+										<div class="cart__content" id="cart-items" v-if="cartItems">
+											<div class="cart__item" v-for="item of cartItems.items">
+												<img class="cart__item__img" :src="PRODUCT_API + item.imgUrl">
+												<div class="cart__item__info">
+													<span>{{item.name}}</span>
+													<div class="price__block">
+														<span>${{item.price}}</span>
+														<div class="cart__quantity">
+															<button class="cart__delete cart__action-btn" data-id="${id}">-</button>
+															<span>{{item.amount}}</span>
+															<button class="cart__add cart__action-btn" data-id="${id}">+</button>
+														</div>
+													</div>
+												</div>
+												<div>
+													${{item.price * item.amount}}
+												</div>
+												<button class="cart__delete-all cart__action-btn" data-id="${id}">
+													X
+												</button>
+											</div>
 										</div>
 
 
@@ -165,13 +184,17 @@
 							<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
 							<ul class="page_menu_selection menu_mm">
 								<li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-											class="fa fa-angle-down"></i></a></li>
+											class="fa fa-angle-down"></i></a>
+								</li>
 								<li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-											class="fa fa-angle-down"></i></a></li>
+											class="fa fa-angle-down"></i></a>
+								</li>
 								<li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-											class="fa fa-angle-down"></i></a></li>
+											class="fa fa-angle-down"></i></a>
+								</li>
 								<li class="page_menu_item menu_mm"><a href="categories.html">Category<i
-											class="fa fa-angle-down"></i></a></li>
+											class="fa fa-angle-down"></i></a>
+								</li>
 							</ul>
 						</li>
 						<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
@@ -343,8 +366,13 @@
 					<div class="col">
 
 
-						<!-- Каталог -->
-						<div class="product_grid" id="catalog" v-if="catalogReady">
+
+
+
+
+
+						<!-- КАТАЛОГ -->
+						<div class="product_grid" id="catalog">
 							<div class="product" v-for="item of catalogItems">
 								<div class="product_image">
 									<img :src="PRODUCT_API + item.imgUrl" alt="">
@@ -370,6 +398,9 @@
 				</div>
 			</div>
 		</div>
+
+
+
 
 
 

@@ -60,7 +60,7 @@ export default {
 		get(item) {
 			const { imgUrl, name, price, amount, id } = item;
 			return `
-        <div class="cart__item"">
+        <div class="cart__item">
         <img class="cart__item__img" src="${PRODUCTS_API + imgUrl}">
         <div class="cart__item__info">
           <span>${name}</span>
