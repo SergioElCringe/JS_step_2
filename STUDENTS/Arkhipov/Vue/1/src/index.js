@@ -33,14 +33,6 @@ const app = new Vue({
 				throw err;
 			}
 		},
-		// getProductExtraTemplate(categoryId) {
-		// 	const category = categoryId ? this.getCategory(categoryId) : null;
-		// 	return category ? `
-		//     <div class="product_extra ${category.className}">
-		//       <a href="categories.html">${category.text}</a>
-		//     </div>
-		//   ` : '';
-		// },
 		getCategory(categoryId) {
 			let className, text;
 
@@ -70,6 +62,5 @@ const app = new Vue({
 		this.catalogItems = await this.getData(this.catalogUrl);
 		this.menuItems = await this.getData(this.menuUrl);
 		this.cartItems = await this.getData(this.cartUrl);
-		console.log(this.cartItems);
 	}
 })
