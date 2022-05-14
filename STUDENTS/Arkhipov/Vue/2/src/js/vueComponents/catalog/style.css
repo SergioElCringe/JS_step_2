@@ -1,0 +1,11 @@
+.catalog {
+	height: 1200px !important;
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: space-between !important;
+}
+
+.btn-add {
+	margin: 0px auto !important;
+	width: 100% !important;
+}

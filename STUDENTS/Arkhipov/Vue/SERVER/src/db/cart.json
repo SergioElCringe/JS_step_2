@@ -1,0 +1,26 @@
+{
+ "total": 2290,
+ "items": [
+  {
+   "imgUrl": "/product_1.jpg",
+   "name": "Smart Phone",
+   "price": "670",
+   "id": "p1",
+   "amount": 2
+  },
+  {
+   "imgUrl": "/product_6.jpg",
+   "name": "Tablet",
+   "price": "220",
+   "id": "p6",
+   "amount": 2
+  },
+  {
+   "imgUrl": "/product_7.jpg",
+   "name": "Camera",
+   "price": "510",
+   "id": "p7",
+   "amount": 1
+  }
+ ]
+}
