@@ -1,14 +1,27 @@
 {
- "totalCounts": 2,
- "totalPrice": 1020,
+ "totalCounts": 11,
+ "totalPrice": 6610,
  "items": [
   {
-   "id": 2,
-   "imgUrl": "/product_2.jpg",
-   "name": "COLUMNS",
+   "id": 3,
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
+   "amount": 4
+  },
+  {
+   "id": 4,
+   "imgUrl": "/product_4.jpg",
+   "name": "MACBOOK PRO",
+   "price": 670,
+   "amount": 1
+  },
+  {
+   "id": 7,
+   "imgUrl": "/product_7.jpg",
+   "name": "IPHONE XR",
    "price": 510,
-   "totalPrice": 1020,
-   "amount": 2
+   "amount": 6
   }
  ]
 }
