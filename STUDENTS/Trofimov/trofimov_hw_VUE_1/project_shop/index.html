@@ -34,19 +34,30 @@
 								</nav>
 								<div class="header_extra ml-auto">
 									<div class="shopping_cart">
-										<a>
+										<button id="cart" @click="toggleCart()">
 											<img class="cart__icon" src="https://raw.githubusercontent.com/SergioElCringe/JS_step_2/2a6cf790af1ea158bccdbadb70fdf0e33ac188d6/PROJECT/BASE__PROJECT/images/shopping.svg" alt="cart_ic">
 											<div>Cart
 												<span id="cart-counter">(0)</span>
-												<div class="cart__block_total_price">Total price
-													<span id="cart-total-price">$0</span>
+											</div>
+										</button>
+										<div class="cart__content" id="cart-items"  v-show="open">
+											<div v-if="itemsCart.length > 0">
+												<div class="cart" v-for="item of itemsCart" :key="item.id">
+													<div class="cart__item">
+														<img class="cart__item__img" :src="productsApi + item.imgUrl">
+														<div class="cart__item__info">
+															<span>{{ item.name }}</span>
+															<div class="price__block">
+																<span>${{ item.price }}</span>
+																<span>{{ item.amount }}</span>
+															</div>
+														</div>
+														<button class="cart__delete" @click="deleteItem(item)">
+															x
+														</button>
+													</div>
 												</div>
 											</div>
-
-										</a>
-
-										<div class="cart__content" id="cart-items">
-
 										</div>
 									</div>
 									<div class="search">
@@ -311,16 +322,20 @@
 		<!-- Products -->
 
 		<div class="products">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-
-						<div class="product_grid" id="catalog">
-							<!-- SCRIPT INJECTION -->
-						</div>
-
-					</div>
+			<div class="product" v-for="item of itemsCatalog" :key="item.id">
+				<div class="product_image">
+					<img :src="productsApi + item.imgUrl">
 				</div>
+				<div class="product_extra" :class="getCategory(item.category).className">
+					<a href="categories.html">{{ getCategory(item.category).text }}</a>
+				</div>
+				<div class="product_content">
+					<div class="product_title"><a href="product.html">{{ item.name }}</a></div>
+					<div class="product_price">${{ item.price }}</div>
+				</div>
+				<button class="button button_custom btn-add" @click="addItem(item)">
+					<span>Add</span>
+				</button>
 			</div>
 		</div>
 
