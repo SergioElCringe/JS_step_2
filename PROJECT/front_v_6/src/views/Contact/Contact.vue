@@ -15,7 +15,7 @@
 
 <script>
 import HomePageBanner from '../../components/pages/UI/HomePageBanner.vue';
-import GetInTouch from '../../components/GetInTouch.vue';
+import GetInTouch from './components/GetInTouch.vue';
 import ContactInfo from './components/ContactInfo.vue';
 import GoogleMap from './components/GoogleMap.vue';
 

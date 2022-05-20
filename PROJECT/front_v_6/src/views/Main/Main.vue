@@ -6,7 +6,7 @@
     <DiscountProducts />
     <div class="products">
       <div class="container">
-        <Catalog :discountProducts="true" />
+        <Catalog :discountProducts="true" :query="{ filter: 'category' }"/>
       </div>
     </div>
     <AmazingProducts />

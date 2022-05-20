@@ -6,7 +6,6 @@ export default pl => {
       const { data = {}, params = {} } = parametres;
       base.data = data;
       base.params = params;
-      console.log(base)
       break;
     }
 

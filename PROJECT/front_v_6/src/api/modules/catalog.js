@@ -3,9 +3,9 @@ import instance from '@api/core';
 const url = '/catalog';
 
 export const catalog = {
-  async getCatalog() {
+  async getCatalog(parametres = {}) {
     try {
-      const data = await instance({url});
+      const data = await instance({url, parametres});
       return data;
     }
     catch(err) {
@@ -13,11 +13,11 @@ export const catalog = {
     }
   },
 
-  async testMethod(pl) {
+  async getProduct(id) {
     const method = 'GET';
-    const { params } = pl;
+    const URL = `${ url }/${ id }`;
     try {
-      const data = await instance({url, method, params});
+      const data = await instance({url: URL, method});
       return data;
     }
     catch(err) {

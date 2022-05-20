@@ -1,9 +1,12 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 import RequestManager from './plugins/api/index';
 
+loadFonts()
 import './assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css'
 import './assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css'
 import './assets/plugins/OwlCarousel2-2.2.1/animate.css'
@@ -24,4 +27,8 @@ import './assets/plugins/bootstrap4/bootstrap.min.css'
 
 window.$api = new RequestManager();
 
-createApp(App).use(store).use(router).mount('#app');
+createApp(App)
+  .use(router)
+  .use(store)
+  .use(vuetify)
+  .mount('#app')
