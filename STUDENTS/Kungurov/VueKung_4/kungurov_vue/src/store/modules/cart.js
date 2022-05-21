@@ -28,8 +28,7 @@ export default {
             if (!find) {
               const newItem = await { imgUrl, name, price, id, amount: 1 };
               if(imgUrl){
-                const data = await cart.getCartPost(newItem);
-            //const data = await $api.send(this.state.Cart.urlCart, 'POST', newItem);
+            const data = await $api.send(this.state.Cart.urlCart, 'POST', newItem);
               if (!data.error) {
                   this.state.Cart.items.push(newItem);
               }
