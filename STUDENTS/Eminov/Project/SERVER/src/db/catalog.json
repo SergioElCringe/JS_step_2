@@ -1,98 +1,643 @@
 [
- {
-  "imgUrl": "/product_1.jpg",
-  "name": "IPHONE 13 PRO MAX",
-  "price": 480,
-  "prevPrice": null,
-  "category": 1,
-  "id": 1
- },
- {
-  "imgUrl": "/product_2.jpg",
-  "name": "COLUMNS",
-  "price": 510,
-  "prevPrice": 640,
-  "category": 2,
-  "id": 2
- },
- {
-  "imgUrl": "/product_3.jpg",
-  "name": "HARGING WIRE",
-  "price": 720,
-  "prevPrice": null,
-  "category": 3,
-  "id": 3
- },
- {
-  "imgUrl": "/product_4.jpg",
-  "name": "MACBOOK PRO",
-  "price": 670,
-  "prevPrice": null,
-  "category": 1,
-  "id": 4
- },
- {
-  "imgUrl": "/product_5.jpg",
-  "name": "HEADPHONES",
-  "price": 510,
-  "prevPrice": 620,
-  "category": 2,
-  "id": 5
- },
- {
-  "imgUrl": "/product_6.jpg",
-  "name": "SET MACBOOK AND IPHONE",
-  "price": 320,
-  "prevPrice": null,
-  "category": 3,
-  "id": 6
- },
- {
-  "imgUrl": "/product_7.jpg",
-  "name": "IPHONE XR",
-  "price": 510,
-  "prevPrice": null,
-  "category": 1,
-  "id": 7
- },
- {
-  "imgUrl": "/product_8.jpg",
-  "name": "KEYBOARD",
-  "price": 450,
-  "prevPrice": 650,
-  "category": 2,
-  "id": 8
- },
- {
-  "imgUrl": "/product_9.jpg",
-  "name": "UNKNOWN SHIT",
-  "price": 390,
-  "prevPrice": null,
-  "category": null,
-  "id": 9
- },
- {
-  "imgUrl": "/product_10.jpg",
-  "name": "HEADPHONES PRO",
-  "price": 550,
-  "prevPrice": null,
-  "category": null,
-  "id": 10
- },
- {
-  "imgUrl": "/product_11.jpg",
-  "name": "PLAYSTATION 5",
-  "price": 680,
-  "prevPrice": null,
-  "category": null,
-  "id": 11
- },
- {
-  "imgUrl": "/product_12.jpg",
-  "name": "PHOTO CAMERA",
-  "price": 570,
-  "prevPrice": null,
-  "category": null,
-  "id": 12
- }
+    {
+        "imgUrl": [
+            "/product_1.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "IPHONE 13 PRO MAX",
+        "price": 480,
+        "prevPrice": null,
+        "category": 1,
+        "id": 1,
+        "class": "phones",
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_2.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "COLUMNS",
+        "price": 510,
+        "prevPrice": 640,
+        "category": 2,
+        "id": 2,
+        "class": "accessories",
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_3.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "HARGING WIRE",
+        "price": 720,
+        "prevPrice": null,
+        "category": 3,
+        "class": "accessories",
+        "id": 3,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_4.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "MACBOOK PRO",
+        "price": 670,
+        "prevPrice": null,
+        "category": 1,
+        "class": "notebooks",
+        "id": 4,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_5.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "HEADPHONES",
+        "price": 510,
+        "prevPrice": 620,
+        "category": 2,
+        "class": "accessories",
+        "id": 5,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_6.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "SET MACBOOK AND IPHONE",
+        "price": 320,
+        "prevPrice": null,
+        "category": 3,
+        "class": "notebooks",
+        "id": 6,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_7.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "IPHONE XR",
+        "price": 510,
+        "prevPrice": null,
+        "category": 1,
+        "class": "phones",
+        "id": 7,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_8.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "KEYBOARD",
+        "price": 450,
+        "prevPrice": 650,
+        "category": 2,
+        "class": "accessories",
+        "id": 8,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_9.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "UNKNOWN SHIT",
+        "price": 390,
+        "prevPrice": null,
+        "category": null,
+        "class": "accessories",
+        "id": 9,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_10.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "HEADPHONES PRO",
+        "price": 550,
+        "prevPrice": null,
+        "category": null,
+        "class": "accessories",
+        "id": 10,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_11.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "PLAYSTATION 5",
+        "price": 680,
+        "prevPrice": null,
+        "category": null,
+        "class": "other",
+        "id": 11,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "id": 1,
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "id": 2,
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "id": 3,
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "id": 4,
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "id": 5,
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    },
+    {
+        "imgUrl": [
+            "/product_12.jpg",
+            "/details_2.jpg",
+            "/details_3.jpg",
+            "/details_4.jpg"
+        ],
+        "name": "PHOTO CAMERA",
+        "price": 570,
+        "prevPrice": null,
+        "category": null,
+        "class": "other",
+        "id": 12,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+        "reviews": [
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            },
+            {
+                "name": "Name",
+                "evaluation": "4/5",
+                "positive": "tra-ta-ta",
+                "negative": "tra-ta-ta",
+                "comment": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+            }
+        ],
+        "availability": "in Stock"
+    }
 ]
