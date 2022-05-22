@@ -65,4 +65,7 @@ export default {
 .icon_boxes {
   display: flex;
 }
+.newsletter{
+  margin-bottom: 6%;
+}
 </style>

@@ -4,11 +4,11 @@ import prepareRequest from "./prepareRequest";
 
 const instance = axios.create({
     headers: {
-        'Content-Type' : 'application/json',       
+      'Content-Type': 'application/json',
     },
     crossdomain: true,
-    baseURL: '/api'
-});
+    baseURL: '/api',
+  });
 
 export default async params => {
     const baseParams = prepareRequest(params);
