@@ -3,31 +3,37 @@ import MainPage from '../views/Main/Main.vue';
 import Categories from '../views/Categories/Categories.vue';
 import Cart from '../views/Cart/Cart.vue';
 import Contact from '../views/Contact/Contact.vue';
+import Description from '../views/Description/Description.vue';
 
 const routes = [{
         path: '/',
         name: 'Home',
-        component: MainPage,
+        component: MainPage
     },
     {
         path: '/categories',
         name: 'Categories',
-        component: Categories,
+        component: Categories
+    },
+    {
+        path: '/categories/phone',
+        name: 'Phones',
+        component: Categories
     },
     {
         path: '/contact',
         name: 'Contact',
-        component: Contact,
+        component: Contact
     },
     {
         path: '/checkOut',
         name: 'Сheck out',
-        component: {},
+        component: {}
     },
     {
         path: '/product/:id',
         name: 'Product',
-        component: {},
+        component: Description
     },
     {
         path: '/cart',
@@ -37,12 +43,12 @@ const routes = [{
     {
         path: '/accessories',
         name: 'Accessories',
-        component: {},
+        component: {}
     },
     {
         path: '/offers',
         name: 'Offers',
-        component: {},
+        component: {}
     },
 ];
 

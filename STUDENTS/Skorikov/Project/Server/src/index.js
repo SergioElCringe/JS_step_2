@@ -57,11 +57,11 @@ server.post('/cart', async(req, res) => {
 //PUT REQUEST
 server.put('/cart/:id', async(req, res) => {
     const putItem = req.params;
-    const { value, price } = req.body;
+    const { amount, price } = req.body;
 
     try {
         const data = await readJSON(cartURL);
-        cart.changeItem(data, { value, price, id: putItem.id });
+        cart.changeItem(data, { amount, price, id: putItem.id });
         await writeJSON(cartURL, data);
         res.json({ error: false });
     } catch (err) {
