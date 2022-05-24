@@ -1,7 +1,7 @@
 <template>
   <div class="cart">
     <div class="cart__item">
-        <img class="cart__item__img" :src="ImgUrl">
+        <img class="cart__item__img" :src="imgUrl">
         <div class="cart__item__info">
             <span>Name: <b>{{ item.name }}</b></span>
             <div class="price__block">
@@ -9,41 +9,45 @@
                 <div class="qty-flex">
                     <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="changeItem({api: api.url, changes: { id: item.id, amount: -1, price: -item.price }})">-</button>
+                        <button class="item-minus" @click="increment(false)">-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="changeItem({api: api.url, changes: { id: item.id, amount: 1, price: item.price }})">+</button>
+                        <button class="item-plus" @click="increment(true)">+</button>
                     </div>
                 </div>
-                <span>Total: <b>${{ item.totalPrice }}</b></span>
+                <span>Total: <b>${{ item.price * item.amount }}</b></span>
             </div>
         </div>
     </div>
     <div>
-        <span class="item-delete"></span>
+        <span class="item-delete" @click="deleteItem({ id: item.id })"></span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 export default {
   name: 'CartItem',
   props: {
     item: {
       type: Object,
     },
-    api: {
-      type: Object,
-    },
   },
   methods: {
     ...mapActions({
-      changeItem: 'Cart/changeItem',
+      incrementAmount: 'Cart/incrementAmount',
+      deleteItem: 'Cart/deleteItem',
     }),
+    increment(val) {
+      this.incrementAmount({ id: this.item.id, amount: val ? 1 : -1 });
+    },
   },
   computed: {
-    ImgUrl() {
-      return this.api.productApi + this.item.imgUrl;
+    ...mapState({
+      productApi: state => state.Catalog.productApi,
+    }),
+    imgUrl() {
+      return this.productApi + this.item.imgUrl;
     },
   },
 };

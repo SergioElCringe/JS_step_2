@@ -1,49 +1,53 @@
 <template>
-  <div class="product_grid">
+  <div class="product_grid" v-if="discountProducts">
     <CatalogItem
-      v-for="item of items"
+      v-for="item of filteredCatalog"
       :key="item.key"
       :item="item"
-      :api="api"
-      :hasCategory="discountProducts ? discountProducts : false"
     />
+  </div>
+  <div v-else>
+    <div class="product_grid">
+      <CatalogItem
+        v-for="item of sortedCatalog"
+        :key="item.key"
+        :item="item"
+      />
+    </div>
+    <div class="product_pagination">
+      <ul>
+        <li class="active mr-3">
+          <button><span>1</span></button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import CatalogItem from './items/CatalogItem.vue';
-
+import { mapActions, mapGetters } from 'vuex';
 export default {
   name: 'Catalog',
   components: { CatalogItem },
   props: {
     discountProducts: {
-      type: Boolean
+      type: Boolean,
     },
   },
-
-  data() {
-    return {
-      items: [],
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/catalog',
-      },
-    };
-  },
-
   methods: {
-    async fetchCatalog() {
-      try {
-        this.items = await $api.send(this.api.url, 'GET');
-      } catch (err) {
-        console.warn(err);
-      }
-    },
+    ...mapActions({
+      getCatalog: 'Catalog/getCatalog',
+    }),
   },
-
-  created() {
-    this.fetchCatalog();
+  computed: {
+    ...mapGetters({
+      filteredCatalog: 'Catalog/filteredCatalog',
+      sortedCatalog: 'Catalog/sortedCatalog',
+    }),
+  },
+  async created() {
+    await this.getCatalog();
   },
 };
 </script>
