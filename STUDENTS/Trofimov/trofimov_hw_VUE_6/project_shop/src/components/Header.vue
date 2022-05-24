@@ -112,11 +112,6 @@ export default {
    components: {
     Cart
   },
-  methods: {
-    hi(){
-      console.log(this.item)
-    }
-  },
 }
 </script>
 
