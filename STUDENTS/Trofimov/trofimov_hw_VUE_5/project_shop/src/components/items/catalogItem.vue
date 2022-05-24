@@ -10,13 +10,15 @@
       </div>
       <div class="product_price">$ {{ item.price }}</div>
     </div>
-    <div class="button button_custom btn-add" id="item.id" @click="this.$parent.addItem(item)">
+    <div class="button button_custom btn-add" id="item.id" @click="addItem(item)">
       <span>Add</span>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters , mapActions} from 'vuex';
+
 export default {
     name: 'CatalogItem',
     props: ['item', 'imgApi' , 'id' ],
@@ -28,6 +30,12 @@ export default {
           '3': 'Sale'
         },
       };
+    },
+
+    methods: {
+      ...mapActions({
+        addItem: 'Cart/addItem'
+      }),
     },
   
     computed: {
