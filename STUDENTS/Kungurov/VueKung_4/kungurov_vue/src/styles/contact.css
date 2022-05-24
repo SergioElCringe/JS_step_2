@@ -849,7 +849,7 @@ section
 {
 	display: inline-block;
 	position: relative;
-	font-size: 14px;
+	font-size: 40px;
 	font-weight: 500;
 	color: #e95a5a;
 }
@@ -863,7 +863,7 @@ section
 }
 .breadcrumbs ul li a
 {
-	font-size: 14px;
+	font-size: 40px;
 	font-weight: 500;
 	color: #FFFFFF;
 	-webkit-transition: all 200ms ease;
