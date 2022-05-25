@@ -1,24 +1,29 @@
 <template>
 	<div class="super_container">
-		<Header />
-		<div class="view-container">
-			<router-view/>
-		</div>
-		<Footer/>
+		<v-app>
+			<Header />
+				<div class="view-container">
+					<v-main>
+						<router-view/>
+					</v-main>
+				</div>
+			<Footer />
+		</v-app>
 	</div>
 </template>
 
 <script>
-import Home from './views/Home.vue'
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 export default {
-    components: { Home, Header, Footer }
+  name: 'App',
+	components: { Header, Footer },
+  data: () => ({
+    //
+  }),
 }
 </script>
-
-<style lang="scss">
+<style>
 .view-container{
 	margin: 130px 0px;
 }
