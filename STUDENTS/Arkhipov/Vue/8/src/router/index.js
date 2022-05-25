@@ -3,7 +3,7 @@ import Home from '@views/Home';
 import Category from '@views/Category';
 import Accessories from '@views/Accessories';
 import Offers from '@views/Offers';
-import Contact from '@views/Contact';
+import Contact from '@views/Contact/Contact';
 import Cart from '@views/Cart';
 import Product from '@views/Product/Product';
 
