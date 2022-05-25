@@ -11,21 +11,21 @@
 									<li class="hassubs active">
 										<router-link to="/">Home</router-link>
 										<ul>
-											<!-- <li><router-link to="/categories">Categories</router-link></li>
-											<li><router-link to="/product">Product</router-link></li> -->
+											<li><router-link to="/categories">Categories</router-link></li>
+											<li><router-link to="/product">Product</router-link></li>
 											<li><router-link to="/cart">Cart</router-link></li>
-											<!-- <li><router-link to="/checkout">Checkout</router-link></li>
-											<li><router-link to="/contact">Contact</router-link></li> -->
+											<li><router-link to="/checkout">Checkout</router-link></li>
+											<li><router-link to="/contact">Contact</router-link></li>
 										</ul>
 									</li>
 									<li class="hassubs">
-										<!-- <li><router-link to="/categories">Categories</router-link></li> -->
+										<li><router-link to="/categories">Categories</router-link></li>
 										<ul>
-											<!-- <li><router-link to="/categories">Categories</router-link></li>
 											<li><router-link to="/categories">Categories</router-link></li>
 											<li><router-link to="/categories">Categories</router-link></li>
 											<li><router-link to="/categories">Categories</router-link></li>
-											<li><router-link to="/categories">Categories</router-link></li> -->
+											<li><router-link to="/categories">Categories</router-link></li>
+											<li><router-link to="/categories">Categories</router-link></li>
 										</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
