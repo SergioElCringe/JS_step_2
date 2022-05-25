@@ -12,4 +12,16 @@ export const catalog  = {
             throw err;
         }
     },
+
+    async getProduct(id) {
+        const method = 'GET';
+        const URL = `${ url }/${ id }`;
+        try {
+            const data = await instance({url: URL, method});
+            return data;
+        }
+        catch(err) {
+            throw err;
+        }
+    }
 }; 
