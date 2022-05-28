@@ -1,0 +1,98 @@
+[
+    {
+        "imgUrl": "/product_1.jpg",
+        "name": "IPHONE 13 PRO MAX",
+        "price": 880,
+        "prevPrice": null,
+        "category": 1,
+        "id": "1"
+    },
+    {
+        "imgUrl": "/product_2.jpg",
+        "name": "SPEAKERS",
+        "price": 510,
+        "prevPrice": 640,
+        "category": 2,
+        "id": "2"
+    },
+    {
+        "imgUrl": "/product_3.jpg",
+        "name": "CHARGING WIRE",
+        "price": 20,
+        "prevPrice": null,
+        "category": 3,
+        "id": "3"
+    },
+    {
+        "imgUrl": "/product_4.jpg",
+        "name": "MACBOOK AIR",
+        "price": 695,
+        "prevPrice": null,
+        "category": 1,
+        "id": "4"
+    },
+    {
+        "imgUrl": "/product_5.jpg",
+        "name": "HEADPHONES",
+        "price": 57,
+        "prevPrice": 620,
+        "category": 2,
+        "id": "5"
+    },
+    {
+        "imgUrl": "/product_6.jpg",
+        "name": "MACBOOK AND IPHONE",
+        "price": 2320,
+        "prevPrice": null,
+        "category": 3,
+        "id": "6"
+    },
+    {
+        "imgUrl": "/product_7.jpg",
+        "name": "IPHONE 10X",
+        "price": 1110,
+        "prevPrice": null,
+        "category": 1,
+        "id": "7"
+    },
+    {
+        "imgUrl": "/product_8.jpg",
+        "name": "KEYBOARD",
+        "price": 850,
+        "prevPrice": 650,
+        "category": 2,
+        "id": "8"
+    },
+    {
+        "imgUrl": "/product_9.jpg",
+        "name": "OTHERS",
+        "price": 390,
+        "prevPrice": null,
+        "category": null,
+        "id": "9"
+    },
+    {
+        "imgUrl": "/product_10.jpg",
+        "name": "HEADPHONES PROFESSIONAL VERSION",
+        "price": 550,
+        "prevPrice": null,
+        "category": null,
+        "id": "10"
+    },
+    {
+        "imgUrl": "/product_11.jpg",
+        "name": "PLAYSTATION V",
+        "price": 1280,
+        "prevPrice": null,
+        "category": null,
+        "id": "11"
+    },
+    {
+        "imgUrl": "/product_12.jpg",
+        "name": "CAMERAS",
+        "price": 590,
+        "prevPrice": null,
+        "category": null,
+        "id": "12"
+    }
+]
