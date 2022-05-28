@@ -5,40 +5,45 @@
         <div class="cart__item__info">
             <span>Name: <b>{{ item.name }}</b></span>
             <div class="price__block">
-                <span>Cost: <b>{{ item.price }}$</b></span>
+                <span>Cost: <b>${{ item.price }}</b></span>
                 <div class="qty-flex">
-                    <span>Quantity:</span>
+                    <span>Qty:</span>
                     <div class="qty">
-                        <button class="item-minus" @click="$parent.changeItem(item.id, -1, -item.price)">-</button>
+                        <button class="item-minus" @click="changeItem({api: api.url, changes: { id: item.id, amount: -1, price: -item.price }})">-</button>
                         <span class="amount">{{ item.amount }}</span>
-                        <button class="item-plus" @click="$parent.changeItem(item.id, 1, item.price)">+</button>
+                        <button class="item-plus" @click="changeItem({api: api.url, changes: { id: item.id, amount: 1, price: item.price }})">+</button>
                     </div>
                 </div>
-                <span>Total: <b>{{ item.totalPrice }}$</b></span>
+                <span>Total: <b>${{ item.totalPrice }}</b></span>
             </div>
         </div>
     </div>
     <div>
-        <span class="item-delete" @click="$parent.deleteItem(false, item.id)"></span>
+        <span class="item-delete"></span>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'CartItem',
   props: {
     item: {
-    type: Object,
+      type: Object,
     },
     api: {
-    type: Object,
+      type: Object,
     },
   },
-
+  methods: {
+    ...mapActions({
+      changeItem: 'Cart/changeItem',
+    }),
+  },
   computed: {
     ImgUrl() {
-    return this.api.productApi + this.item.imgUrl;
+      return this.api.productApi + this.item.imgUrl;
     },
   },
 };

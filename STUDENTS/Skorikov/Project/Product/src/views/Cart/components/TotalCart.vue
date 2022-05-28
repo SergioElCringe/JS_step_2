@@ -7,24 +7,25 @@
             <ul>
                 <li class="d-flex flex-row align-items-center justify-content-start">
                     <div class="cart_total_title">Subtotal</div>
-                    <div class="cart_total_value ml-auto subtotal">${{ total }}</div>
+                    <div class="cart_total_value ml-auto subtotal">${{ totalPrice }}</div>
                 </li>
                 <li class="d-flex flex-row align-items-center justify-content-start">
                     <div class="cart_total_title">Shipping</div>
-                    <div class="cart_total_value ml-auto shipping">$0</div>
+                    <div class="cart_total_value ml-auto shipping">${{ shipping }}</div>
                 </li>
                 <li class="d-flex flex-row align-items-center justify-content-start">
                     <div class="cart_total_title">Total</div>
-                    <div class="cart_total_value ml-auto main-total">${{ total }}</div>
+                    <div class="cart_total_value ml-auto main-total">${{ cheque }}</div>
                 </li>
             </ul>
         </div>
-        <div class="button checkout_button"><a href="checkout.html">Proceed to checkout</a></div>
+        <div class="button checkout_button"><router-link to="/checkout">Proceed to checkout</router-link></div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState} from 'vuex';
 export default {
   name: 'TotalCart',
   data() {
@@ -33,20 +34,22 @@ export default {
       url: '/api/cart',
     };
   },
-
   methods: {
-    async fetchCart() {
-      try {
-        const data = await $api.send(this.url, 'GET');
-        this.total = data.totalPrice;
-      } catch (err) {
-        console.warn(err);
-      };
-    },
+    ...mapActions({
+      getCart: 'Cart/getCart',
+    }),
   },
-
-  created() {
-    this.fetchCart();
+  computed: {
+    ...mapGetters({
+      totalPrice: 'Cart/totalPrice',
+      cheque: 'Cart/cheque',
+    }),
+    ...mapState({
+      shipping: state => state.Cart.shippingMethod.price,
+    }),
+  },
+  async created() {
+    await this.getCart(this.url);
   },
 };
 </script>
