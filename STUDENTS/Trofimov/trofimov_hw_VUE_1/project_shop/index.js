@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/cart_responsive.css';
 import './styles/cart.css';
 import './styles/categories_responsive.css';
@@ -11,9 +12,6 @@ import './styles/product_responsive.css';
 import './styles/product.css';
 import './styles/responsive.css';
 
-import app from './js/components/app';
+import app from './js/app';
 
-import RequestManager from './js/components/api';
-
-const request = new RequestManager();
-app(request);
+const project = new Vue(app);
