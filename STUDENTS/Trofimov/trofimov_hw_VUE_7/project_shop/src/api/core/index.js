@@ -7,7 +7,7 @@ const instance = axios.create({
         'Content-Type' : 'application/json',       
     },
     crossdomain: true,
-    baseURL: '/api'
+    baseURL: '/api',
 });
 
 export default async params => {

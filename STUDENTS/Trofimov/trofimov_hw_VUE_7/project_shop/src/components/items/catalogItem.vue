@@ -1,6 +1,6 @@
 <template>
-  <div class="product">
-    <div class="product_image"><img :src="imgApi + item.imgUrl" alt="" /></div>
+  <a class="product">
+    <div class="product_image" @click.prevent="$router.push('/catalog/' + item.id)"><img :src="imgApi + item.imgUrl" alt="" /></div>
     <div v-if="category" class="product_extra" :class="category.class">
       <a href="categories.html">{{ category.text }}</a>
     </div>
@@ -13,7 +13,7 @@
     <div class="button button_custom btn-add" id="item.id" @click="addItem(item)">
       <span>Add</span>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -54,9 +54,10 @@ export default {
 <style>
 .product{
   display: flex;
-    margin-right : 5%;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  margin-right : 5%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  z-index: 6;
 }
 .product_image{
   width: 350px;
