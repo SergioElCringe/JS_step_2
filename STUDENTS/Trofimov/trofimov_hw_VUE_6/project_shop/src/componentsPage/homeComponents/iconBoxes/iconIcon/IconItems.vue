@@ -17,10 +17,6 @@
 export default {
   props: ['item' , 'img'],
   name: 'IconItems',
-
-created() {
-  console.log(this.img + this.item.imgUrl)
-}
 };
 </script>
 
