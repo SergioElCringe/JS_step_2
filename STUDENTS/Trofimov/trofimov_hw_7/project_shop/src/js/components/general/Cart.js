@@ -3,8 +3,8 @@ import Item from "./LIST_ITEM";
 const url = '/api/cart';
 
 export default class Cart extends List {
-    constructor( type) {
-        super(url, type);
+    constructor(api, type) {
+        super(api, url);
         this.type = 'cart';
         this.containerItems = null;
         this.containerCounter = null;
@@ -24,9 +24,14 @@ export default class Cart extends List {
 
     async _init() {
         try {
-            const data = await this._fetchData();
-            this.items = data.items;
-        } catch {
+            const data = await this.request.send(this.url, 'GET');
+            if (data) {
+                const { items } = data;
+            this.items = items;
+            } else{
+                this.error = true;
+            }
+        } catch(err) {
             this.error = err;
         } finally {
             this._initContainers();
@@ -56,14 +61,9 @@ export default class Cart extends List {
         let deleted = event.target.id;
         let m = +deleted;
             try {
-                const data = fetch(this.url + `/${deleted}`, {
-                    method: 'DELETE',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({deleted}),
-                });
-     
+                const data = await this.request.send(this.url + `/${del}`, 'DELETE', {del});
                 this.index = this.items.find((el, i) => {
-                    if (el.id == m) {
+                    if (el.id == minus) {
                         this.items.splice(i, 1);
                         this._render();
                     }
@@ -82,32 +82,22 @@ export default class Cart extends List {
             if (!find) {
                 const newItem = await { imgUrl, name, price, id, amount: 1 };
                 if(imgUrl){
-                    const data = await fetch(this.url, {
-                        method: 'POST',
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(newItem),
-                    }).then(d => d.json());
+                    const data = await this.request.send(this.url, 'POST', newItem);
                     if (!data.error) {
                         this.items.push(newItem);
-                        this._render();
                     }
-                }
                 } else {
-                    const data = await fetch(this.url + `/${ id }`, { 
-                        method: 'PUT',
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({value: 1}),
-                    }).then(d => d.json());
+                    const data = await this.request.send(this.url, 'PUT', { value: 1 }, id);
                     if (!data.error) {
                         find.amount++;
                     }
-                    this._init();
                 }
-        }
-        catch(err) {
+                this._init();
+            }
+        } catch(err) {
             console.warn(err);
         }
-    }    
+    } 
 
     countAmount() {
         this.itemsCount = this.items.reduce((acc, item) => {
@@ -120,11 +110,11 @@ export default class Cart extends List {
         this.click = !this.click;
     }
 
-    _render() {
+    async _render() {
         let result = '';
         if (this.items.lenght != 0) {
             this.items.forEach(item => {
-                const newItem = new Item( item , this.type );
+                const newItem = new Item(item , this.type );
                 result += newItem.template;
             });
         }

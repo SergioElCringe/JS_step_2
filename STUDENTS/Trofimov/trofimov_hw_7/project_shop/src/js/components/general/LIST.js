@@ -1,7 +1,7 @@
 import Item from "./LIST_ITEM";
 
 export default class List {
-    constructor(url, type) { 
+    constructor(api, url, type) { 
         this.items = [];
         this.url = url;
         this.info = null;
@@ -9,16 +9,18 @@ export default class List {
         this._init();
         this.container = [];
         this.cart = '';
+        this.request = api;
+
+        this._init();
     }
 
     async _init() {
         try {
-            this.items = await this._fetchData();
-        }
-        catch(err) {
+            const data = await this.request.send(this.url , 'GET');
+            this.items = data;
+        } catch(err) {
             this.error = err;
-        }
-        finally {
+        } finally {
             this._initContainers();
             if (!this.error) {
                 this._render();
@@ -30,19 +32,12 @@ export default class List {
 
     _render() {
         let result = '';
-        this.items.forEach(item => {
-            const newItem = new Item(item, this.type);
-            result += newItem.template;
-        });
-
+        if (this.items.lenght != 0){
+            this.items.forEach((item) => {
+                const newItem = new Item(item, this.type);
+                result += newItem.template;   
+            });
+        }
         this.container.innerHTML = result;
     }
-
-    async _fetchData() {
-        const response = await fetch(this.url)
-            .then(elem => elem.json())
-            .catch(err => err);
-        return response;
-    }
 }
-

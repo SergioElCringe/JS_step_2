@@ -88,7 +88,7 @@ export default class topNav {
         let result = '';
 
         if (!sub) {
-            result += `<li><a href="${ link }">${ text }</a></li>`
+            result += `<li><a href="${ link }">${ text }</a></li>`;
         } else {
             result += `
                 <li  class= "hassubs">

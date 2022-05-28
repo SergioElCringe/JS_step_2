@@ -9,7 +9,7 @@ module.exports = {
     entry: {
         app: ['babel-polyfill', './src/index.js'],
     },
-    mode: 'production',
+    mode: 'development',
     performance: {
         hints: false,
         maxEntrypointSize: 512000,
