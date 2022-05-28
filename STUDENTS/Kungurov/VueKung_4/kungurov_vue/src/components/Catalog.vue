@@ -6,27 +6,40 @@
 
 <script>
 import catalogItem from '../components/items/catalogItem.vue'
+import { mapState, mapGetters , mapActions} from 'vuex';
+
+
 export default {
 name: 'Catalog',
   components: { catalogItem },
   data() {
     return {
-      items: [],
       url: '/api/catalog',
       imgApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
       error: null,
     };
   },
   
-  async created() {
-    try {
-      const data = await $api.send(this.url, 'GET');
-      this.items = data;
-    }
-    catch(err) {
-      this.error = err;
-    }
+  methods: {
+    ...mapActions({
+      getCatalog: 'Catalog/getCatalog',
+    }),
   },
+
+  computed: {
+    ...mapGetters({
+      items: 'Catalog/itemsMain'
+    })
+  },
+
+   async created() {
+     try {
+       await this.getCatalog(this.url)
+     }
+     catch(err) {
+       console.warn(err)
+     }
+   }
 };
 </script>
 

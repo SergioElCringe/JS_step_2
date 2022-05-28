@@ -9,7 +9,7 @@
       </div>
             <!-- Cart Item -->
             <div class="cartCart">
-        <cartItem v-for="item of itemsCart"
+        <cartItem v-for="item of items"
         :key="item.id"
         :item="item"
         :productsApi="productsApi"
@@ -24,31 +24,38 @@
 <script>
 import cartItem from '../components/items/cartItem.vue'
 import Delivery from '../componentsPage/cartComponents/Delivery.vue'
+import { mapGetters , mapActions } from 'vuex';
 export default {
   components: { cartItem , Delivery },
  data() {
       return {
-        items: [],
         urlCart: '/api/cart',
         error: null,
         productsApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products/',
         itemsCart: [],
-        money : 0
       };
     },
-    methods: {
-      async howMoney() {
-			this.money = 0;
-			await this.itemsCart.find((el) => {
-					this.money += el.price * el.amount;
-				});
-		}
-    },
-  async created() {
-    const cart = await fetch(this.urlCart).then(d => d.json());
-    this.itemsCart = cart.items;
-    this.howMoney();
-  }
+
+   methods: {
+		...mapActions({
+      		getCart: 'Cart/getCart'
+    	}),
+  },
+
+  computed: {
+ 	  ...mapGetters({
+      items: 'Cart/itemsCheck',
+	    money: 'Cart/moneyCheck'
+ 	  })
+ 	 },
+   async created() {
+     try {
+      	await this.getCart(this.urlCart)
+     }
+     catch(err) {
+       console.warn(err)
+     }
+   },
 };
 </script>
 <style>
