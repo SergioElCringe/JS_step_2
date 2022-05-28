@@ -8,14 +8,22 @@
         <span>количество: {{ item.amount }}</span>
       </div>
     </div>
-    <button class="delete" @click="this.$parent.deleteItem(item)">x</button>
+    <button class="delete" @click="deleteItem(item)"> x </button>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
-    name: 'CartItem',
-    props: ['item', 'productsApi'],
+  name: 'CartItem',
+  props: ['item', 'productsApi'],
+
+  methods: {
+    ...mapActions({
+      deleteItem: 'Cart/deleteItem'
+    }),
+  },
 };
 </script>
 
