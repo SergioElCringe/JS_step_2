@@ -1,5 +1,4 @@
 <template>
-  <div class="footer_overlay"></div>
     <footer class="footer">
       <div
         class="footer_background"
@@ -58,8 +57,9 @@ export default {
 </script>
 
 <style>
-.footer_overlay{
+.footer{
   background-image: url(../assets/img/footer.jpg);
   background-size: cover;
+  z-index: 5;
 }
 </style>
