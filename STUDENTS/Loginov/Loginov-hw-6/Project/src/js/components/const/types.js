@@ -77,32 +77,5 @@ export default {
     }
   },
   menu: {
-    // get(items) {
-    //   let res = '<ul>';
-    //   items.forEach(item => {
-    //     res += this.createItem(item);
-    //   });
-    //   res += '</ul>';
-
-    //   return res;
-    // },
-
-    // createItem(item) {
-    //   const sub = !!item.items?.length || false;
-    //   const { link, text } = item;
-
-    //   let result = '';
-    //   if (!sub) {
-    //     result += `<li><a href="${link}">${text}</a></li>`;
-    //   } else {
-    //     result += `
-    //           <li  class="hassubs">
-    //               <a href="${link}">${text}</a>
-    //               ${this.createMenu(item.items)}
-    //           </li>
-    //       `;
-    //   };
-    //   return result;
-    // }
   },
 };
