@@ -112,11 +112,7 @@ async addItem(item) {
   }
 
   onMouseDown() {
-    if (this.click == false) {
-      this.click = true;
-    } else {
-      this.click = false;
-    }
+      this.click = !this.click;
   }
 
    async _render() {
@@ -127,7 +123,7 @@ async addItem(item) {
       result += newItem.template;
     });
   }
-      if (this.click == true) {
+      if (this.click) {
         let cartShow = `
         <div id="cart">
          <h2>Ваша корзина :</h2> 
