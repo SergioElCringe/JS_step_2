@@ -7,13 +7,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Sublime project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="./assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="./assets/plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
 </head>
 
 <body>
@@ -302,17 +295,6 @@
 		</div>
 
 		<!-- Products -->
-
-
-		<!-- <div>
-			<div class="items" v-if="ready">
-				<div class="item" v-for="item of itemsCatalog" :key="item.id">
-					<b>{{ item.name }}</b>
-					<p>${{ item.price }}</p>
-					<button @click="buy(item)">Buy</button>
-				</div>
-			</div>
-		</div> -->
 		<div class="products">
 			<div class="product" v-for="item of itemsCatalog" :key="item.id">
 				<div class="product_image">
@@ -445,82 +427,7 @@
 	<script src="./assets/plugins/Isotope/isotope.pkgd.min.js"></script>
 	<script src="./assets/plugins/easing/easing.js"></script>
 	<script src="./assets/plugins/parallax-js-master/parallax.min.js"></script>
-	<!-- <script src="js/custom.js"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-	<!-- <script>
-		const app = new Vue({
-			el: '#app',
-			data: {
-				itemsCatalog: null,
-				itemsCart: [],
-				urlCatalog: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/SERVER_7/src/db/catalog.json',
-				// urlCart: '/js/api/cart',
-				productsApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products/',
-				open: false,
-			},
-			methods: {
-				addItem(item) {
-					const { imgUrl, name, price, id, amount = 1 } = item;
-					const find = this.itemsCart.find(cartItem => cartItem.id === id);
-
-					if (!find) {
-						const newItem = { imgUrl, name, price, id, amount: 1 };
-						this.itemsCart.push(newItem);
-					} else {
-						find.amount++;
-					}
-					console.log(this.itemsCart);
-				},
-
-				deleteItem(item) {
-					const { id, amount = 1 } = item;
-					const find = this.itemsCart.find(cartItem => cartItem.id === id);
-					if (find.amount > 1) {
-						find.amount--;
-					}
-					else {
-						this.itemsCart = this.itemsCart.filter(el => el.id !== id);
-					}
-				},
-
-				getCategory(category) {
-					let className, text;
-
-					switch (category) {
-						case 1: {
-							className = 'product_new';
-							text = 'New';
-							break;
-						}
-
-						case 2: {
-							className = 'product_hot';
-							text = 'Hot';
-							break;
-						}
-
-						default: {
-							className = 'product_sale';
-							text = 'Sale';
-						}
-					};
-					return { className, text };
-				},
-
-				toggleCart() {
-					this.open = !this.open;
-				}
-			},
-			async created() {
-				try {
-					const catalog = await fetch(this.urlCatalog).then(d => d.json());
-					this.itemsCatalog = catalog;
-				} catch (err) {
-					console.warn(err);
-				};
-			}
-		})
-	</script> -->
 </body>
 
 </html>

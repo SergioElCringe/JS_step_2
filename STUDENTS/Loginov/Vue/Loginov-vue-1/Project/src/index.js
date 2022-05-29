@@ -15,11 +15,6 @@ import './styles/f-a/css/font-awesome.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-// import RequestManager from './js/components/api';
-// const request = new RequestManager();
-// app(request);
-
-
 import app from './js/app';
 const project = new Vue(app);
 
