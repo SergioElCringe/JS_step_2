@@ -7,7 +7,7 @@
             <div class="header_content d-flex flex-row align-items-center justify-content-start">
               <div class="logo"><router-link to="/">Sublime.</router-link></div>
               <nav class="main_nav">
-                  <MenuNav />
+                  <Menunav />
               </nav>
               <div class="header_extra ml-auto">
                 <Cart v-if="cartAvailable" />
@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import MenuNav from '@components/MenuNav.vue';
+import Menunav from '@components/Menunav.vue';
 import Cart from '@components/Cart.vue';
 import SearchPanel from '@components/pages/UI/SearchPanel.vue';
 import Social from '@components/pages/UI/Social.vue';
 export default {
   name: 'Header',
-  components: { MenuNav, Cart, SearchPanel, Social },
+  components: { Menunav, Cart, SearchPanel, Social },
   data() {
     return {
       showSearchPanel: false,

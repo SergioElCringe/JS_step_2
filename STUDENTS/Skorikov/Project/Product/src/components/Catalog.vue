@@ -20,13 +20,6 @@
         @addItem="addItem"
       />
     </div>
-    <div class="product_pagination">
-      <ul>
-        <li class="active mr-3">
-          <button><span>1</span></button>
-        </li>
-      </ul>
-    </div>
   </div>
 </template>
 
