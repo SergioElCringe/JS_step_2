@@ -5,7 +5,7 @@
         <div class="avds_background avds-small-bg"></div>
         <div class="avds_small_inner">
           <div class="avds_discount_container">
-            <img src="../../../assets/img/discount.png" />
+            <img src="../../../../assets/img/discount.png" />
             <div>
               <div class="avds_discount">
                 <div>20<span>%</span></div>

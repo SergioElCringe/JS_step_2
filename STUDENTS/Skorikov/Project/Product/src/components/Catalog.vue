@@ -4,6 +4,9 @@
       v-for="item of filteredCatalog"
       :key="item.key"
       :item="item"
+      :productApi="productApi"
+      :categories="categories"
+      @addItem="addItem"
     />
   </div>
   <div v-else>
@@ -12,6 +15,9 @@
         v-for="item of sortedCatalog"
         :key="item.key"
         :item="item"
+        :productApi="productApi"
+        :categories="categories"
+        @addItem="addItem"
       />
     </div>
     <div class="product_pagination">
@@ -26,7 +32,7 @@
 
 <script>
 import CatalogItem from './items/CatalogItem.vue';
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 export default {
   name: 'Catalog',
   components: { CatalogItem },
@@ -38,12 +44,17 @@ export default {
   methods: {
     ...mapActions({
       getCatalog: 'Catalog/getCatalog',
+      addItem: 'Cart/addItem',
     }),
   },
   computed: {
     ...mapGetters({
       filteredCatalog: 'Catalog/filteredCatalog',
       sortedCatalog: 'Catalog/sortedCatalog',
+    }),
+    ...mapState({
+      productApi: state => state.Catalog.productApi,
+      categories: state => state.Catalog.categories,
     }),
   },
   async created() {

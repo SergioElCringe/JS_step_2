@@ -5,17 +5,17 @@
         <div class="section_subtitle">Final info</div>
         <div class="cart_total_container">
             <ul>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Subtotal</div>
                     <div class="cart_total_value ml-auto subtotal">${{ totalPrice }}</div>
                 </li>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Shipping</div>
                     <div class="cart_total_value ml-auto shipping">${{ shipping }}</div>
                 </li>
-                <li class="d-flex flex-row align-items-center justify-content-start">
+                <li class="d-flex flex-row align-items-center justify-content-between">
                     <div class="cart_total_title">Total</div>
-                    <div class="cart_total_value ml-auto main-total">${{ cheque }}</div>
+                    <div class="cart_total_value ml-auto main-total">${{ total }}</div>
                 </li>
             </ul>
         </div>
@@ -25,34 +25,23 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState} from 'vuex';
 export default {
   name: 'TotalCart',
-  data() {
-    return {
-      total: null,
-      url: '/api/cart',
-    };
-  },
-  methods: {
-    ...mapActions({
-      getCart: 'Cart/getCart',
-    }),
-  },
-  computed: {
-    ...mapGetters({
-      totalPrice: 'Cart/totalPrice',
-      cheque: 'Cart/cheque',
-    }),
-    ...mapState({
-      shipping: state => state.Cart.shippingMethod.price,
-    }),
-  },
-  async created() {
-    await this.getCart(this.url);
+  props: {
+    totalPrice: {
+      type: Number,
+      default: () => 0,
+    },
+    
+    total: {
+      type: Number,
+      default: () => 0,
+    },
+
+    shipping: {
+      type: Number,
+      default: () => 0,
+    },
   },
 };
 </script>
-
-<style>
-</style>

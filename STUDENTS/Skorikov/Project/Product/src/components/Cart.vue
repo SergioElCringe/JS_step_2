@@ -9,12 +9,18 @@
       </div>
     </button>
     <div class="cart__content" v-show="openCart">
+      <div class="cart__close">
+        <button class="cart__close__btn" @click="openCart = !openCart">Close the cart</button>
+      </div>
+      <hr>
       <div v-if="items.length > 0">
         <cartItem
           v-for="item of items"
           :key="item.id"
           :item="item"
-          :api="api"
+          :productApi="productApi"
+          @incrementAmount="incrementAmount"
+          @deleteItem="deleteItem"
         />
         <hr />
         <div class="action">
@@ -24,17 +30,13 @@
             </span>
           </div>
           <div class="clear-all">
-            <span id="remove" @click="deleteItem(true)"
-              ><b>Remove all products</b></span
-            >
+            <span id="remove" @click="getClearCart({ clearCart: true })"><b>Remove all products</b></span>
           </div>
         </div>
       </div>
       <div v-else>
         <p class="no-bascket">
-          <b
-            >There are no products. Select products to purchase from catalog.</b
-          >
+          <b>There are no products. Select products to purchase from catalog.</b>
         </p>
       </div>
     </div>
@@ -50,21 +52,21 @@ export default {
   data() {
     return {
       openCart: false,
-      api: {
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
-        url: '/api/cart',
-      },
+      interval: null,
     };
   },
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
       getClearCart: 'Cart/clearCart',
+      incrementAmount: 'Cart/incrementAmount',
+      deleteItem: 'Cart/deleteItem',
     }),
   },
   computed: {
     ...mapState({
       items: state => state.Cart.items,
+      productApi: state => state.Catalog.productApi,
     }),
     ...mapGetters({
       totalCount: 'Cart/totalCount',
@@ -72,7 +74,14 @@ export default {
     }),
   },
   async created() {
-    await this.getCart(this.api.url);
+    await this.getCart();
+    this.interval = setInterval(() => {
+      this.getCart();
+    }, 10000);
+  },
+  beforeUnmount() {
+    window.clearInterval(this.interval);
+    this.interval = null;
   },
 };
 </script>

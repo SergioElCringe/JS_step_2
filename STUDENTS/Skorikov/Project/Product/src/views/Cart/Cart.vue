@@ -16,13 +16,17 @@
 
         <ShoppingCart />
 
-        <div class="row row_extra">
+        <div class="row row_extra mt-5">
           <div class="col-lg-4">
             <ShippingMethods />
             <Coupon />
           </div>
           
-          <TotalCart />
+          <TotalCart 
+            :totalPrice="totalPrice"
+            :total="total"
+            :shipping="shipping"
+          />
         </div>
       </div>
     </div>
@@ -30,14 +34,24 @@
 </template>
 
 <script>
-import HomePageBanner from '../../components/pages/UI/HomePageBanner.vue';
-import ShoppingCart from '../../components/ShoppingCart.vue';
-import ShippingMethods from '../../components/ShippingMethods.vue';
-import Coupon from './components/Coupon.vue';
-import TotalCart from './components/TotalCart.vue';
+import HomePageBanner from '@components/pages/UI/HomePageBanner.vue';
+import ShoppingCart from './components/ShoppingCart.vue';
+import ShippingMethods from './components/ShippingMethods.vue';
+import Coupon from './components/UI/Coupon.vue';
+import TotalCart from './components/UI/TotalCart.vue';
+import { mapGetters, mapState} from 'vuex';
 export default {
   name: 'FinallyCart',
   components: { ShoppingCart, ShippingMethods, Coupon, TotalCart, HomePageBanner },
+  computed: {
+    ...mapGetters({
+      totalPrice: 'Cart/totalPrice',
+      total: 'Cart/total',
+    }),
+    ...mapState({
+      shipping: state => state.Cart.shippingMethod.price,
+    }),
+  },
 };
 </script>
 

@@ -7,6 +7,9 @@
             v-for="item of items"
             :key="item.id"
             :item="item"
+            :productApi="productApi"
+            @incrementAmount="incrementAmount"
+            @deleteItem="deleteItem"
           />
         </div>
         <p class="no-bascket" v-else><b>There are no products. Select products to purchase from catalog.</b></p>
@@ -14,7 +17,7 @@
     </div>
     <div class="row row_cart_buttons">
       <div class="col">
-        <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
+        <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-between">
           <div class="button continue_shopping_button"><router-link to="/categories">Continue shopping</router-link></div>
           <div class="cart_buttons_right ml-lg-auto flex">
             <div class="button clear_cart_button action"><button @click="getClearCart({ clearCart: true })">Clear cart</button></div>
@@ -36,18 +39,20 @@ export default {
     ...mapActions({
       getCart: 'Cart/getCart',
       getClearCart: 'Cart/clearCart',
+      incrementAmount: 'Cart/incrementAmount',
+      deleteItem: 'Cart/deleteItem',
     }),
   },
+
   computed: {
     ...mapState({
       items: state => state.Cart.items,
+      productApi: state => state.Catalog.productApi,
     }),
   },
+  
   async created() {
     await this.getCart();
   },
 };
 </script>
-
-<style>
-</style>
