@@ -26,7 +26,7 @@
         </div>
     </div>
     <div>
-      <span class="item-delete" @click="deleteItem({ id: item.id })"></span>
+      <span class="item-delete" @click="deleteItem({ id: item.id })">&#128465;</span>
     </div>
   </div>
 </template>

@@ -10,9 +10,8 @@
     </button>
     <div class="cart__content" v-show="openCart">
       <div class="cart__close">
-        <button class="cart__close__btn" @click="openCart = !openCart">Close the cart</button>
+        <button class="cart__close__btn" @click="openCart = !openCart">&#10008;</button>
       </div>
-      <hr>
       <div v-if="items.length > 0">
         <cartItem
           v-for="item of items"
