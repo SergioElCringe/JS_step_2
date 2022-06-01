@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sublime</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Sublime project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/styles/bootstrap4/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/styles/responsive.css">
+  </head>
+  <body>
+    
+    <div class="" id="app"></div>
+
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/js/jquery-3.2.1.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/styles/bootstrap4/popper.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/greensock/TweenMax.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/greensock/TimelineMax.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/greensock/animation.gsap.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/easing/easing.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="https://raw.githack.com/SergioElCringe/JS_step_2/init/PROJECT/BASE__PROJECT/js/custom.js"></script>
+	<script>
+  	class RequestManager {
+		constructor() {
+			this.url = '';
+			this.method = '';
+			this.body = null;
+			this.params = '';
+			this.headers = { 'Content-Type': 'application/json' }
+			this.error = false;
+		}
+		async send(url, method, body, params) {
+			this.url = url;
+			this.method = method;
+			this.body = JSON.stringify(body || {});
+			this.params = params || '';
+			return await this._sendRequest();
+		}
+		_prepareRequest() {
+			const { method, headers, body } = this;
+				if (this.params) {
+					this.url += `/${ this.params }`;
+				}
+			return this.method !== 'GET' ? { method, headers, body } : { method, headers };
+		}
+		async _sendRequest() {
+			const payload = this._prepareRequest();
+			try {
+			const data = await fetch(this.url, payload).then(d => d.json());
+			this._prepareResponce(data);
+				if (!data) {
+					this.error = true;
+				}
+			return this.error ? false : data;
+			}
+			catch(err) {
+				this.error = true;
+				throw err;
+			}
+		}
+	
+	_prepareResponce(data) {
+		return data.error ? false : data;
+	}
+	};
+		const $api = new RequestManager();
+    </script>
+  </body>
+</html>
