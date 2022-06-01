@@ -15,7 +15,6 @@ export default class Cart extends List {
 
 	_handleEvents() {
 		this.container.addEventListener('click', this._handleCart.bind(this));
-		return true
 	}
 
 	_handleCart(event) {
