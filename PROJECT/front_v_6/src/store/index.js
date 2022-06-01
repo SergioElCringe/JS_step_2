@@ -36,9 +36,11 @@ import { createStore } from 'vuex'
 //   }
 // })
 import Catalog from './modules/catalog';
+import Pagination from './modules/pagination';
 
 export default createStore({
   modules: {
     Catalog,
+    Pagination,
   }
 });

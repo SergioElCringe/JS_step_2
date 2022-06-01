@@ -5,12 +5,13 @@
         <div class="row">
           <div class="col">
             <div class="header_content d-flex flex-row align-items-center justify-content-start">
-              <div class="logo"><a href="#">Sublime.</a></div>
+              <div class="logo">
+                <router-link to="/">Sublime.</router-link></div>
               <nav class="main_nav">
                   <MenuNavigation />
               </nav>
               <div class="header_extra ml-auto">
-                <Cart ref="cart" />
+                <Cart ref="cart" v-if="cartAvailiable" />
                 <div class="search">
                   <div class="search_icon" @click="showSearchPanel = !showSearchPanel">
                     <img src="../../assets/img/search.svg" />
@@ -41,5 +42,10 @@ export default {
       showSearchPanel: false,
     };
   },
+  computed: {
+    cartAvailiable() {
+      return this.$route.path !== '/cart';
+    },
+  }
 };
 </script>
