@@ -14,10 +14,11 @@ async function readJSON(path) {
 	try {
 		dataFromJSON = await fs.readFileSync(path, options);
 		return JSON.parse(dataFromJSON);
-	} catch (err) {
-		console.log(err);
+  } 
+  catch (err) {
+		console.log(`ERROR: + ${err}`);
 	};
-};
+});
 
 server.get('/menu', async (req, res) => {
 	try {
@@ -30,7 +31,7 @@ server.get('/menu', async (req, res) => {
 
 server.get('/catalog', async (req, res) => {
 	try {
-		const data = await readJSON(catalogURL);
+		const data = await reader(catalogURL);
 		res.json(data);
 	} catch (err) {
 		console.log('GET /catalog ERROR');
@@ -39,7 +40,7 @@ server.get('/catalog', async (req, res) => {
 
 server.get('/cart', async (req, res) => {
 	try {
-		const data = await readJSON(cartURL);
+		const data = await reader(cartURL);
 		res.json(data);
 	} catch (err) {
 		console.log(`ERROR: + ${err}`);
@@ -49,6 +50,7 @@ server.get('/cart', async (req, res) => {
 server.post('/cart', async (req, res) => {
 	const newItem = req.body;
 	try {
+
 		const data = await readJSON(cartURL);
 		data.items.push(newItem);
 		data.total = 2;
@@ -86,6 +88,7 @@ server.delete('/cart/:id', async (req, res) => {
 		const newList = data.items.filter(el => el.id !== id);
 		data.items = newList;
 		await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+});
 		res.json({ error: false });
 	}
 	catch (err) {
