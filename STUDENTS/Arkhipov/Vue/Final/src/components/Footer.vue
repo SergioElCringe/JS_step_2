@@ -42,7 +42,7 @@ export default {
 
 .footer_overlay{
 	width: 100%;
-	height: 129px;
+	height: 129px !important;
 	background: transparent;
 	z-index: 1;
 }

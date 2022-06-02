@@ -12,6 +12,7 @@ const reader = require('../plugins/reader');
 const writer = require('../plugins/writer');
 
 const cart = require('./components/cart');
+const catalog = require('./components/catalog');
 
 server.get('/menu', async (req, res) => {
 	try {
@@ -24,8 +25,43 @@ server.get('/menu', async (req, res) => {
 
 server.get('/catalog', async (req, res) => {
 	try {
+		let data = await reader(catalogURL);
+		let total = data.length;
+		const query = Object.keys(req.query);
+		if (query.length) {
+			const params = req.query;
+			if (params.filter) {
+				data = catalog.filter(data, params.filter);
+				total = data.length;
+			}
+			if (params.show) {
+				let { page, show } = params;
+				page--;
+				const firstElNum = page * +show;
+				const lastElNum = firstElNum + +show;
+				data = data.slice(firstElNum, lastElNum);
+			}
+		}
+		res.json({
+			data,
+			pagination: { total }
+		});
+	} catch (err) {
+		console.log('GET /catalog ERROR');
+	}
+});
+
+server.get('/catalog/:id', async (req, res) => {
+	const { id } = req.params;
+	try {
 		const data = await reader(catalogURL);
-		res.json(data);
+		const item = catalog.findItem(data, id) || null;
+		if (item) {
+			res.json(item);
+		} else {
+			res.sendStatus(404);
+		}
+
 	} catch (err) {
 		console.log('GET /catalog ERROR');
 	}
@@ -57,11 +93,11 @@ server.post('/cart', async (req, res) => {
 });
 
 server.put('/cart/:id', async (req, res) => {
-	const { value } = req.body;
+	const { amount } = req.body;
 	const { id } = req.params;
 	try {
 		const data = await reader(cartURL);
-		const newCart = cart.change(data, id, value);
+		const newCart = cart.change(data, id, amount);
 		await fs.writeFileSync(cartURL, JSON.stringify(newCart, null, ' '));
 		res.json({ error: false });
 	}

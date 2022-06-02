@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col">
 					<!-- Каталог -->
-					<Catalog/>
+					<Catalog :query="{ filter: 'category' }" />
 				</div>
 			</div>
 		</div>

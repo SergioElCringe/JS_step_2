@@ -17,6 +17,12 @@ import item from './items/catalogItem.vue';
 export default {
   name: 'Catalog',
   components: { item },
+	props:{
+		query: {
+			type: Object,
+			default: () => null,
+			}
+	},
   data() {
     return {
       url: '/api/catalog',
@@ -25,17 +31,18 @@ export default {
     };
   },
 	computed:{
-		// ...mapGetters({
-			// для вывода изменененного state(геттера)
-			// items: 'имя геттера',
-		// },)
-		//...mapState({
-			//items: state => state.catalogItems,
-		//}) вывести данные из state  
 		...mapGetters({
-      items: 'Catalog/getItems',
+      items: 'Catalog/items',
     })
 	},
+	 watch: {
+    query: {
+      deep: true,
+      async handler() {
+        await this.getCatalog(this.query);
+      },
+    }
+  },
   methods:{
 		...mapActions({
 			getCatalog: 'Catalog/getCatalog',
@@ -46,7 +53,7 @@ export default {
 	},
 	async created(){
 		try{
-			 await this.getCatalog(this.url);
+			 await this.getCatalog(this.query);
 		}
 		catch(err){
 			console.warn(err);
@@ -57,10 +64,13 @@ export default {
 
 <style>
 	.catalog {
-		max-height: 1200px !important;
+		/* min-height: 1200px !important; */
+		max-width: 1400px !important;
 		display: flex !important;
 		flex-wrap: wrap !important;
 		justify-content: space-between !important;
+		padding: 0px 50px;
+		margin: 0px auto;
 	}
 
 	.btn-add {

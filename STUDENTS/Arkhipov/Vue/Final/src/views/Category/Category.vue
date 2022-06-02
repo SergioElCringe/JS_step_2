@@ -21,18 +21,30 @@
 			</div>
 		</div>
 	</div>
-	<catalog/>
+	<Catalog :query="query"/>
+	<Pagination :onPage="4" @paginate="query.page = $event" />
 	</div>
 </template>
 
 <script>
-import Catalog from '@/components/Catalog.vue'
+import Pagination from '@/components/Pagination.vue';
+import Catalog from '@/components/Catalog.vue';
 export default {
 
 	name: 'Categories',
 	components: {
 		Catalog,
-	}
+		Pagination,
+	},
+	data() {
+		return {
+      query: {
+        page: 1,
+        show: 4,
+        sort: 'ad',
+      },
+    }
+  },
 }
 </script>
 

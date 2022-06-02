@@ -75,7 +75,6 @@ export default {
 	data() {
     return {
       loading: false,
-			// product: null,
     };
   },
 	async created() {
