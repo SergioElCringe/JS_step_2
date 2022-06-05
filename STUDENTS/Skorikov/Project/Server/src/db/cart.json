@@ -1,14 +1,7 @@
 {
  "totalCounts": 3,
- "totalPrice": 1310,
+ "totalPrice": 1710,
  "items": [
-  {
-   "id": 6,
-   "imgUrl": "/product_6.jpg",
-   "name": "SET MACBOOK AND IPHONE",
-   "price": 320,
-   "amount": 1
-  },
   {
    "id": 1,
    "imgUrl": "/product_1.jpg",
@@ -21,6 +14,13 @@
    "imgUrl": "/product_2.jpg",
    "name": "COLUMNS",
    "price": 510,
+   "amount": 1
+  },
+  {
+   "id": 3,
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
    "amount": 1
   }
  ]

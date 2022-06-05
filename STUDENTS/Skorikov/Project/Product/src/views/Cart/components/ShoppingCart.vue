@@ -32,9 +32,11 @@
 <script>
 import ShoppingCartItem from "./items/ShoppingCartItem.vue";
 import { mapActions, mapState } from 'vuex';
+
 export default {
   name: "ShoppingCart",
   components: { ShoppingCartItem },
+
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
@@ -50,7 +52,7 @@ export default {
       productApi: state => state.Catalog.productApi,
     }),
   },
-  
+
   async created() {
     await this.getCart();
   },

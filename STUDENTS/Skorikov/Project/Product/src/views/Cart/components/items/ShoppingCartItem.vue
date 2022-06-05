@@ -45,21 +45,24 @@
 <script>
 export default {
   name: "ShoppingCartItems",
+
   props: {
     item: {
       type: Object,
       default: () => {},
     },
+    
     productApi: {
       type: String,
       default: () => '',
     },
   },
-  
+
   methods: {
     incrementAmount(val) {
       this.$emit('incrementAmount', { id: this.item.id, amount: val ? 1 : -1 });
     },
+
     deleteItem(val) {
       this.$emit('deleteItem', val);
     },

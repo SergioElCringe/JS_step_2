@@ -5,6 +5,7 @@ import Cart from '../views/Cart/Cart.vue';
 import Contact from '../views/Contact/Contact.vue';
 import Description from '../views/Description/Description.vue';
 import Privace from '../views/Privace/Privace.vue';
+import Checkout from '../views/Checkout/Checkout.vue';
 
 const routes = [{
         path: '/',
@@ -35,7 +36,7 @@ const routes = [{
     {
         path: '/checkOut',
         name: 'Сheck out',
-        component: {}
+        component: Checkout
     },
     {
         path: '/cart',

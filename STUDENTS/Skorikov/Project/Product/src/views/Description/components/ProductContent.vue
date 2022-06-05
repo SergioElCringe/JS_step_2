@@ -67,6 +67,7 @@ export default {
     addItem(val) {
       this.$emit('addItem', val);
     },
+    
     incrementAmount(val) {
       this.$emit('incrementAmount', val);
     },

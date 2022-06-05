@@ -2,7 +2,7 @@
   <div>
     <Slider />
     <DiscountProducts />
-    <div class="products">
+    <div class="products pgt">
       <div class="container">
         <Catalog :discountProducts="true" />
       </div>

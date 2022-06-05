@@ -40,14 +40,17 @@ import ShippingMethods from './components/ShippingMethods.vue';
 import Coupon from './components/UI/Coupon.vue';
 import TotalCart from './components/UI/TotalCart.vue';
 import { mapGetters, mapState} from 'vuex';
+
 export default {
   name: 'FinallyCart',
   components: { ShoppingCart, ShippingMethods, Coupon, TotalCart, HomePageBanner },
+
   computed: {
     ...mapGetters({
       totalPrice: 'Cart/totalPrice',
       total: 'Cart/total',
     }),
+
     ...mapState({
       shipping: state => state.Cart.shippingMethod.price,
     }),

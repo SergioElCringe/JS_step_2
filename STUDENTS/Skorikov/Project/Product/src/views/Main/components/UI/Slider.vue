@@ -1,5 +1,15 @@
 <template>
-
+ <v-carousel
+    cycle
+    height="100vh"
+    show-arrows="hover"
+  >
+    <SliderItem 
+      v-for="(slide, index) of slides"
+      :key="index"
+      :slide="slide"
+    />
+  </v-carousel>
 </template>
 
 <script>
@@ -9,21 +19,21 @@ export default {
   components: { SliderItem },
   data() {
     return {
-      sliders: [
+      slides: [
         {
-          id: 1,
+          name: 'slider1',
           title: 'A new Online Shop experience.',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
         },
         {
-          id: 2,
+          name: 'slider2',
           title: 'A new Online Shop experience.',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
         },
         {
-          id: 3,
+          name: 'slider3',
           title: 'A new Online Shop experience.',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.',
         },
       ],
     };
@@ -32,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-  .carousel-item {
-    height: 790px !important;
+  .v-btn {
+    color: #fff !important;
   }
 </style>

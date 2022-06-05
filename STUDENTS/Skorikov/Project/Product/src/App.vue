@@ -1,12 +1,12 @@
 <template>
   <div class="super_container">
-
-    <Header />
-
-    <router-view />
-
-    <Footer />
-    
+    <v-app>
+      <Header />
+        <v-main>
+          <router-view/>
+        </v-main>
+      <Footer />
+    </v-app>
   </div>
 </template>
 

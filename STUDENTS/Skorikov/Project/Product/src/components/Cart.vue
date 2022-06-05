@@ -48,12 +48,14 @@ import { mapActions, mapState, mapGetters } from 'vuex';
 export default {
   name: 'Cart',
   components: { cartItem },
+  
   data() {
     return {
       openCart: false,
       interval: null,
     };
   },
+
   methods: {
     ...mapActions({
       getCart: 'Cart/getCart',
@@ -62,6 +64,7 @@ export default {
       deleteItem: 'Cart/deleteItem',
     }),
   },
+
   computed: {
     ...mapState({
       items: state => state.Cart.items,
@@ -72,12 +75,14 @@ export default {
       totalPrice: 'Cart/totalPrice',
     }),
   },
+
   async created() {
     await this.getCart();
     this.interval = setInterval(() => {
       this.getCart();
     }, 10000);
   },
+
   beforeUnmount() {
     window.clearInterval(this.interval);
     this.interval = null;

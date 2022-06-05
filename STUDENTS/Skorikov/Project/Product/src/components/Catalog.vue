@@ -29,17 +29,20 @@ import { mapActions, mapGetters, mapState } from 'vuex';
 export default {
   name: 'Catalog',
   components: { CatalogItem },
+  
   props: {
     discountProducts: {
       type: Boolean,
     },
   },
+
   methods: {
     ...mapActions({
       getCatalog: 'Catalog/getCatalog',
       addItem: 'Cart/addItem',
     }),
   },
+
   computed: {
     ...mapGetters({
       filteredCatalog: 'Catalog/filteredCatalog',
@@ -50,6 +53,7 @@ export default {
       categories: state => state.Catalog.categories,
     }),
   },
+
   async created() {
     await this.getCatalog();
   },
