@@ -20,7 +20,8 @@ import Products from './components/Products/Products.vue';
 import Banner from './components/Banner/Banner.vue';
 
 export default {
-  components: { SideMenu, Header, Footer, NewsLetter, IconGroup, Banner, Products },
+	name: 'Categories',
+	components: { SideMenu, Header, Footer, NewsLetter, IconGroup, Banner, Products },
 
 }
 </script>

@@ -6,7 +6,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<!-- Column Titles -->
 					<div class="order_info_columns clearfix">
 						<div class="order_info_col order_info_col_product">Product</div>
 						<div class="order_info_col order_info_col_price">Price</div>
@@ -26,36 +25,9 @@
 				</div>
 			</div>
             
-			<!-- <div class="row row_order_buttons">
-				<div class="col">
-					<div class="order_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
-						<div class="button continue_shopping_button"><a href="#">Continue shopping</a></div>
-						<div class="order_buttons_right ml-lg-auto">
-							<div class="button clear_order_button"><a href="#">Clear order</a></div>
-							<div class="button update_order_button"><a href="#">Update order</a></div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 			<div class="row row_extra">
 				<div class="col-lg-4">
-					
-					<!-- Delivery -->
-					<Delivery :options="deliveryOptions"
-                        @selectDelivery='selectDelivery'
-                    />
-
-					<!-- Coupon Code -->
-					<!-- <div class="coupon">
-						<div class="section_title">Coupon code</div>
-						<div class="section_subtitle">Enter your coupon code</div>
-						<div class="coupon_form_container">
-							<form action="#" id="coupon_form" class="coupon_form">
-								<input type="text" class="coupon_input" required="required">
-								<button class="button coupon_button"><span>Apply</span></button>
-							</form>
-						</div>
-					</div> -->
+					<Delivery :options="deliveryOptions" @selectDelivery="selectDelivery"/>
 				</div>
 
 				<div class="col-lg-6 offset-lg-2">
