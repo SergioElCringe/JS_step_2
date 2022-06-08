@@ -1,5 +1,5 @@
 {
-	"total": 1110,
+	"total": 1000,
 	"items": [
 		{
 			"imgUrl": "/product_1.jpg",
@@ -11,9 +11,9 @@
 		{
 			"imgUrl": "/product_6.jpg",
 			"name": "Tablet",
-			"price": "220",
+			"price": "300",
 			"id": "p6",
-			"amount": 2
+			"amount": 1
 		}
 	]
 }
