@@ -21,10 +21,17 @@
             :value="item.amount"
           />
           <div class="quantity_buttons">
-            <div class="quantity_inc quantity_control" @click="increment(true)">
+            <div 
+              class="quantity_inc quantity_control" 
+              @click="incrementAmount(true)"
+            >
               <i class="fa fa-chevron-up" aria-hidden="true"></i>
             </div>
-            <div class="quantity_dec quantity_control" @click="increment(false)">
+            <div 
+              class="quantity_dec quantity_control"
+              :class="item.amount == 1 ? 'unavailable' : ''" 
+              @click="incrementAmount(false)"
+            >
               <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </div>
           </div>
@@ -36,27 +43,29 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
 export default {
   name: "ShoppingCartItems",
   props: {
     item: {
       type: Object,
+      default: () => {},
+    },
+    productApi: {
+      type: String,
+      default: () => '',
     },
   },
+  
   methods: {
-    ...mapActions({
-      incrementAmount: 'Cart/incrementAmount',
-      deleteItem: 'Cart/deleteItem',
-    }),
-    increment(val) {
-      this.incrementAmount({ id: this.item.id, amount: val ? 1 : -1 });
+    incrementAmount(val) {
+      this.$emit('incrementAmount', { id: this.item.id, amount: val ? 1 : -1 });
+    },
+    deleteItem(val) {
+      this.$emit('deleteItem', val);
     },
   },
+
   computed: {
-    ...mapState({
-      productApi: state => state.Catalog.productApi,
-    }),
     imgUrl() {
       return this.productApi + this.item.imgUrl;
     },

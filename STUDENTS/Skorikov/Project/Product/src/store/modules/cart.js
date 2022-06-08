@@ -20,8 +20,8 @@ export default {
             }, 0);
         },
 
-        cheque(state, getters) {
-            return getters.totalPrice + state.shippingMethod.price;
+        total(state, getters) {
+            return getters.totalPrice + (state.shippingMethod?.price || 0);
         },
     },
 
@@ -41,7 +41,8 @@ export default {
         },
 
         setDeleteItem(state, val) {
-            const findItem = state.items.find(item => item.id === val);
+            const { id } = val;
+            const findItem = state.items.find(item => item.id === id);
             const index = state.items.indexOf(findItem);
             state.items.splice(index, 1);
         },
@@ -71,7 +72,7 @@ export default {
 
             if (!findItem) {
                 try {
-                    const newItem = { id, imgUrl, name, price, amount };
+                    const newItem = { id, imgUrl: imgUrl[0], name, price, amount };
                     const data = await cart.addItem(newItem);
 
                     if (!data.error) {
@@ -83,20 +84,12 @@ export default {
             };
         },
 
-        async incrementAmount({ state, commit, dispatch }, val) {
-            const { id, amount } = val;
-            const findItem = state.items.find(item => item.id === id);
-
+        async incrementAmount({ commit }, val) {
             try {
-                const changeableItem = { id, amount };
-                const data = await cart.incrementAmount(changeableItem)
+                const data = await cart.incrementAmount(val)
 
                 if (!data.error) {
-                    if (amount === -1 && findItem.amount === 1) {
-                        await dispatch('deleteItem', id);
-                    } else {
-                        commit('setIncrementAmount', changeableItem);
-                    };
+                    commit('setIncrementAmount', val);
                 };
             } catch (err) {
                 throw err;

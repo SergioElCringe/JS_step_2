@@ -11,8 +11,7 @@
 </template>
 
 <script>
-import ContactInfoItem from "./items/ContactInfoItem.vue";
-
+import ContactInfoItem from "../items/ContactInfoItem.vue";
 export default {
   name: "ContactInfo",
   components: { ContactInfoItem },
