@@ -19,4 +19,9 @@ module.exports = defineConfig({
         config.resolve.alias.set('@components' , path.join(__dirname, 'src' , 'components'));
         config.resolve.alias.set('@views' , path.join(__dirname, 'src' , 'views'));
     },
+    pluginOptions: {
+        vuetify: {
+            // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
+        }
+    }
 }); 
