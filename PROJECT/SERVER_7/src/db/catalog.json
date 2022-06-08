@@ -52,7 +52,105 @@
   "imgUrl": "/product_8.jpg",
   "name": "Keyboard",
   "price": 60,
-  "category": 3,
+  "category": null,
   "id": "p8"
+ },
+ {
+  "imgUrl": "/product_1.jpg",
+  "name": "Keyboard",
+  "price": 12,
+  "category": 3,
+  "id": "p9"
+ },
+ {
+  "imgUrl": "/product_3.jpg",
+  "name": "Keyboard",
+  "price": 603,
+  "category": 1,
+  "id": "p10"
+ },
+ {
+  "imgUrl": "/product_2.jpg",
+  "name": "Keyboard",
+  "price": 602,
+  "category": 2,
+  "id": "p11"
+ },
+ {
+  "imgUrl": "/product_4.jpg",
+  "name": "Keyboard",
+  "price": 601,
+  "category": 3,
+  "id": "p12"
+ },
+ {
+  "imgUrl": "/product_6.jpg",
+  "name": "Keyboard wwww",
+  "price": 63,
+  "category": null,
+  "id": "p13"
+ },
+ {
+  "imgUrl": "/product_1.jpg",
+  "name": "Keyboard eee",
+  "price": 68,
+  "category": 1,
+  "id": "p14"
+ },
+ {
+  "imgUrl": "/product_7.jpg",
+  "name": "Keyboard 2",
+  "price": 160,
+  "category": null,
+  "id": "p15"
+ },
+ {
+  "imgUrl": "/product_1.jpg",
+  "name": "Smart Phone",
+  "price": 670,
+  "category": 1,
+  "id": "p1"
+ },
+ {
+  "imgUrl": "/product_2.jpg",
+  "name": "Speaker",
+  "price": 67,
+  "category": null,
+  "id": "p2"
+ },
+ {
+  "imgUrl": "/product_3.jpg",
+  "name": "USB",
+  "price": 70,
+  "category": null,
+  "id": "p3"
+ },
+ {
+  "imgUrl": "/product_4.jpg",
+  "name": "Notebook",
+  "price": 6700,
+  "category": 1,
+  "id": "p4"
+ },
+ {
+  "imgUrl": "/product_5.jpg",
+  "name": "Headphones",
+  "price": 10,
+  "category": 2,
+  "id": "p5"
+ },
+ {
+  "imgUrl": "/product_6.jpg",
+  "name": "Tablet",
+  "price": 220,
+  "category": null,
+  "id": "p6"
+ },
+ {
+  "imgUrl": "/product_7.jpg",
+  "name": "Camera",
+  "price": 510,
+  "category": null,
+  "id": "p7"
  }
 ]

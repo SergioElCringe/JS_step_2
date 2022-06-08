@@ -1,18 +1,19 @@
-require("babel-polyfill");
 export default class NavMenu {
-    constructor(url, requestManager) {
+    constructor(url, fetchFunc) {
         this.url = url;
         this.container = null;
         this.menuData = [];
-        this.requestManager = requestManager;
-        this._init();
+        this._init(fetchFunc);
     }
 
-    async _init() {
-        const response = await this.requestManager.send(this.url, 'GET');
-        this.menuData = response;
-        this._initContainer();
-        this._render();
+    _init(fetchFunc) {
+        fetchFunc(this.url)
+        .then(data => this.menuData = data)
+        .catch(err => console.log(err))
+        .finally(() => {
+            this._initContainer();
+            this._render();
+        });
     }
 
     _createItem(item) {

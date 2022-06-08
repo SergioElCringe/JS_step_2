@@ -1,0 +1,19 @@
+{
+	"total": 1000,
+	"items": [
+		{
+			"imgUrl": "/product_1.jpg",
+			"name": "Smart Phone",
+			"price": "670",
+			"id": "p1",
+			"amount": 1
+		},
+		{
+			"imgUrl": "/product_6.jpg",
+			"name": "Tablet",
+			"price": "300",
+			"id": "p6",
+			"amount": 1
+		}
+	]
+}

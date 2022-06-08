@@ -15,9 +15,9 @@ async function readJSON(path) {
 		dataFromJSON = await fs.readFileSync(path, options);
 		return JSON.parse(dataFromJSON);
 	} catch (err) {
-		console.log(err);
+		console.log(`ERROR: + ${err}`);
 	};
-};
+});
 
 server.get('/menu', async (req, res) => {
 	try {
@@ -30,7 +30,7 @@ server.get('/menu', async (req, res) => {
 
 server.get('/catalog', async (req, res) => {
 	try {
-		const data = await readJSON(catalogURL);
+		const data = await reader(catalogURL);
 		res.json(data);
 	} catch (err) {
 		console.log('GET /catalog ERROR');
@@ -39,7 +39,7 @@ server.get('/catalog', async (req, res) => {
 
 server.get('/cart', async (req, res) => {
 	try {
-		const data = await readJSON(cartURL);
+		const data = await reader(cartURL);
 		res.json(data);
 	} catch (err) {
 		console.log(`ERROR: + ${err}`);

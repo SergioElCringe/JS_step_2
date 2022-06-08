@@ -1,0 +1,16 @@
+[{
+  "method": "Personal pickup",
+  "price": 0,
+  "standart": true
+},
+{
+  "method": "Standart delivery",
+  "price": 1.99,
+  "standart": false
+},
+{
+  "method": "New day delivery",
+  "price": 4.99,
+  "standart": false
+}
+]
