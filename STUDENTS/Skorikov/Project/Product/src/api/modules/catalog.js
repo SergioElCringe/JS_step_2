@@ -9,4 +9,12 @@ export const catalog = {
             throw err;
         };
     },
+
+    async getProduct(params) {
+        try {
+            return await instance({ url: this.url, params });
+        } catch (err) {
+            throw err;
+        };    
+    }
 };

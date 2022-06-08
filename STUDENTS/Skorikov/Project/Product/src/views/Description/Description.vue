@@ -29,14 +29,17 @@ import Social from "@components/pages/UI/Social.vue";
 import HomePageBanner from "@components/pages/UI/HomePageBanner.vue";
 import Reviews from './components/UI/Reviews.vue';
 import { mapActions, mapState, mapMutations } from "vuex";
+
 export default {
   name: "Description",
   components: { HomePageBanner, Gallery, ProductContent, Social, Reviews },
+
   methods: {
     ...mapActions({
       getProduct: "Catalog/getProduct",
       addItem: 'Cart/addItem',
     }),
+    
     ...mapMutations({
       incrementAmount: 'Catalog/incrementAmount',
     }),
