@@ -1,0 +1,38 @@
+[{
+  "id": 1,
+  "url": "/",
+  "name": "Home",
+  "subCategories": [{
+          "id": 1,
+          "url": "/categories",
+          "name": "Categories"
+      },
+      {
+          "id": 2,
+          "url": "/cart",
+          "name": "Cart"
+      },
+      {
+          "id": 3,
+          "url": "/checkOut",
+          "name": "Check out"
+      },
+      {
+          "id": 4,
+          "url": "/contact",
+          "name": "Contact"
+      }
+  ]
+},
+{
+  "id": 2,
+  "url": "/categories",
+  "name": "Categories"
+},
+{
+  "id": 5,
+  "url": "/contact",
+  "name": "Contact",
+  "subCategories": null
+}
+]
