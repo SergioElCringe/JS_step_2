@@ -101,7 +101,8 @@ export default {
 	border-bottom: solid 1px rgba(0,0,0,0.2);
 }
 .page_menu_item > a {
-	display: block;
+	display: flex;
+	justify-content: space-between;
 	color: #1b1b1b;
 	font-weight: 700;
 	line-height: 50px;
@@ -113,12 +114,22 @@ export default {
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
+.page_menu_item > a > span {
+	width: 80%;
+	text-align: left;
+}
+
+.page_menu_item > a > i {
+	width: 20%;
+	text-align: right;
+}
+
 .page_menu_item > a:hover {
 	color: #c3c1cc;
 }
 .page_menu_item a i {
 	display: none;
-	margin-left: 8px;
+	line-height: 50px;
 }
 .page_menu_item.has-children > a > i {
 	display: inline-block;

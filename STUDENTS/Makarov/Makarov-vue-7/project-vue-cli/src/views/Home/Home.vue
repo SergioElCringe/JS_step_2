@@ -10,7 +10,7 @@
 			</div>
 		</div>
 
-		<Catalog/>
+		<Catalog :suggestion="true"/>
 
 	</div>
 

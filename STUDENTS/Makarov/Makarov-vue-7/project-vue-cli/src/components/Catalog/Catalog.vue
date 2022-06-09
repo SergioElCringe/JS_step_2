@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col">
           <div class="catalog">
-            <CatalogItem
-              v-for="(item, i) in items"
+            <CatalogItem 
+              v-for="(item, i) in (suggestion ? suggestionItems : items)"
               :key="i"
               :item="item"
               :stickerTypes="stickerTypes"
@@ -26,7 +26,7 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "Catalog",
   components: { CatalogItem },
-
+  props: ["suggestion"],
   data: function () {
     return {
       ready: false,
@@ -39,6 +39,7 @@ export default {
   methods: {
     ...mapActions({
       getCatalog: "Catalog/getCatalog",
+      getHomeSuggestion: "Catalog/getHomeSuggestion",
       addItem: "Cart/addItem",
     }),
   },
@@ -46,13 +47,18 @@ export default {
   computed: {
     ...mapGetters({
       items: "Catalog/getItems",
+      suggestionItems: "Catalog/getSuggestion",
       stickerTypes: "Catalog/getStickers",
     }),
   },
 
   async created() {
     try {
-      await this.getCatalog();
+      if (this.suggestion) {
+        await this.getHomeSuggestion();
+      } else {
+        await this.getCatalog();
+      }
     } catch (err) {
       throw err;
     }

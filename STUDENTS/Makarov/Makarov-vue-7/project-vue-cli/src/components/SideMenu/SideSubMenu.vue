@@ -1,8 +1,19 @@
 <template>
     <li class="page_menu_item has-children">
-        <a @click.prevent="openSubMenu" :href="subMenu.link">
+        <router-link 
+            :to='subMenu.link'
+            v-if="!subMenu?.items"
+        >
             {{ subMenu.text }}
-            <i class="fa fa-angle-down" v-if="subMenu?.items"></i>
+        </router-link>
+        <a 
+            @click.prevent="openSubMenu"
+            :href="subMenu.link"
+            v-if="subMenu?.items"    
+        >
+            <span :class="clicked ? 'redirect' : ''">{{ subMenu.text }}</span>
+            <i class="fa fa-angle-up" v-if="isVisible"></i>
+            <i class="fa fa-angle-down" v-if="!isVisible"></i>
         </a>
         <ul class="page_menu_selection" 
             v-if="subMenu?.items"
@@ -26,17 +37,17 @@ export default {
     components: { SideMenuItem },
     data: function() {
         return {
-            clicked: false,
-            isVisible: false
+            isVisible: false,
+            clicked: false
         }
     },
     methods: {
-        openSubMenu() {
-            if(this.clicked) {
+        openSubMenu(e) {
+            if (e.target.classList.contains('redirect')) {
                 this.$router.push(this.subMenu.link);
-            }
-            this.clicked = true;
+            } 
             this.isVisible = !this.isVisible;
+            this.clicked = !this.clicked;
         }
     }
 }

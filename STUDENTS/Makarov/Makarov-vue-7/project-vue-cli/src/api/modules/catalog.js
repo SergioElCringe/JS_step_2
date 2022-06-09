@@ -20,5 +20,14 @@ export const catalog = {
     catch(err) {
       throw err;
     }
+  },
+  async getHomeSuggestion() {
+    try {
+      const data = await instance({ url: '/suggestion' });
+      return data; 
+    }
+    catch(err) {
+      throw err;
+    }
   }
 };
