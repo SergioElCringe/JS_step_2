@@ -3,6 +3,7 @@ import Home from '@views/Home/Home.vue';
 import Categories from '@views/Categories/Categories.vue';
 import Order from '@views/Order/Order.vue';
 import Product from '@views/Product/Product.vue';
+import Contact from '@views/Contact/Contact.vue';
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/catalog/:id',
     name: 'product',
     component: Product
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
   }
 ];
 
