@@ -1,5 +1,5 @@
 import List from "./LIST";
-const baseURL = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/parfenov-hw-1/FTP/fetchData';
+const baseURL = 'https://raw.githubusercontent.com/GeoParf/FrontendLerning/main';
 const url = baseURL + '/catalog.json';
 
 export default class Catalog extends List {
@@ -7,7 +7,7 @@ export default class Catalog extends List {
     super(url)
     this.cart = cart;
     this.container = null;
-  };
+  }
 
   _handleEvents() {
     this.container.addEventListener('click', evt => {

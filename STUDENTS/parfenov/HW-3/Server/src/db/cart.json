@@ -1,0 +1,26 @@
+{
+ "total": 877,
+ "items": [
+  {
+   "imgUrl": "/product_3.jpg",
+   "name": "USB",
+   "price": "70",
+   "id": "p3",
+   "amount": 2
+  },
+  {
+   "imgUrl": "/product_2.jpg",
+   "name": "Speaker",
+   "price": "67",
+   "id": "p2",
+   "amount": 1
+  },
+  {
+   "imgUrl": "/product_1.jpg",
+   "name": "Smart Phone",
+   "price": "670",
+   "id": "p1",
+   "amount": 1
+  }
+ ]
+}
