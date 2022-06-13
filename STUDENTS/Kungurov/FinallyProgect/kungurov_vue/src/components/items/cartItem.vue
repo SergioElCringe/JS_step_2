@@ -18,7 +18,7 @@ import { mapActions } from 'vuex';
 
 export default {
     name: 'CartItem',
-    props: ['item', 'productsApi'],
+    props: {item, productsApi},
 
      methods: {
     ...mapActions({

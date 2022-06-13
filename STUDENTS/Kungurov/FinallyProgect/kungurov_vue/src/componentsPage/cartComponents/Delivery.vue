@@ -19,7 +19,7 @@ import Cupon from './cartItem/cupon.vue'
 import Offset from './cartItem/offset.vue'
 export default {
 components: { Button , Deli, Cupon, Offset },
-props: [ 'money' ]
+props:  { money }
 }
 </script>
 

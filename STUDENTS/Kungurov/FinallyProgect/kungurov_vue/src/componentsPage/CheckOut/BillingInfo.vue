@@ -157,13 +157,13 @@ export default {
     }),
 
     watch: {
-      conditions (val) {
+      conditions(val) {
         this.conditions = !val
       },
-      account (val) {
+      account(val) {
         this.account = !val
       },
-      newsletter (val) {
+      newsletter(val) {
         this.newsletter = !val
       },
     },

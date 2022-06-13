@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  props: ['item' , 'img'],
+  props: {item , img},
   name: 'IconItems',
 
 

@@ -14,7 +14,6 @@ export const cart  = {
     async getCartPost(obj , method= 'POST') {
         try{
             const data = await instance({url} , obj);
-            console.log(obj)
             return data;
         }
         catch(err) {

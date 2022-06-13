@@ -17,9 +17,6 @@ import Header from './components/Header.vue'
 export default {
   name: 'App',
    components: { Header, Footer },
-  data: () => ({
-    //
-  }),
 }
 </script>
 <style lang="scss">

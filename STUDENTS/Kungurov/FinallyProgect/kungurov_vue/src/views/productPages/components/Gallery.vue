@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'Gallery',
-  props: ['images','imgApi'],
+  props: { images, imgApi},
   data() {
     return {
       active: 0,

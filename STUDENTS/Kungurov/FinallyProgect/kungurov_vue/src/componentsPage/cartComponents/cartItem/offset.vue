@@ -50,7 +50,7 @@
 <script>
 export default {
 name: 'offset',
-props: [ 'money' ]
+props: { money },
 }
 </script>
 
