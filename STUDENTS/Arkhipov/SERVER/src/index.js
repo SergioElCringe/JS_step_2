@@ -14,7 +14,8 @@ async function readJSON(path) {
 	try {
 		dataFromJSON = await fs.readFileSync(path, options);
 		return JSON.parse(dataFromJSON);
-	} catch (err) {
+  } 
+  catch (err) {
 		console.log(`ERROR: + ${err}`);
 	};
 });
@@ -86,6 +87,7 @@ server.delete('/cart/:id', async (req, res) => {
 		const newList = data.items.filter(el => el.id !== id);
 		data.items = newList;
 		await fs.writeFileSync(cartURL, JSON.stringify(data, null, ' '));
+});
 		res.json({ error: false });
 	}
 	catch (err) {
