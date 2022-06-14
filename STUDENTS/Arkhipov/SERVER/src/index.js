@@ -50,7 +50,6 @@ server.get('/cart', async (req, res) => {
 server.post('/cart', async (req, res) => {
 	const newItem = req.body;
 	try {
-
 		const data = await readJSON(cartURL);
 		data.items.push(newItem);
 		data.total = 2;

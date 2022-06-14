@@ -1,66 +1,58 @@
 [
- {
-  "text": "Home",
-  "link": "./index.html",
-  "items": [
-   {
-    "text": "Categories",
-    "link": "./categories.html"
-   },
-   {
-    "text": "Product",
-    "link": "./product.html"
-   },
-   {
-    "text": "Cart",
-    "link": "./cart.html"
-   },
-   {
-    "text": "Check out",
-    "link": "./checkout.html"
-   },
-   {
-    "text": "Contact",
-    "link": "./contact.html"
-   }
-  ]
- },
- {
-  "text": "Categories",
-  "link": "./categories.html",
-  "items": [
-   {
-    "text": "Category",
-    "link": ".#"
-   },
-   {
-    "text": "Category",
-    "link": ".#"
-   },
-   {
-    "text": "Category",
-    "link": ".#"
-   },
-   {
-    "text": "Category",
-    "link": ".#"
-   },
-   {
-    "text": "Category",
-    "link": ".#"
-   }
-  ]
- },
- {
-  "text": "Accessories",
-  "link": "#"
- },
- {
-  "text": "Offers",
-  "link": "#"
- },
- {
-  "text": "Contact",
-  "link": "./contact.html"
- }
+	{
+		"text": "Home",
+		"link": "/",
+		"items": [
+			{
+				"text": "Categories",
+				"link": "/"
+			},
+			{
+				"text": "Product",
+				"link": "/"
+			},
+			{
+				"text": "Cart",
+				"link": "/cart"
+			},
+			{
+				"text": "Check out",
+				"link": "/check-out"
+			},
+			{
+				"text": "Contact",
+				"link": "/contact"
+			}
+		]
+	},
+	{
+		"text": "Categories",
+		"link": "/category",
+		"items": [
+			{
+				"text": "Category",
+				"link": "/category"
+			},
+			{
+				"text": "Category",
+				"link": "/category"
+			},
+			{
+				"text": "Category",
+				"link": "/category"
+			},
+			{
+				"text": "Category",
+				"link": "/category"
+			},
+			{
+				"text": "Category",
+				"link": "/category"
+			}
+		]
+	},
+	{
+		"text": "Contact",
+		"link": "/contact"
+	}
 ]

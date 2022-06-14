@@ -1,5 +1,27 @@
 {
-  "totalCounts": 0,
-  "totalPrice": 0,
-  "items": []
- }
+ "totalCounts": 3,
+ "totalPrice": 1710,
+ "items": [
+  {
+   "id": 1,
+   "imgUrl": "/product_1.jpg",
+   "name": "IPHONE 13 PRO MAX",
+   "price": 480,
+   "amount": 1
+  },
+  {
+   "id": 2,
+   "imgUrl": "/product_2.jpg",
+   "name": "COLUMNS",
+   "price": 510,
+   "amount": 1
+  },
+  {
+   "id": 3,
+   "imgUrl": "/product_3.jpg",
+   "name": "HARGING WIRE",
+   "price": 720,
+   "amount": 1
+  }
+ ]
+}

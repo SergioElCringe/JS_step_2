@@ -8,16 +8,18 @@ export default {
             name: 'DEFAULT',
             value: 'id',
         }],
-        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_1/main/TEST_FTP/static/products',
+        categories: {
+            1: "New",
+            2: "Sale",
+            3: "Hot",
+        },
+        selectedProduct: {},
+        productApi: 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/PROJECT/1/src/assets/img',
     }),
 
     getters: {
         filteredCatalog(state) {
             return state.items.filter(el => !!el.category);
-        },
-
-        descriptionProduct(state, id) {
-            return state.items.find(item => item.id === id);
         },
 
         sortedCatalog(state) {
@@ -38,9 +40,20 @@ export default {
             state.items = data;
         },
 
+        setProduct(state, data) {
+            state.selectedProduct = data;
+            state.selectedProduct.amount = 1;
+        },
+
+        incrementAmount(state, amount) {
+            state.selectedProduct.amount += amount;
+        },
+
         setSort(state, val) {
             state.sort = val;
         },
+
+
     },
 
     actions: {
@@ -52,5 +65,14 @@ export default {
                 console.warn(err);
             };
         },
+
+        async getProduct({ commit }, val) {
+            try {
+                const data = await catalog.getProduct(val);
+                commit('setProduct', data);
+            } catch (err) {
+                console.warn(err);
+            };
+        }
     },
 };

@@ -1360,20 +1360,9 @@ section {
     cursor: pointer;
 }
 
-.item-delete {
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 5px;
-    font-size: 25px;
-}
-
 .flex {
     display: flex;
     justify-content: space-around;
-}
-
-.item-delete:hover {
-    color: red;
 }
 
 .after-clear {
@@ -1603,8 +1592,21 @@ button:focus {
     color: black;
     top: 40px;
     padding: 5px 0;
-    max-height: 500px;
     display: flex;
+}
+
+.cart__close {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 10px;
+}
+
+.cart__close__btn {
+    font-size: 21px;
+}
+
+.cart__close__btn:hover {
+    color: red;
 }
 
 .action {
@@ -1661,10 +1663,9 @@ button:focus {
 }
 
 .item-delete {
-    content: url('../assets/img/basket.png');
-    background-color: none;
-    height: 20px;
-    width: 20px;
+    font-size: 21px;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
 .cart__item__info {

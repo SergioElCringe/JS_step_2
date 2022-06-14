@@ -1,5 +1,5 @@
 import List from "./LIST";
-const baseURL = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/init/FTP/fetchData';
+const baseURL = 'https://raw.githubusercontent.com/SergioElCringe/JS_step_2/parfenov-hw-1/FTP/fetchData';
 const url = baseURL + '/catalog.json';
 
 export default class Catalog extends List {
@@ -7,14 +7,14 @@ export default class Catalog extends List {
     super(url)
     this.cart = cart;
     this.container = null;
-  }
+  };
 
   _handleEvents() {
     this.container.addEventListener('click', evt => {
       if (evt.target.classList.contains('btn-add')) {
         const { name, price, imgurl, id } = evt.target.dataset;
         this.cart.addItem({
-          name, price, id, 
+          name, price, id,
           imgUrl: imgurl
         });
       }

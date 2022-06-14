@@ -1,3 +1,4 @@
+
 <template>
   <div class="contact_info_section">
     <div class="contact_info_title">{{ item.title }}</div>
@@ -18,6 +19,7 @@ export default {
   props: {
     item: {
       type: Object,
+      default: () => {},
     },
   },
 };

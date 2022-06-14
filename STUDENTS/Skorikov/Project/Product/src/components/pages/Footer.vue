@@ -15,12 +15,11 @@
             </div>
         </div>
     </footer>
-  </div>
+ </div>
 </template>
 
 <script>
 import Social from './UI/Social.vue';
-
 export default {
     name: 'Footer',
     components: { Social },    
