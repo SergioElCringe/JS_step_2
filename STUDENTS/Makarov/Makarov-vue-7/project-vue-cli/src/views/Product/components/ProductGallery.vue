@@ -1,45 +1,45 @@
 <template>
 
-    <div class="details_image">
-        <div class="details_image_large">
-            <img :src="mainImgURL">
-            <div class="product_extra" v-if="item.sticker">
-                <a href="categories.html">New</a>
-            </div>
-        </div>
-        <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-            <div class="details_image_thumbnail" 
-                :class="selectedImgIndex === i ? 'active' : ''"
-                v-for="(img, i) in item.images"
-                :key="i"
-                @click="setMainImg(i, $event)"
-            >
-                <img :src="`${imgURLTemplate}/${img}`">
-            </div>
-        </div>
+  <div class="details_image">
+    <div class="details_image_large">
+      <img :src="mainImgURL">
+      <div class="product_extra" v-if="item.sticker">
+        <a href="categories.html">New</a>
+      </div>
     </div>
+    <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
+      <div class="details_image_thumbnail" 
+        :class="selectedImgIndex === i ? 'active' : ''"
+        v-for="(img, i) in item.images"
+        :key="i"
+        @click="setMainImg(i, $event)"
+      >
+        <img :src="`${imgURLTemplate}/${img}`">
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'ProductGallery',
-    props: ['item'],
-    data() {
-        return {
-            imgURLTemplate: "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
-            selectedImgIndex: 0,
-        }
+  name: 'ProductGallery',
+  props: ['item'],
+  data() {
+    return {
+      imgURLTemplate: "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
+      selectedImgIndex: 0,
+    }
+  },
+  methods: {
+    setMainImg(i) {
+      this.selectedImgIndex = i;
+    }
+  },
+  computed: {
+    mainImgURL() {
+      return this.imgURLTemplate + '/' + this.item.images[this.selectedImgIndex];
     },
-    methods: {
-        setMainImg(i) {
-            this.selectedImgIndex = i;
-        }
-    },
-    computed: {
-        mainImgURL() {
-            return this.imgURLTemplate + '/' + this.item.images[this.selectedImgIndex];
-        },
-    },
+  },
 }
 </script>
 

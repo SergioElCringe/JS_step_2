@@ -1,7 +1,7 @@
 <template>
   <div class="super_container">
-    <Header />
-    <SideMenu />
+  <Header />
+  <SideMenu />
 	<div class="order_info">
 		<div class="container">
 			<div class="row">
@@ -16,15 +16,15 @@
 			</div>
 			<div class="row order_items_row">
 				<div class="col">
-                    <OrderItem v-for="item in orderItems"
-                        :key="item.id"
-                        :item="item"
-                        @increment='incrementItemAmount'
-                        @decrement='decrementItemAmount'
-                    />
+          <OrderItem v-for="item in orderItems"
+            :key="item.id"
+            :item="item"
+            @increment='incrementItemAmount'
+            @decrement='decrementItemAmount'
+          />
 				</div>
 			</div>
-            
+      
 			<div class="row row_extra">
 				<div class="col-lg-4">
 					<Delivery :options="deliveryOptions" @selectDelivery="selectDelivery"/>
@@ -59,7 +59,7 @@
 		</div>		
 	</div>
 
-    <Footer />
+  <Footer />
 	
 </div>
 
@@ -75,29 +75,29 @@ import Delivery from './components/Delivery.vue';
 import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: 'Order',
-    components: { Header, SideMenu, Footer, OrderItem, Delivery},
-    methods: {
-        ...mapActions({
-            selectDelivery: "Order/selectDelivery",
-            incrementItemAmount: 'Cart/incrementItemAmount',
-            decrementItemAmount: 'Cart/decrementItemAmount',
-        }),
+  name: 'Order',
+  components: { Header, SideMenu, Footer, OrderItem, Delivery},
+  methods: {
+    ...mapActions({
+      selectDelivery: "Order/selectDelivery",
+      incrementItemAmount: 'Cart/incrementItemAmount',
+      decrementItemAmount: 'Cart/decrementItemAmount',
+    }),
+  },
+  computed: {
+    ...mapGetters({
+      orderItems: "Cart/getCartItems",
+      deliveryOptions: "Order/deliveryOptions",
+      selectedDelivery: "Order/selectedDelivery",
+    }),
+    subtotal() {
+      return this.orderItems.reduce((acc, cur) => acc += cur.price * cur.amount, 0);
     },
-    computed: {
-        ...mapGetters({
-            orderItems: "Cart/getCartItems",
-            deliveryOptions: "Order/deliveryOptions",
-            selectedDelivery: "Order/selectedDelivery",
-        }),
-        subtotal() {
-            return this.orderItems.reduce((acc, cur) => acc += cur.price * cur.amount, 0);
-        },
-        total() {
-            return this.subtotal + this.selectedDelivery.price;
-        }
+    total() {
+      return this.subtotal + this.selectedDelivery.price;
+    }
 
-    },
+  },
 }
 </script>
 
@@ -107,7 +107,7 @@ export default {
 	width: 100%;
 	background: #FFFFFF;
 	/* padding-top: 96px; */
-    margin-top: 130px;
+  margin-top: 130px;
 	z-index: 2;
 }
 .order_info_columns {

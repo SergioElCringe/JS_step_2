@@ -7,7 +7,7 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-    name: 'Hamburger',
+  name: 'Hamburger',
 	methods: {
 		...mapActions({
 			toggleSideMenu: "SideMenu/toggleSideMenu"

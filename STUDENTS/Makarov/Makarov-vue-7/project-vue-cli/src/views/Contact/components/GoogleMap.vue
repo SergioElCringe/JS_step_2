@@ -13,8 +13,8 @@ export default {
   name: "GoogleMap",
   methods: {
     initGoogleMap() {
-      var myLatlng = new google.maps.LatLng(34.043238, -118.258338);
-      var mapOptions = {
+      const myLatlng = new google.maps.LatLng(34.043238, -118.258338);
+      const mapOptions = {
         center: myLatlng,
         zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -133,7 +133,7 @@ export default {
       };
 
       // Initialize a map with options
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      const map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
       // Re-center map after window resize
       google.maps.event.addDomListener(window, "resize", function () {

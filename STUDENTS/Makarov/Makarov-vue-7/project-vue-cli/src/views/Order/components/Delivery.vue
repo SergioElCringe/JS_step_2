@@ -1,24 +1,24 @@
 <template>
-    <div class="delivery">
-        <div class="section_title">Shipping method</div>
-        <div class="section_subtitle">Select the one you want</div>
-        <div class="delivery_options">
-            <label class="delivery_option clearfix" v-for="item in options"
-                :key="item.type"
-            >
-                <span>{{ item.type }}</span>
-                <input type="radio" name="radio" :checked="item.checked" @click="$emit('selectDelivery', item.type)">
-                <span class="checkmark"></span>
-                <span class="delivery_price">${{ item.price }}</span>
-            </label>
-        </div>
+  <div class="delivery">
+    <div class="section_title">Shipping method</div>
+    <div class="section_subtitle">Select the one you want</div>
+    <div class="delivery_options">
+      <label class="delivery_option clearfix" v-for="item in options"
+        :key="item.type"
+      >
+        <span>{{ item.type }}</span>
+        <input type="radio" name="radio" :checked="item.checked" @click="$emit('selectDelivery', item.type)">
+        <span class="checkmark"></span>
+        <span class="delivery_price">${{ item.price }}</span>
+      </label>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Delivery',
-    props: ['options'],
+  name: 'Delivery',
+  props: ['options'],
 }
 </script>
 
@@ -35,12 +35,12 @@ export default {
 	padding-left: 36px;
 	cursor: pointer;
 	-webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-size: 14px;
-    font-weight: 400;
-    color: #1b1b1b;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1b1b1b;
 }
 .delivery_option:not(:last-child) {
 	margin-bottom: 27px;
