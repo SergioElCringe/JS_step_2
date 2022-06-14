@@ -1,7 +1,7 @@
 <template>
     <div class="super_container">
     <Header/>
-        <SideMenu/>
+    <SideMenu/>
     <Banner/>
     <Products/>
     <IconGroup/>
@@ -22,7 +22,6 @@ import Banner from './components/Banner/Banner.vue';
 export default {
   name: 'Categories',
   components: { SideMenu, Header, Footer, NewsLetter, IconGroup, Banner, Products },
-
 }
 </script>
 
