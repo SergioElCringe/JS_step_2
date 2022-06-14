@@ -1,27 +1,25 @@
 <template>
-    <div class="super_container">
-        <Header/>
-        <SideMenu/>
-        <CarouselSlider/>
-        <div class="avds">
-			<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
-				<SmallAdvert/>
-                <LargeAdvert/>
-			</div>
-		</div>
-
-		<Catalog/>
-
-	</div>
+  <div class="super_container">
+    <Header/>
+    <SideMenu/>
+    <CarouselSlider/>
+    <div class="avds">
+      <div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
+        <SmallAdvert/>
+        <LargeAdvert/>
+      </div>
+    </div>
+    <Catalog :suggestion="true"/>
+  </div>
 
 
-    <ExtraLargeAdvert/>
+  <ExtraLargeAdvert/>
 
-    <IconGroup/>
-	
-	<NewsLetter />
+  <IconGroup/>
+  
+  <NewsLetter />
 
-    <Footer/>
+  <Footer/>
 </template>
 
 <script>
@@ -38,11 +36,11 @@ import NewsLetter from '@components/NewsLetter/NewsLetter.vue';
 import CarouselSlider from '@components/Carousel/CarouselSlider.vue';
 
 export default {
-    name: 'Home',
-    components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, NewsLetter, CarouselSlider}
+  name: 'Home',
+  components: { Cart, Catalog, SmallAdvert, LargeAdvert, ExtraLargeAdvert, SideMenu, Header, Footer, IconGroup, NewsLetter, CarouselSlider}
 }
 </script>
 
 <style>
-	
+  
 </style>

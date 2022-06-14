@@ -17,12 +17,16 @@
               </p>
             </div>
             <div class="newsletter_form_container">
-              <form action="#" id="newsletter_form" class="newsletter_form">
-                <input
-                  type="email"
-                  class="newsletter_input"
-                  required="required"
-                />
+              <form
+                id="newsletter_form"
+                class="newsletter_form"
+                @submit.prevent="submit"
+              >
+                <span class="form_error" v-if="v$.email.$invalid && v$.email.$dirty">
+                  Please enter your email
+                </span>
+                <input class="newsletter_input" v-model="email" />
+
                 <button class="newsletter_button trans_200">
                   <span>Subscribe</span>
                 </button>
@@ -36,8 +40,35 @@
 </template>
 
 <script>
+import useVuelidate from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
+
 export default {
+  setup() {
+    return {
+      v$: useVuelidate(),
+    };
+  },
   name: "NewsLetter",
+  data() {
+    return {
+      email: "",
+    };
+  },
+  validations() {
+    return {
+      email: { email, required },
+    };
+  },
+  methods: {
+    submit() {
+      this.v$.email.$touch();
+      if (this.v$.email.$error) {
+        return;
+      }
+      alert("Form has been sent");
+    },
+  },
 };
 </script>
 
@@ -131,15 +162,15 @@ export default {
   color: #ffffff;
 }
 @media only screen and (max-width: 575px) {
-	.newsletter_title {
-		font-size: 24px;
-	}
-	.newsletter_button {
-		width: 128px;
-		height: 41px;
-	}
-	.newsletter_button span {
-		font-size: 13px;
-	}
+  .newsletter_title {
+    font-size: 24px;
+  }
+  .newsletter_button {
+    width: 128px;
+    height: 41px;
+  }
+  .newsletter_button span {
+    font-size: 13px;
+  }
 }
 </style>
