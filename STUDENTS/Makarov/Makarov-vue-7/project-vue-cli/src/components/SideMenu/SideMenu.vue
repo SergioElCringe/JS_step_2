@@ -18,13 +18,11 @@
 					</ul>
 				</div>
 			</div>
-
 			<CloseBtn
-                :type="btnType"
-                :key="btnType"
-            />
-
-            <Socials class="menu_social" />
+        :type="btnType"
+        :key="btnType"
+      />
+      <Socials class="menu_social" />
 		</div>
 </template>
 
@@ -35,13 +33,13 @@ import Socials from '../Socials/Socials.vue'
 import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-    name: 'SideMenu',
-    components: { CloseBtn, Socials, SideSubMenu },
-    data: function() {
-        return {
-            btnType: 'menu_close',
-        }
-    },
+  name: 'SideMenu',
+  components: { CloseBtn, Socials, SideSubMenu },
+  data: function() {
+    return {
+      btnType: 'menu_close',
+    }
+  },
 	computed: {
 		...mapGetters({
 			sideMenuToggle: "SideMenu/sideMenuToggle",

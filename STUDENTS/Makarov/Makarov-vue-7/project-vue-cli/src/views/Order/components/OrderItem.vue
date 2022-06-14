@@ -1,59 +1,59 @@
 <template>
-    <div class="order_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
-        <!-- Name -->
-        <div class="order_item_product d-flex flex-row align-items-center justify-content-start">
-            <div class="order_item_image">
-                <div>
-                    <img :src="imgURLTemplate + item.images[0]">
-                </div>
-            </div>
-            <div class="order_item_name_container">
-                <div class="order_item_name">
-                    <span @click="$router.push(`/catalog/${item.id}`)">{{ item.title }}</span>
-                </div>
-            </div>
+  <div class="order_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+    <!-- Name -->
+    <div class="order_item_product d-flex flex-row align-items-center justify-content-start">
+      <div class="order_item_image">
+        <div>
+          <img :src="imgURLTemplate + item.images[0]">
         </div>
-        <!-- Price -->
-        <div class="order_item_price">${{ item.price }}</div>
-        <!-- Quantity -->
-        <div class="order_item_quantity">
-            <div class="product_quantity_container">
-                <div class="product_quantity clearfix">
-                    <span>Qty</span>
-                    <b>{{ item.amount }}</b>
-                    <div class="quantity_buttons">
-                        <div id="quantity_inc_button" class="quantity_inc quantity_control" @click="increment">
-                            <i class="fa fa-chevron-up"></i>
-                        </div>
-                        <div id="quantity_dec_button" class="quantity_dec quantity_control" @click="decrement">
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="order_item_name_container">
+        <div class="order_item_name">
+          <span @click="$router.push(`/catalog/${item.id}`)">{{ item.title }}</span>
         </div>
-        <!-- Total -->
-        <div class="order_item_total">${{ item.amount * item.price }}</div>
+      </div>
     </div>
+    <!-- Price -->
+    <div class="order_item_price">${{ item.price }}</div>
+    <!-- Quantity -->
+    <div class="order_item_quantity">
+      <div class="product_quantity_container">
+        <div class="product_quantity clearfix">
+          <span>Qty</span>
+          <b>{{ item.amount }}</b>
+          <div class="quantity_buttons">
+            <div id="quantity_inc_button" class="quantity_inc quantity_control" @click="increment">
+              <i class="fa fa-chevron-up"></i>
+            </div>
+            <div id="quantity_dec_button" class="quantity_dec quantity_control" @click="decrement">
+              <i class="fa fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total -->
+    <div class="order_item_total">${{ item.amount * item.price }}</div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'OrderItem',
-    props: ['item'],
-    data() {
-        return {
-            imgURLTemplate: 'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
-        }
-    },
-    methods: {
-        increment() {
-            this.$emit('increment', this.item);
-        },
-        decrement() {
-            this.$emit('decrement', this.item);
-        }
+  name: 'OrderItem',
+  props: ['item'],
+  data() {
+    return {
+      imgURLTemplate: 'https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/',
     }
+  },
+  methods: {
+    increment() {
+      this.$emit('increment', this.item);
+    },
+    decrement() {
+      this.$emit('decrement', this.item);
+    }
+  }
 }
 </script>
 
