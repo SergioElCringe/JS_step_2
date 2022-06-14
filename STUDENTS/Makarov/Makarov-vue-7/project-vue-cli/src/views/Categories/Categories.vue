@@ -1,13 +1,13 @@
 <template>
-  	<div class="super_container">
-		<Header/>
+    <div class="super_container">
+    <Header/>
         <SideMenu/>
-		<Banner/>
-		<Products/>
-		<IconGroup/>
-		<NewsLetter/>
-		<Footer/>
-	</div>
+    <Banner/>
+    <Products/>
+    <IconGroup/>
+    <NewsLetter/>
+    <Footer/>
+  </div>
 </template>
 
 <script>
@@ -20,8 +20,8 @@ import Products from './components/Products/Products.vue';
 import Banner from './components/Banner/Banner.vue';
 
 export default {
-	name: 'Categories',
-	components: { SideMenu, Header, Footer, NewsLetter, IconGroup, Banner, Products },
+  name: 'Categories',
+  components: { SideMenu, Header, Footer, NewsLetter, IconGroup, Banner, Products },
 
 }
 </script>

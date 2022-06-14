@@ -29,5 +29,14 @@ export const catalog = {
     catch(err) {
       throw err;
     }
-  }
+  },
+  async getPagination(num, size) {
+    try {
+      const data = await instance({ url: `/page/${num}/${size}` });
+      return data; 
+    }
+    catch(err) {
+      throw err;
+    }
+  },
 };

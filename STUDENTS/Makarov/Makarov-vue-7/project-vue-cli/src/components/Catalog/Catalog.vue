@@ -3,9 +3,29 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="catalog">
+          <div class="catalog" v-if="suggestion">
             <CatalogItem 
-              v-for="(item, i) in (suggestion ? suggestionItems : items)"
+              v-for="(item, i) in suggestionItems"
+              :key="i"
+              :item="item"
+              :stickerTypes="stickerTypes"
+              :imgURLTemplate="imgURLTemplate"
+              @addItem="addItem"
+            />
+          </div>
+          <div class="catalog" v-else-if="pagination">
+            <CatalogItem 
+              v-for="(item, i) in pageItems"
+              :key="i"
+              :item="item"
+              :stickerTypes="stickerTypes"
+              :imgURLTemplate="imgURLTemplate"
+              @addItem="addItem"
+            />
+          </div>
+          <div class="catalog" v-else>
+            <CatalogItem 
+              v-for="(item, i) in items"
               :key="i"
               :item="item"
               :stickerTypes="stickerTypes"
@@ -26,13 +46,12 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "Catalog",
   components: { CatalogItem },
-  props: ["suggestion"],
+  props: ["suggestion" , "pagination"],
   data: function () {
     return {
       ready: false,
       URL: "/api/catalog",
-      imgURLTemplate:
-        "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
+      imgURLTemplate: "https://raw.githubusercontent.com/MikhailErnstovich/my-ftp/master/img/",
     };
   },
 
@@ -40,6 +59,7 @@ export default {
     ...mapActions({
       getCatalog: "Catalog/getCatalog",
       getHomeSuggestion: "Catalog/getHomeSuggestion",
+      getPagination: "Catalog/getPagination",
       addItem: "Cart/addItem",
     }),
   },
@@ -48,6 +68,7 @@ export default {
     ...mapGetters({
       items: "Catalog/getItems",
       suggestionItems: "Catalog/getSuggestion",
+      pageItems: "Catalog/getPage",
       stickerTypes: "Catalog/getStickers",
     }),
   },
@@ -56,6 +77,8 @@ export default {
     try {
       if (this.suggestion) {
         await this.getHomeSuggestion();
+      } else if(this.pagination) {
+        await this.getPagination(this.pagination);
       } else {
         await this.getCatalog();
       }
