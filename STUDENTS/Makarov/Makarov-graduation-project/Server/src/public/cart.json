@@ -1,0 +1,69 @@
+{
+    "items": [
+        {
+            "images": [
+                "product_2.jpg",
+                "product_1.jpg",
+                "product_3.jpg",
+                "product_4.jpg"
+            ],
+            "sticker": "2",
+            "link": "categories.html",
+            "title": "Smart Phone 2",
+            "price": 200,
+            "id": 2,
+            "amount": 11,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+            "specification": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+        },
+        {
+            "images": [
+                "product_4.jpg",
+                "product_1.jpg",
+                "product_3.jpg",
+                "product_4.jpg"
+            ],
+            "sticker": null,
+            "link": "categories.html",
+            "title": "Smart Phone 4",
+            "price": 400,
+            "id": 4,
+            "amount": 1,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+            "specification": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+        },
+        {
+            "images": [
+                "product_5.jpg",
+                "product_1.jpg",
+                "product_3.jpg",
+                "product_4.jpg"
+            ],
+            "sticker": null,
+            "link": "categories.html",
+            "title": "Smart Phone 5",
+            "price": 500,
+            "id": 5,
+            "amount": 1,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+            "specification": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+        },
+        {
+            "images": [
+                "product_1.jpg",
+                "product_5.jpg",
+                "product_3.jpg",
+                "product_4.jpg"
+            ],
+            "sticker": "1",
+            "link": "categories.html",
+            "title": "Smart Phone 1",
+            "price": 100,
+            "discount": 101,
+            "id": 1,
+            "amount": 5,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.",
+            "specification": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam.  Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia."
+        }
+    ]
+}

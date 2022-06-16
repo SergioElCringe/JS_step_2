@@ -1,0 +1,46 @@
+[
+    {
+        "text": "Home",
+        "link": "/",
+        "items": [
+            {
+                "text": "Categories",
+                "link": "/categories"
+            },
+            {
+                "text": "Cart",
+                "link": "/cart"
+            }
+        ]
+    },
+    {
+        "text": "Categories",
+        "link": "/categories",
+        "items": [
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            },
+            {
+                "text": "Category",
+                "link": "/categories"
+            }
+        ]
+    },
+    {
+        "text": "Contact",
+        "link": "/contact"
+    }
+]
