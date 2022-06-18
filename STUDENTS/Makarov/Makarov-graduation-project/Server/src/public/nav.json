@@ -1,0 +1,42 @@
+[
+    {
+        "text": "Home",
+        "link": "/",
+        "items": [
+            {
+                "text": "Categories",
+                "link": "/categories"
+            },
+            {
+                "text": "Cart",
+                "link": "/cart"
+            }
+        ]
+    },
+    {
+        "text": "Categories",
+        "link": "/categories",
+        "items": [
+            {
+                "text": "All",
+                "link": "/categories"
+            },
+            {
+                "text": "New",
+                "link": "/categories/1"
+            },
+            {
+                "text": "Sale",
+                "link": "/categories/2"
+            },
+            {
+                "text": "Hot",
+                "link": "/categories/3"
+            }
+        ]
+    },
+    {
+        "text": "Contact",
+        "link": "/contact"
+    }
+]
