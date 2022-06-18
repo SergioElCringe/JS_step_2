@@ -18,24 +18,20 @@
         "link": "/categories",
         "items": [
             {
-                "text": "Category",
+                "text": "All",
                 "link": "/categories"
             },
             {
-                "text": "Category",
-                "link": "/categories"
+                "text": "New",
+                "link": "/categories/1"
             },
             {
-                "text": "Category",
-                "link": "/categories"
+                "text": "Sale",
+                "link": "/categories/2"
             },
             {
-                "text": "Category",
-                "link": "/categories"
-            },
-            {
-                "text": "Category",
-                "link": "/categories"
+                "text": "Hot",
+                "link": "/categories/3"
             }
         ]
     },

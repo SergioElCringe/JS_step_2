@@ -40,23 +40,29 @@ server.get('/catalog/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const catalog = await reader(path, options);
-        const result = catalog.items.find(el => el.id === +id);
-        res.json(result);
+        const item = catalog.items.find(el => el.id === +id);
+        const stickerTypes = catalog.stickerTypes;
+        res.json({ item, stickerTypes });
     } catch (err) {
         throw err;
     }
 });
 
-server.get('/page/:num/:size', async (req, res) => {
+server.get('/page/:num/:size/(:category)?', async (req, res) => {
     const path = './src/public/catalog.json';
     const num = +req.params.num;
     const size = +req.params.size;
+    const category = +req.params.category;
     try {
-        const catalog = await reader(path, options);
+        let catalog = await reader(path, options);
+        if (category) {
+            catalog.items = catalog.items.filter(el => +el.sticker === category);
+        }
         const result = {
             numOfPages: Math.ceil(catalog.items.length / size),
             pageData: catalog.items.slice(num * size, num * size + size),
-            stickerTypes: catalog.stickerTypes
+            stickerTypes: catalog.stickerTypes,
+            total: catalog.items.length,
         }
         res.json(result);
     } catch (err) {

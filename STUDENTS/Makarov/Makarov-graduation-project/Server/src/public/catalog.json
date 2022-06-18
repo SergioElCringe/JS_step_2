@@ -3,7 +3,6 @@
         {
             "images": ["product_1.jpg","product_5.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "1",
-            "link": "categories.html",
             "title": "Smart Phone 1",
             "price": 100,
             "discount": 101,
@@ -15,7 +14,6 @@
         {
             "images": ["product_2.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 2",
             "price": 200,
             "id": 2,
@@ -26,7 +24,6 @@
         {
             "images": ["product_3.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 3",
             "price": 300,
             "discount": 800,
@@ -38,7 +35,6 @@
         {
             "images": ["product_4.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 4",
             "price": 400,
             "id": 4,
@@ -49,7 +45,6 @@
         {
             "images": ["product_5.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 5",
             "price": 500,
             "id": 5,
@@ -60,7 +55,6 @@
         {
             "images": ["product_6.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "3",
-            "link": "categories.html",
             "title": "Smart Phone 6",
             "price": 600,
             "discount": 650,
@@ -72,7 +66,6 @@
         {
             "images": ["product_7.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 7",
             "price": 700,
             "id": 7,
@@ -83,7 +76,6 @@
         {
             "images": ["product_8.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 8",
             "price": 800,
             "discount": 1000,
@@ -95,7 +87,6 @@
         {
             "images": ["product_1.jpg","product_5.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "1",
-            "link": "categories.html",
             "title": "Smart Phone 9",
             "price": 100,
             "discount": 101,
@@ -107,7 +98,6 @@
         {
             "images": ["product_2.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 10",
             "price": 200,
             "id": 10,
@@ -118,7 +108,6 @@
         {
             "images": ["product_3.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 11",
             "price": 300,
             "discount": 800,
@@ -130,7 +119,6 @@
         {
             "images": ["product_4.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 12",
             "price": 400,
             "id": 12,
@@ -141,7 +129,6 @@
         {
             "images": ["product_5.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 13",
             "price": 500,
             "id": 13,
@@ -152,7 +139,6 @@
         {
             "images": ["product_6.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "3",
-            "link": "categories.html",
             "title": "Smart Phone 14",
             "price": 600,
             "discount": 650,
@@ -164,7 +150,6 @@
         {
             "images": ["product_7.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 15",
             "price": 700,
             "id": 15,
@@ -175,7 +160,6 @@
         {
             "images": ["product_8.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 16",
             "price": 800,
             "discount": 1000,
@@ -187,7 +171,6 @@
         {
             "images": ["product_1.jpg","product_5.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "1",
-            "link": "categories.html",
             "title": "Smart Phone 17",
             "price": 100,
             "discount": 101,
@@ -199,7 +182,6 @@
         {
             "images": ["product_2.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 18",
             "price": 200,
             "id": 18,
@@ -210,7 +192,6 @@
         {
             "images": ["product_3.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 19",
             "price": 300,
             "discount": 800,
@@ -222,7 +203,6 @@
         {
             "images": ["product_4.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 20",
             "price": 400,
             "id": 20,
@@ -233,7 +213,6 @@
         {
             "images": ["product_5.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 21",
             "price": 500,
             "id": 21,
@@ -244,7 +223,6 @@
         {
             "images": ["product_6.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "3",
-            "link": "categories.html",
             "title": "Smart Phone 22",
             "price": 600,
             "discount": 650,
@@ -256,7 +234,6 @@
         {
             "images": ["product_7.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 23",
             "price": 700,
             "id": 23,
@@ -267,7 +244,6 @@
         {
             "images": ["product_8.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 24",
             "price": 800,
             "discount": 1000,
@@ -279,7 +255,6 @@
         {
             "images": ["product_1.jpg","product_5.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "1",
-            "link": "categories.html",
             "title": "Smart Phone 25",
             "price": 100,
             "discount": 101,
@@ -291,7 +266,6 @@
         {
             "images": ["product_2.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 26",
             "price": 200,
             "id": 26,
@@ -302,7 +276,6 @@
         {
             "images": ["product_3.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 27",
             "price": 300,
             "discount": 800,
@@ -314,7 +287,6 @@
         {
             "images": ["product_4.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 28",
             "price": 400,
             "id": 28,
@@ -325,7 +297,6 @@
         {
             "images": ["product_5.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 29",
             "price": 500,
             "id": 29,
@@ -335,8 +306,7 @@
         },
         {
             "images": ["product_6.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
-            "sticker": "3",
-            "link": "categories.html",
+            "sticker": null,
             "title": "Smart Phone 30",
             "price": 600,
             "discount": 650,
@@ -348,7 +318,6 @@
         {
             "images": ["product_7.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": null,
-            "link": "categories.html",
             "title": "Smart Phone 31",
             "price": 700,
             "id": 31,
@@ -359,7 +328,6 @@
         {
             "images": ["product_8.jpg","product_1.jpg","product_3.jpg", "product_4.jpg"],
             "sticker": "2",
-            "link": "categories.html",
             "title": "Smart Phone 32",
             "price": 800,
             "discount": 1000,
