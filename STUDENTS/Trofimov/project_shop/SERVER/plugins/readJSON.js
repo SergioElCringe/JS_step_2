@@ -2,11 +2,11 @@ const fs = require('fs');
 
 module.exports = async (path) => {
     const options = { encoding: 'utf-8' };
-
+    let dataFromJSON = null;
     try {
-        const data = await fs.readFileSync(path, options);
-        return JSON.parse(data);
-    } catch (err) {
-        console.log(err);
-    };    
+        dataFromJSON = await fs.readFileSync(path, options);
+        return JSON.parse(dataFromJSON);
+    } catch(err) {
+        throw new Error('WRITE err' + url);
+    }
 };

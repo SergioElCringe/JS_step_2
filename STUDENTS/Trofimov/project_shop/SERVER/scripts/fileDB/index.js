@@ -1,30 +1,24 @@
-const fs = require('fs');
 const path = require('path');
+const cartURL = './scripts/fillDB/data/cart.json';
+const catalogURL = './scripts/fillDB/data/catalog.json';
 
-const dbURL = path.resolve(__dirname, '../', '../', 'src', 'db');
+const dbURL = path.join(__dirname, '../', '../', 'src', 'db');
+console.log(dbURL);
+const reader = require('../../plugins/reader');
+const writer = require('../../plugins/writer');
 
-const readJSON = require('../../plugins/readJSON');
-const writeJSON = require('../../plugins/writeJSON');
-
-const catalogURL = './scripts/fileDB/db/catalog.json';
-const cartURL = './scripts/fileDB/db/cart.json';
-const menuURL = './scripts/fileDB/db/menu.json';
-const descriptionURL = './scripts/fileDB/db/descriptionCatalog.json';
-const contactURL = './scripts/fileDB/db/contact.json';
-const shippingMethods = './scripts/fileDB/db/shippingMethods.json';
-
-async function fileDB() {
+async function fillDB() {
     try {
-        const data = await Promise.all([await readJSON(catalogURL), await readJSON(cartURL), await readJSON(menuURL), await readJSON(descriptionURL), await readJSON(contactURL), await readJSON(shippingMethods)]);
+        const data = await Promise.all([await reader(cartURL), await reader(catalogURL)]);
+        const [cart, catalog] = data;
 
-        const [catalog, cart, menu, description, contact, shippingMethods] = data;
+        await Promise.all([await writer(dbURL + '/cart.json', cart), await writer(dbURL + '/catalog.json', catalog)]);
+        console.log('DB filled');
+    }
+    catch(err) {
+        console.log(err);
+        throw new Error('FILL DB err');
+    }
+}
 
-        await Promise.all([await writeJSON(dbURL + '/catalog.json', catalog), await writeJSON(dbURL + '/cart.json', cart), await writeJSON(dbURL + '/menu.json', menu), await writeJSON(dbURL + '/description.json', description), await writeJSON(dbURL + '/contact.json', contact), await writeJSON(dbURL + '/shippingMethods.json', shippingMethods)]);
-
-        console.log(`File DB have been rescheduled!`);
-    } catch (err) {
-        console.warn(`File DB have not been rescheduled! ${err}`);
-    };
-};
-
-fileDB();
+fillDB(); 

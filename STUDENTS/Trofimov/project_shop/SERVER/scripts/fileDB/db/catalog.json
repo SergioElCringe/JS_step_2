@@ -2,7 +2,7 @@
     {
         "imgUrl": "/product_1.jpg",
         "name": "IPHONE 13 PRO MAX",
-        "price": 480,
+        "price": 870,
         "prevPrice": null,
         "category": 1,
         "id": 1
@@ -10,7 +10,7 @@
     {
         "imgUrl": "/product_2.jpg",
         "name": "COLUMNS",
-        "price": 510,
+        "price": 480,
         "prevPrice": 640,
         "category": 2,
         "id": 2
@@ -18,7 +18,7 @@
     {
         "imgUrl": "/product_3.jpg",
         "name": "HARGING WIRE",
-        "price": 720,
+        "price": 120,
         "prevPrice": null,
         "category": 3,
         "id": 3
@@ -26,7 +26,7 @@
     {
         "imgUrl": "/product_4.jpg",
         "name": "MACBOOK PRO",
-        "price": 670,
+        "price": 820,
         "prevPrice": null,
         "category": 1,
         "id": 4
@@ -34,15 +34,15 @@
     {
         "imgUrl": "/product_5.jpg",
         "name": "HEADPHONES",
-        "price": 510,
+        "price": 315,
         "prevPrice": 620,
         "category": 2,
         "id": 5
     },
     {
         "imgUrl": "/product_6.jpg",
-        "name": "SET MACBOOK AND IPHONE",
-        "price": 320,
+        "name": "SET APPLE",
+        "price": 1310,
         "prevPrice": null,
         "category": 3,
         "id": 6
@@ -50,7 +50,7 @@
     {
         "imgUrl": "/product_7.jpg",
         "name": "IPHONE XR",
-        "price": 510,
+        "price": 560,
         "prevPrice": null,
         "category": 1,
         "id": 7
@@ -58,15 +58,15 @@
     {
         "imgUrl": "/product_8.jpg",
         "name": "KEYBOARD",
-        "price": 450,
+        "price": 250,
         "prevPrice": 650,
         "category": 2,
         "id": 8
     },
     {
         "imgUrl": "/product_9.jpg",
-        "name": "UNKNOWN SHIT",
-        "price": 390,
+        "name": "ADDITIONAL DEVICES",
+        "price": 330,
         "prevPrice": null,
         "category": null,
         "id": 9
@@ -74,23 +74,23 @@
     {
         "imgUrl": "/product_10.jpg",
         "name": "HEADPHONES PRO",
-        "price": 550,
+        "price": 350,
         "prevPrice": null,
         "category": null,
         "id": 10
     },
     {
         "imgUrl": "/product_11.jpg",
-        "name": "PLAYSTATION 5",
-        "price": 680,
+        "name": "PLAYSTATION",
+        "price": 580,
         "prevPrice": null,
         "category": null,
         "id": 11
     },
     {
         "imgUrl": "/product_12.jpg",
-        "name": "PHOTO CAMERA",
-        "price": 570,
+        "name": "CAMERA PRO",
+        "price": 670,
         "prevPrice": null,
         "category": null,
         "id": 12

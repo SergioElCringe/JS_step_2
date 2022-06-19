@@ -1,98 +1,123 @@
 [
- {
-  "imgUrl": "/product_1.jpg",
-  "name": "IPHONE 13 PRO MAX",
-  "price": 480,
-  "prevPrice": null,
-  "category": 1,
-  "id": 1
- },
- {
-  "imgUrl": "/product_2.jpg",
-  "name": "COLUMNS",
-  "price": 510,
-  "prevPrice": 640,
-  "category": 2,
-  "id": 2
- },
- {
-  "imgUrl": "/product_3.jpg",
-  "name": "HARGING WIRE",
-  "price": 720,
-  "prevPrice": null,
-  "category": 3,
-  "id": 3
- },
- {
-  "imgUrl": "/product_4.jpg",
-  "name": "MACBOOK PRO",
-  "price": 670,
-  "prevPrice": null,
-  "category": 1,
-  "id": 4
- },
- {
-  "imgUrl": "/product_5.jpg",
-  "name": "HEADPHONES",
-  "price": 510,
-  "prevPrice": 620,
-  "category": 2,
-  "id": 5
- },
- {
-  "imgUrl": "/product_6.jpg",
-  "name": "SET MACBOOK AND IPHONE",
-  "price": 320,
-  "prevPrice": null,
-  "category": 3,
-  "id": 6
- },
- {
-  "imgUrl": "/product_7.jpg",
-  "name": "IPHONE XR",
-  "price": 510,
-  "prevPrice": null,
-  "category": 1,
-  "id": 7
- },
- {
-  "imgUrl": "/product_8.jpg",
-  "name": "KEYBOARD",
-  "price": 450,
-  "prevPrice": 650,
-  "category": 2,
-  "id": 8
- },
- {
-  "imgUrl": "/product_9.jpg",
-  "name": "UNKNOWN SHIT",
-  "price": 390,
-  "prevPrice": null,
-  "category": null,
-  "id": 9
- },
- {
-  "imgUrl": "/product_10.jpg",
-  "name": "HEADPHONES PRO",
-  "price": 550,
-  "prevPrice": null,
-  "category": null,
-  "id": 10
- },
- {
-  "imgUrl": "/product_11.jpg",
-  "name": "PLAYSTATION 5",
-  "price": 680,
-  "prevPrice": null,
-  "category": null,
-  "id": 11
- },
- {
-  "imgUrl": "/product_12.jpg",
-  "name": "PHOTO CAMERA",
-  "price": 570,
-  "prevPrice": null,
-  "category": null,
-  "id": 12
- }
+    {
+        "imgUrl": "/product_1.jpg",
+        "name": "IPHONE 13 PRO MAX",
+        "price": 870,
+        "prevPrice": null,
+        "category": 1,
+        "id": 1,
+        "aboutProgect": "IPHONE 13 PRO MAX - Революционная система трех камер - гораздо больше возможностей и неизменная простота в использовании.",
+        "description": "IPHONE 13 PRO MAX"
+    },
+    {
+        "imgUrl": "/product_2.jpg",
+        "name": "COLUMNS",
+        "price": 480,
+        "prevPrice": 640,
+        "category": 2,
+        "id": 2,
+        "aboutProgect": "COLUMNS - самый популярный вид аудиооборудования. Техника этого вида заметно отличается как по конструктивному исполнению, так и по уровню технических характеристик.",
+        "description": "COLUMNS"
+    },
+    {
+        "imgUrl": "/product_3.jpg",
+        "name": "HARGING WIRE",
+        "price": 120,
+        "prevPrice": null,
+        "category": 3,
+        "id": 3,
+        "aboutProgect": "HARGING WIRE - Большой выбор зарядных устройств для iPhone и Android в нашем интернет-магазине",
+        "description": "HARGING WIRE"
+    },
+    {
+        "imgUrl": "/product_4.jpg",
+        "name": "MACBOOK PRO",
+        "price": 820,
+        "prevPrice": null,
+        "category": 1,
+        "id": 4,
+        "aboutProgect": "MACBOOK PRO - Новый MacBook Pro. Невероятная мощь с чипом M1 Pro или M1 Max. Удивительно долгая работа от батареи. И 14- или 16-дюймовый дисплей Liquid Retina XDR.",
+        "description": "MACBOOK PRO"
+    },
+    {
+        "imgUrl": "/product_5.jpg",
+        "name": "HEADPHONES",
+        "price": 315,
+        "prevPrice": 620,
+        "category": 2,
+        "id": 5,
+        "aboutProgect": "HEADPHONES - Отличные цены на беспроводные геймерские наушники в интернет-магазине",
+        "description": "HEADPHONES"
+    },
+    {
+        "imgUrl": "/product_6.jpg",
+        "name": "SET APPLE",
+        "price": 1310,
+        "prevPrice": null,
+        "category": 3,
+        "id": 6,
+        "aboutProgect": "SET APPLE - iPhone и iPod touch с iOS 14 или новее, iPad с iPadOS 14 или новее, Apple TV с tvOS 14 или новее и Mac с macOS Big Sur 11.1 или новее. Подпиской на Apple One можно будет также воспользоваться на Mac с более ранней версией macOS.",
+        "description": "SET APPLE"
+    },
+    {
+        "imgUrl": "/product_7.jpg",
+        "name": "IPHONE XR",
+        "price": 560,
+        "prevPrice": null,
+        "category": 1,
+        "id": 7,
+        "aboutProgect": "IPHONE XR - Мощный чип. Система двух камер. Невероятно прочная передняя панель Ceramic Shield. И великолепный яркий дисплей OLED. Всё это есть в iPhone 12. В двух размерах.",
+        "description": "IPHONE XR"
+    },
+    {
+        "imgUrl": "/product_8.jpg",
+        "name": "KEYBOARD",
+        "price": 250,
+        "prevPrice": 650,
+        "category": 2,
+        "id": 8,
+        "aboutProgect": "KEYBOARD - механические клавиатуры для профессионалов. Мы продаём только то, что нравится нам самим. Каждую представленную на сайте клавиатуру мы рекомендуем.",
+        "description": "KEYBOARD"
+    },
+    {
+        "imgUrl": "/product_9.jpg",
+        "name": "ADDITIONAL DEVICES",
+        "price": 330,
+        "prevPrice": null,
+        "category": null,
+        "id": 9,
+        "aboutProgect": "ADDITIONAL DEVICES - все технические средства, приспособления или устройства, используемые в разных научных областях, а также в повседневной жизни.",
+        "description": "ADDITIONAL DEVICES"
+    },
+    {
+        "imgUrl": "/product_10.jpg",
+        "name": "HEADPHONES PRO",
+        "price": 350,
+        "prevPrice": null,
+        "category": null,
+        "id": 10,
+        "aboutProgect": "HEADPHONES PRO - профессиональные наушники, которые сочетают качественное воспроизведение звука с удобством для длительного ношения в условиях студии и не только. Конструкция лёгкая, оголовье регулируется под ваш размер, зажим позволяет его зафиксировать.",
+        "description": "HEADPHONES PRO"
+        
+    },
+    {
+        "imgUrl": "/product_11.jpg",
+        "name": "PLAYSTATION",
+        "price": 580,
+        "prevPrice": null,
+        "category": null,
+        "id": 11,
+        "abbutProgect": "PLAYSTATION - PlayStation готова раскрыть возможности некстгена благодаря впечатляющим характеристикам, принципиально отличающимся от консолей прошлого поколения. Разработчики смогут продемонстрировать фотореалистичную графику, продуманную физическую модель, детально проработать каждую мелочь в огромных мирах за счёт технических особенностей девайса. В этой версии в наличии привод.",
+        "description": "PLAYSTATION"
+    },
+    {
+        "imgUrl": "/product_12.jpg",
+        "name": "CAMERA PRO",
+        "price": 670,
+        "prevPrice": null,
+        "category": null,
+        "id": 12,
+        "aboutProgect": "PHOTO CAMERA - Зеркальный фотоаппарат поставляется с объективом, подходящим для портретной, предметной и документальной съёмки. Он снабжён высокоскоростным ультразвуковым мотором автофокусировки и системой оптической стабилизации, а также имеет постоянную апертуру во всех режимах работы.",
+        "description": "CAMERA PRO"
+    }
 ]
